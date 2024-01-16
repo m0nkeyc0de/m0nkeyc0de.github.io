@@ -4,14 +4,17 @@ date: 2024-01-16T20:23:50+01:00
 draft: false
 tags: 
 - hugo
+categories:
+- howto
 ---
-# Hugo Cheat Sheet
+Quick command reference for using Hugo day to day.
+
 Run in local
-```bash
+```
 hugo server -D --disableFastRender
 ```
 
 Add a post
-```bash
+```
 hugo new posts/hugo_cheat_sheet.md
 ```
