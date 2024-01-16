@@ -1,7 +1,7 @@
 baseURL = 'https://m0nkeyc0de.github.io/'
 languageCode = 'fr-ch'
 title = 'Brain Dump'
-theme = 'gists'
+theme = 'smol'
 
 [params]
   subtitle = 'Handy commands you may sometimes need'
