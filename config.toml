@@ -5,7 +5,7 @@ theme = 'smol'
 copyright = "Free as in beer"
 
 [params]
-  subtitle = 'Handy commands you may sometimes need'
+  subtitle = 'Handy stuff you may sometimes need'
 
 # Header
 [menu]
