@@ -26,6 +26,10 @@ Lenovo
 * BIOS : **F1**
 * Boot device selection : **F12**
 
+Intel
+* BIOS : **F2**
+* Boot menu : **F10**
+
 ## Android
 Lenovo P2
 * Fastboot : hold **volume down** while powering on
