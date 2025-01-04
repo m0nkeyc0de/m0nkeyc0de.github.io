@@ -11,7 +11,11 @@ tags:
 ---
 When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it's not the case.
 
-In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM).
+In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM). In order to know when the copy is finished, the `sync` command can be run (it may take `d)
+
+```
+[root@fedora ~]# sync
+```
 
 It impacts more systems with a lot of RAM as **vm.dirty_ratio** is set instead of a fixed amount of bytes. Here are Fedora 39 defaults:
 
