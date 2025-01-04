@@ -1,6 +1,6 @@
 ---
 title: "Network lab with Arista cEOS-lab on GNS3"
-date: 2025-01-04T10:08:53+01:00
+date: 2025-01-04T12:08:53+01:00
 slug: gns3_ceoslab
 type: posts
 draft: false
@@ -16,7 +16,7 @@ Having a network lab on GNS3 is a good way to learn things without messing with 
 
 This guide isn't complete yet. Next things to be done:
 
-* Solve the `xdg-open` problem when opening the *Auxiliary Console*
+* Solve the `xdg-open` problem when opening the *Auxiliary Console* from Firefox/Chrome
 * Make lab device accessible through SSH and HTTPS through the management interface (eth0)
 * Configure cEOS properly to have all features working well (MLAG and OSPF/ISIS)
 
