@@ -1,5 +1,5 @@
 ---
-title: "Network lab Arista cEOS-lab"
+title: "Network lab with Arista cEOS"
 date: 2025-01-04T12:08:53+01:00
 slug: arista_ceos_lab
 type: posts
