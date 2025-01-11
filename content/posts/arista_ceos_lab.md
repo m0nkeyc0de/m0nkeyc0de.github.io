@@ -29,12 +29,107 @@ Differences with the bare-metal version:
 [Containerlab](https://containerlab.dev) is specially made for running network devices containers.
 * [Quickstart](https://containerlab.dev/quickstart/)
 * [Arista cEOS](https://containerlab.dev/manual/kinds/ceos/)
+* [AVD with cEOS-lab](https://arista-netdevops-community.github.io/avd-cEOS-Lab/)
 
-The cEOS image with default paramters (non-persistent */mnt/flash*) is needed for this setup.
-```
-sudo docker import --change 'VOLUME /mnt/flash/' cEOS64-lab-4.33.1F.tar.xz ceos64lab:4.33.1F
+**NOTES**:
+
+* Interfaces that are not connected in the topology configuration file will not show up at all in cEOS when using *containerlab*. No workaround found yet.
+* By default base MAC address and serial number is unique to each node. You don't need to tweak it unless you want to ensure they never change (useful for CVP).
+* The default Arista cEOS configuration template used by *containerlab* is [here](https://github.com/srl-labs/containerlab/blob/main/nodes/ceos/ceos.cfg).
+
+### Getting up-and-running
+*Containerlab* is available as docker image which is great to keep your main OS clean and tidy. It can be started by running following bash script.
+```bash
+#!/bin/bash
+# https://containerlab.dev/install/#container
+sudo docker run --rm -it --privileged \
+    --network host \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /var/run/netns:/var/run/netns \
+    -v /etc/hosts:/etc/hosts \
+    -v /var/lib/docker/containers:/var/lib/docker/containers \
+    --pid="host" \
+    -v $(pwd):$(pwd) \
+    -w $(pwd) \
+    ghcr.io/srl-labs/clab bash
 ```
 
+The cEOS docker image must be imported with default parameters.
+```
+sudo docker import cEOS64-lab-4.33.1F.tar.xz ceos64lab:4.33.1F
+```
+
+Create the interface mapping JSON file (*et_mapping.json* in my case):
+```json
+{
+  "ManagementIntf": {
+    "eth0": "Management1"
+  },
+  "EthernetIntf": {
+    "et1": "Ethernet1",
+    "et2": "Ethernet2",
+    "et3": "Ethernet3",
+    "et4": "Ethernet4",
+    "et5": "Ethernet5",
+    "et6": "Ethernet6",
+    "et7": "Ethernet7",
+    "et8": "Ethernet8"
+  }
+}
+```
+
+Create a test topology:
+```yaml
+name: test
+
+topology:
+  kinds:
+    ceos:
+      image: ceos64lab:4.33.1F
+      binds:
+        - et_mapping.json:/mnt/flash/EosIntfMapping.json:ro
+      env:
+        INTFTYPE: et
+        CLAB_MGMT_VRF: MGMT
+  nodes:
+    leaf1:
+      kind: ceos
+    leaf2:
+      kind: ceos
+    host1:
+      kind: ceos
+  links:
+    # MLAG peer link
+    - endpoints: ["leaf1:et1", "leaf2:et1"]
+    # host1 to leaf1 and leaf2
+    - endpoints: ["host1:et1", "leaf1:et5"]
+    - endpoints: ["host1:et2", "leaf2:et5"]
+```
+
+Then run your lab and wait until the table with devices IP addresses shows up:
+```bash
+# Start the container
+./containerlab.sh
+
+# Deploy the topology
+containerlab deploy test.clab.yml
+```
+
+### Usage tips
+
+To not be annoyed with OpenSSH host key checks, you can add following lines in your `~/.ssh/confg` file:
+```
+Host clab-*
+  User admin
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+```
+
+To manage your topologies with *git*, without having permissions issues as *containerlab* runs as root, add following lines in `.gitignore`:
+```
+clab-*
+*.bak
+```
 
 ## Arista cEOS with GNS3
 **NOTE**: after messing several hours with GNS3 and cEOS, it works but this is far from the perfect lab solution:
@@ -42,7 +137,7 @@ sudo docker import --change 'VOLUME /mnt/flash/' cEOS64-lab-4.33.1F.tar.xz ceos6
 * Some default configuration must be applied to new cEOS nodes and there is no straightforward way to automate that with GNS3.
 * The web interface is clunky therefore the "heavy" client is mandatory for an optimal experience.
 
-**This isn't the best way to go.**
+**It works but isn't optimal.**
 
 ### Installation
 
