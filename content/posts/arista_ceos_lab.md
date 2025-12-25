@@ -11,6 +11,7 @@ tags:
   - ubuntu
   - gns3
   - arista
+  - containerlab
 ---
 Work in progress...
 
@@ -31,11 +32,14 @@ Differences with the bare-metal version:
 * [Arista cEOS](https://containerlab.dev/manual/kinds/ceos/)
 * [AVD with cEOS-lab](https://arista-netdevops-community.github.io/avd-cEOS-Lab/)
 
+All my tests and topologies are available [here](https://github.com/m0nkeyc0de/containerlab-ceos).
+
 **NOTES**:
 
 * Interfaces that are not connected in the topology configuration file will not show up at all in cEOS when using *containerlab*. No workaround found yet.
 * By default base MAC address and serial number is unique to each node. You don't need to tweak it unless you want to ensure they never change (useful for CVP).
 * The default Arista cEOS configuration template used by *containerlab* is [here](https://github.com/srl-labs/containerlab/blob/main/nodes/ceos/ceos.cfg).
+* You can't restart nodes individually as it will delete veth links between hosts. You can stop one with `docker container stop ...` but then you have to redeploy the lab.
 
 ### Getting up-and-running
 *Containerlab* is available as docker image which is great to keep your main OS clean and tidy. It can be started by running following bash script.
@@ -84,7 +88,7 @@ name: test
 
 topology:
   kinds:
-    ceos:
+    arista_ceos:
       image: ceos64lab:4.33.1F
       binds:
         - et_mapping.json:/mnt/flash/EosIntfMapping.json:ro
@@ -93,11 +97,11 @@ topology:
         CLAB_MGMT_VRF: MGMT
   nodes:
     leaf1:
-      kind: ceos
+      kind: arista_ceos
     leaf2:
-      kind: ceos
+      kind: arista_ceos
     host1:
-      kind: ceos
+      kind: arista_ceos
   links:
     # MLAG peer link
     - endpoints: ["leaf1:et1", "leaf2:et1"]

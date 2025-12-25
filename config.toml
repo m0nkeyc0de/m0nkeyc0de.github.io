@@ -2,10 +2,10 @@ baseURL = 'https://m0nkeyc0de.github.io/'
 languageCode = 'fr-ch'
 title = 'Brain Dump'
 theme = 'smol'
-copyright = "Free as in beer"
+copyright = "Enjoy !"
 
 [params]
-  subtitle = 'Handy stuff you may sometimes need'
+  subtitle = 'Notes for my future self.'
 
 # Header
 [menu]
