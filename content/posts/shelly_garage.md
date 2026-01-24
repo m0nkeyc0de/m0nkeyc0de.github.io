@@ -13,12 +13,15 @@ tags:
 ---
 Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the **Entrematic Magic 600-2**, with the **Shelly 1 Gen3** relay and the **Shelly BLU Button Tough 1**.
 
-**DISCLAIMER**: Electricity is dangerous, garage doors as well. I don't take any responsibility if something goes wrong by following those instructions. If you're unsure, ask a professional.
+**DISCLAIMERS**: 
+* Electricity is dangerous, garage doors as well. I don't take any responsibility if something goes wrong by following those instructions. If you're unsure, ask a professional. 
+* Think twice before letting your home automation beeing controlled from the Cloud (someone else's computer).
+* I'm not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It's a lot of bang for the buck ! 
 
 ## Analysing the door operator
 My Entrematic Magic 600-2 has RJ10 inputs at the back.
 
-![Magic 600 RJ10](rj10_inputs.png)
+![Magic 600 RJ10](/shelly_garage/rj10_inputs.png)
 
 According to the manual:
 * RJ10 input 3 is an impulse input, but pinout isn't provided.
@@ -26,7 +29,7 @@ According to the manual:
 
 Following PCB tracks we see that pins 2 and 3 of the RJ10 connector are linked to the terminals 18 and 19.
 
-![PCB Front](pcb_front.png)![PCB Back](pcb_back.png)
+![PCB Front](/shelly_garage/pcb_front.png)![PCB Back](/shelly_garage/pcb_back.png)
 
 Shorting those two pins (dry contact) controls the door the same way the remote does. A simple relay can be used to control the door operation.
 
@@ -39,7 +42,6 @@ For this projet to be successful, following requirements are needed:
 * Backup access if my remote breaks.
 * Offline operation, without Internet. The garage door is controlled only in front of it.
 
-**DISCLAIMER**: I'm not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It's a lot of bang for the buck ! 
 
 The **[Shelly 1 Gen3](https://www.shelly.com/products/shelly-1-gen3)** has following key characteristics:
 
@@ -57,7 +59,7 @@ The **[Shelly BLU Button Tough 1](https://www.shelly.com/products/shelly-blu-but
 
 Regarding the RJ10 connector and cable, a phone headset cable I cut did the job.
 
-![Cable on Shelly](cable_shelly.png) ![Cable on Magic 600](cable_magic600.png)
+![Cable on Shelly](/shelly_garage/cable_shelly.png) ![Cable on Magic 600](/shelly_garage/cable_magic600.png)
 
 ## Setting up Shelly BLU Button Tough 1
 The [Shelly BLE debug](https://play.google.com/store/apps/details?id=cloud.shelly.bledebug&hl=en-US) app is needed for that.
@@ -90,27 +92,27 @@ You'll need the latest firmware file, a laptop with Wi-Fi and a web browser, and
 * Output type **Momentary**
 * Action on power on **Turn OFF**
 
-![Input/Output settings](input_output_settings.png)
+![Input/Output settings](/shelly_garage/input_output_settings.png)
 
 ### Output automation settings
 
 * Auto OFF after 1 second (like pressing a wall switch)
 
-![Automation settings](output_automation.png)
+![Automation settings](/shelly_garage/output_automation.png)
 
 ### Add buttons
 
 * Enter button MAC Address
 
-![Button MAC](button_add_mac.png)
+![Button MAC](/shelly_garage/button_add_mac.png)
 
 * In the button detail view, enter the encryption key
 
-![Button Detail](button_detail.png)
+![Button Detail](/shelly_garage/button_detail.png)
 
 * Create an action for this button
 
-![Button Action](button_action_detail.png)
+![Button Action](/shelly_garage/button_action_detail.png)
 
 * Press the button : you should hear the relay switch and switch back after one second.
 
