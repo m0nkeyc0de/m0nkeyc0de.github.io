@@ -4,7 +4,7 @@
     <title>Android on m0nkeyc0de&#39;s brain dump</title>
     <link>http://localhost:1313/tags/android/</link>
     <description>Recent content in Android on m0nkeyc0de&#39;s brain dump</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
     <lastBuildDate>Sun, 22 Sep 2024 10:08:53 +0100</lastBuildDate>
@@ -14,14 +14,14 @@
       <link>http://localhost:1313/posts/2024-09-22-dirty_bytes/</link>
       <pubDate>Sun, 22 Sep 2024 10:08:53 +0100</pubDate>
       <guid>http://localhost:1313/posts/2024-09-22-dirty_bytes/</guid>
-      <description>ADB tricks&#xA;Commands List installed applications&#xA;adb shell pm list packages Get application PID&#xA;adb shell pidof -s com.application.name Logs for given PID&#xA;adb logcat --pid=8064 Screenshot&#xA;adb exec-out screencap -p &amp;gt; &amp;#34;$(date).png&amp;#34; </description>
+      <description>&lt;p&gt;ADB tricks&lt;/p&gt;&#xA;&lt;h1 id=&#34;commands&#34;&gt;Commands&lt;/h1&gt;&#xA;&lt;p&gt;List installed applications&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb shell pm list packages&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Get application PID&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb shell pidof -s com.application.name&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Logs for given PID&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb logcat --pid=8064&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Screenshot&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb exec-out screencap -p &amp;gt; &amp;#34;$(date).png&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Boot interruption keystrokes</title>
       <link>http://localhost:1313/posts/boot_interruption/</link>
       <pubDate>Sun, 21 Jan 2024 10:46:14 +0100</pubDate>
       <guid>http://localhost:1313/posts/boot_interruption/</guid>
-      <description>Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.&#xA;PC/Laptop Apple&#xA;Boot device selection : hold option (alt) key while powering on HP&#xA;BIOS : tap F10 when powering up Boot device selection : tap F9 when powering on Lenovo&#xA;Interrupt boot : Enter BIOS : F1 Boot device selection : F12 Intel&#xA;BIOS : F2 Boot menu : F10 Android Lenovo P2</description>
+      <description>&lt;p&gt;Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.&lt;/p&gt;&#xA;&lt;h2 id=&#34;pclaptop&#34;&gt;PC/Laptop&lt;/h2&gt;&#xA;&lt;p&gt;Apple&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Boot device selection : hold &lt;strong&gt;option&lt;/strong&gt; (alt) key while powering on&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;HP&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;BIOS : tap &lt;strong&gt;F10&lt;/strong&gt; when powering up&lt;/li&gt;&#xA;&lt;li&gt;Boot device selection : tap &lt;strong&gt;F9&lt;/strong&gt; when powering on&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lenovo&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Interrupt boot : &lt;strong&gt;Enter&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;BIOS : &lt;strong&gt;F1&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Boot device selection : &lt;strong&gt;F12&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Intel&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;BIOS : &lt;strong&gt;F2&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Boot menu : &lt;strong&gt;F10&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;android&#34;&gt;Android&lt;/h2&gt;&#xA;&lt;p&gt;Lenovo P2&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

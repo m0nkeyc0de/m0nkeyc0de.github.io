@@ -1,6 +1,6 @@
 ---
 title: "Garage door control with Shelly and BLE"
-date: 2025-12-26T17:41:12+01:00
+date: 2025-12-26
 slug: shellygarage
 type: posts
 draft: false

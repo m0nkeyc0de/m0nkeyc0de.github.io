@@ -1,7 +1,7 @@
 ---
 title: "OpenSSL Cheat Sheet"
-date: 2024-09-15T17:41:12+01:00
-slug: 2024-09-15-openssl
+date: 2024-09-15
+slug: openssl_cheat_sheet
 type: posts
 draft: false
 categories:

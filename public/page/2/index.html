@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr-ch">
 <head>
-	<meta name="generator" content="Hugo 0.123.7"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.155.0-DEV"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,17 +40,54 @@
 		
 		
 			<article>
+	<h1><a href="http://localhost:1313/posts/storage_wipe/">Wiping storage devices</a></h1>
+	<b><time>2024-01-21 00:00:00</time></b>
+	
+	<a href="/tags/storage">storage</a>
+	
+	<a href="/tags/linux">linux</a>
+	
+	<div>
+		<p>Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&hellip;</p>
+<h2 id="expeditive-solution">Expeditive solution</h2>
+<p>If you can&rsquo;t wipe your drive properly, have some fun and <strong>destroy</strong> it physically.</p>
+<h2 id="vendor-provided-solutions">Vendor provided solutions</h2>
+<p>Some device vendors (HP for example) provide a built-in <strong>Secure Erase</strong> solution in the BIOS/UEFI.</p>
+<h2 id="diy-solutions">DIY solutions</h2>
+<h3 id="hard-disk-drives">Hard Disk Drives</h3>
+<p>All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out. The Linux <strong>shred</strong> command does the job well by default (3 random iterations).</p>
+		
+			<a href="http://localhost:1313/posts/storage_wipe/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
 	<h1><a href="http://localhost:1313/posts/hugo/">Hugo Cheat Sheet</a></h1>
-	<b><time>2024-01-16 20:23:50</time></b>
+	<b><time>2024-01-16 00:00:00</time></b>
 	
 	<a href="/tags/hugo">hugo</a>
 	
 	<div>
-		Quick command reference for using Hugo day to day.
-Run in local
-hugo server ---debug Add a post with hugo command
-hugo new posts/hugo_cheat_sheet.md Add a post manually in contents/posts/new_post.md
---- title: &#34;New Post&#34; date: 2024-01-21T10:08:53+01:00 slug: 2024-01-21-dirty_bytes type: posts draft: true categories: - default tags: - default --- 
+		<p>Quick command reference for using Hugo day to day.</p>
+<p>Run in local</p>
+<pre tabindex="0"><code>hugo server -D
+</code></pre><p>Add a post with <strong>hugo</strong> command</p>
+<pre tabindex="0"><code>hugo new posts/hugo_cheat_sheet.md
+</code></pre><p>Add a post manually in <strong>contents/posts/new_post.md</strong></p>
+<pre tabindex="0"><code>---
+title: &#34;New Post&#34;
+date: 2024-01-21
+slug: new_post
+type: posts
+draft: true
+categories:
+  - default
+tags:
+  - default
+---
+</code></pre>
 		
 	</div>
 </article>

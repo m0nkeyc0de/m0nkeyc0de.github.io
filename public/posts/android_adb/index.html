@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<style type=text/css>body{font-family:monospace;}</style>
-	<title>Boot interruption keystrokes</title>
+	<title>Android Debug Bridge tricks</title>
 	
 	
 	<link rel="stylesheet" href="/css/style.css">
@@ -37,46 +37,26 @@
 	
 	<main>
 		<article>
-			<h1>Boot interruption keystrokes</h1>
-			<b><time>2024-01-21 00:00:00</time></b>
+			<h1>Android Debug Bridge tricks</h1>
+			<b><time>2024-09-22 00:00:00</time></b>
 		       
-		           <a href="/tags/boot">boot</a>
-        	       
-		           <a href="/tags/bios">bios</a>
-        	       
 		           <a href="/tags/android">android</a>
+        	       
+		           <a href="/tags/debug">debug</a>
         	       
 
 			<div>
-				<p>Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.</p>
-<h2 id="pclaptop">PC/Laptop</h2>
-<p>Apple</p>
-<ul>
-<li>Boot device selection : hold <strong>option</strong> (alt) key while powering on</li>
-</ul>
-<p>HP</p>
-<ul>
-<li>BIOS : tap <strong>F10</strong> when powering up</li>
-<li>Boot device selection : tap <strong>F9</strong> when powering on</li>
-</ul>
-<p>Lenovo</p>
-<ul>
-<li>Interrupt boot : <strong>Enter</strong></li>
-<li>BIOS : <strong>F1</strong></li>
-<li>Boot device selection : <strong>F12</strong></li>
-</ul>
-<p>Intel</p>
-<ul>
-<li>BIOS : <strong>F2</strong></li>
-<li>Boot menu : <strong>F10</strong></li>
-</ul>
-<h2 id="android">Android</h2>
-<p>Lenovo P2</p>
-<ul>
-<li>Fastboot : hold <strong>volume down</strong> while powering on</li>
-<li>Recovery : hold <strong>volume up</strong> + <strong>volume down</strong> + <strong>home</strong> while powering up</li>
-</ul>
-
+				<p>ADB tricks</p>
+<h1 id="commands">Commands</h1>
+<p>List installed applications</p>
+<pre tabindex="0"><code>adb shell pm list packages
+</code></pre><p>Get application PID</p>
+<pre tabindex="0"><code>adb shell pidof -s com.application.name
+</code></pre><p>Logs for given PID</p>
+<pre tabindex="0"><code>adb logcat --pid=8064
+</code></pre><p>Screenshot</p>
+<pre tabindex="0"><code>adb exec-out screencap -p &gt; &#34;$(date).png&#34;
+</code></pre>
 			</div>
 		</article>
 	</main>

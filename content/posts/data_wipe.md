@@ -1,6 +1,6 @@
 ---
 title: "Wiping storage devices"
-date: 2024-01-21T11:04:16+01:00
+date: 2024-01-21
 slug: storage_wipe
 type: posts
 draft: false
@@ -67,3 +67,7 @@ hdparm -I $SSD
 If the data is automatically encrypted (PIN code necessary to start applications), a factory reset will clean the encryption keys and make your data inaccessible.
 
 If you have an old device without data encryption, a factory reset may not be sufficient. You may try to **dd** zeroes on **/data** using **adb** (my best guess so far).
+
+
+## Sources
+* https://www.thomas-krenn.com/en/wiki/Perform_a_SSD_Secure_Erase

@@ -1,6 +1,6 @@
 ---
 title: "Hugo Cheat Sheet"
-date: 2024-01-16T20:23:50+01:00
+date: 2024-01-16
 slug: hugo
 draft: false
 tags: 
@@ -12,7 +12,7 @@ Quick command reference for using Hugo day to day.
 
 Run in local
 ```
-hugo server ---debug
+hugo server -D
 ```
 
 Add a post with **hugo** command
@@ -24,8 +24,8 @@ Add a post manually in **contents/posts/new_post.md**
 ```
 ---
 title: "New Post"
-date: 2024-01-21T10:08:53+01:00
-slug: 2024-01-21-dirty_bytes
+date: 2024-01-21
+slug: new_post
 type: posts
 draft: true
 categories:

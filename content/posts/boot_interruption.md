@@ -1,6 +1,6 @@
 ---
 title: "Boot interruption keystrokes"
-date: 2024-01-21T10:46:14+01:00
+date: 2024-01-21
 slug: boot_interruption
 type: posts
 draft: false

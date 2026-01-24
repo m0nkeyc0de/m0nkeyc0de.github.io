@@ -1,7 +1,7 @@
 ---
 title: "Android Debug Bridge tricks"
-date: 2024-09-22T10:08:53+01:00
-slug: 2024-09-22-dirty_bytes
+date: 2024-09-22
+slug: android_adb
 type: posts
 draft: false
 categories:

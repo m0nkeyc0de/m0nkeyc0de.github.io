@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr-ch">
 <head>
-	<meta name="generator" content="Hugo 0.123.7"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.155.0-DEV"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,13 +41,38 @@
 		
 			<article>
 	<h1><a href="http://localhost:1313/posts/toolbox/">Toolbox</a></h1>
-	<b><time>2024-01-21 10:39:30</time></b>
+	<b><time>2024-01-21 00:00:00</time></b>
 	
 	<a href="/tags/tools">tools</a>
 	
 	<div>
-		List of handy tools.
-Ventoy : Live USB bootloader with allows to chose from which ISO file you want to boot from. 
+		<p>List of handy tools.</p>
+<ul>
+<li><a href="https://www.ventoy.net/">Ventoy</a> : Live USB bootloader with allows to chose from which ISO file you want to boot from.</li>
+</ul>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/linux_dd/">Raw data copy with dd on Linux</a></h1>
+	<b><time>2026-01-24 00:00:00</time></b>
+	
+	<a href="/tags/storage">storage</a>
+	
+	<a href="/tags/linux">linux</a>
+	
+	<div>
+		<p>dd is a great tool to do a raw (or binary) copy of a storage device or a file.</p>
+<h2 id="basic-dd-usage">Basic dd usage</h2>
+<p>In most cases this command will do the trick.</p>
+<pre tabindex="0"><code>dd if=/path/to/source of=/path/to/destination status=progress
+</code></pre><p>You may optimize the block size according to your source/destination (it depends&hellip;) device for improved copy speed, with the <code>bs=...</code> command line switch.</p>
+<h2 id="create-an-iso-image-from-a-cddvd">Create an ISO image from a CD/DVD</h2>
+<p>CDs and DVDs have blank bytes at the end and those may break your checksum and bloat your image file.</p>
+		
+			<a href="http://localhost:1313/posts/linux_dd/">Read more...</a>
 		
 	</div>
 </article>
@@ -55,7 +80,7 @@ Ventoy : Live USB bootloader with allows to chose from which ISO file you want t
 		
 			<article>
 	<h1><a href="http://localhost:1313/posts/shellygarage/">Garage door control with Shelly and BLE</a></h1>
-	<b><time>2025-12-26 17:41:12</time></b>
+	<b><time>2025-12-26 00:00:00</time></b>
 	
 	<a href="/tags/shelly">shelly</a>
 	
@@ -64,9 +89,15 @@ Ventoy : Live USB bootloader with allows to chose from which ISO file you want t
 	<a href="/tags/bluetooth">bluetooth</a>
 	
 	<div>
-		Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.
-DISCLAIMERS:
-Electricity is dangerous, garage doors as well. I don&rsquo;t take any responsibility if something goes wrong by following those instructions. If you&rsquo;re unsure, ask a professional. Think twice before letting your home automation beeing controlled from the Cloud (someone else&rsquo;s computer).
+		<p>Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the <strong>Entrematic Magic 600-2</strong>, with the <strong>Shelly 1 Gen3</strong> relay and the <strong>Shelly BLU Button Tough 1</strong>.</p>
+<p><strong>DISCLAIMERS</strong>:</p>
+<ul>
+<li>Electricity is dangerous, garage doors as well. I don&rsquo;t take any responsibility if something goes wrong by following those instructions. If you&rsquo;re unsure, ask a professional.</li>
+<li>Think twice before letting your home automation beeing controlled from the Cloud (someone else&rsquo;s computer).</li>
+<li>I&rsquo;m not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It&rsquo;s a lot of bang for the buck !</li>
+</ul>
+<h2 id="analysing-the-door-operator">Analysing the door operator</h2>
+<p>My Entrematic Magic 600-2 has RJ10 inputs at the back.</p>
 		
 			<a href="http://localhost:1313/posts/shellygarage/">Read more...</a>
 		
@@ -75,33 +106,8 @@ Electricity is dangerous, garage doors as well. I don&rsquo;t take any responsib
 
 		
 			<article>
-	<h1><a href="http://localhost:1313/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></h1>
-	<b><time>2025-01-04 12:08:53</time></b>
-	
-	<a href="/tags/ubuntu">ubuntu</a>
-	
-	<a href="/tags/gns3">gns3</a>
-	
-	<a href="/tags/arista">arista</a>
-	
-	<a href="/tags/containerlab">containerlab</a>
-	
-	<div>
-		Work in progress&hellip;
-Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.
-Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.
-Differences with the bare-metal version:
-The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens.
-		
-			<a href="http://localhost:1313/posts/arista_ceos_lab/">Read more...</a>
-		
-	</div>
-</article>
-
-		
-			<article>
 	<h1><a href="http://localhost:1313/posts/linux_command_permissions/">Fixing Linux command permissions</a></h1>
-	<b><time>2025-01-04 10:08:53</time></b>
+	<b><time>2025-01-04 00:00:00</time></b>
 	
 	<a href="/tags/fedora">fedora</a>
 	
@@ -120,10 +126,17 @@ The reload command is not working on cEOS due to platform limitation. The termin
 	<a href="/tags/picocom">picocom</a>
 	
 	<div>
-		Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.
-Sudoers For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.
-My handy-dandy commands for Fedora:
-%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update %wheel ALL=(root) NOPASSWD:/usr/bin/sync %wheel ALL=(root) NOPASSWD:/usr/bin/nmap %wheel ALL=(root) NOPASSWD:/usr/bin/fastboot %wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump Wireshark or tshark as non-root Lauching wireshark or tshark as root is discouraged by the application itself.
+		<p>Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.</p>
+<h2 id="sudoers">Sudoers</h2>
+<p>For applications that must be run as root, adding configuration in <code>/etc/sudoers.d/</code> is a solution.</p>
+<p>My handy-dandy commands for Fedora:</p>
+<pre tabindex="0"><code>%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update
+%wheel ALL=(root) NOPASSWD:/usr/bin/sync
+%wheel ALL=(root) NOPASSWD:/usr/bin/nmap
+%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot
+%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump
+</code></pre><h2 id="wireshark-or-tshark-as-non-root">Wireshark or tshark as non-root</h2>
+<p>Lauching <code>wireshark</code> or <code>tshark</code> as root is discouraged by the application itself.</p>
 		
 			<a href="http://localhost:1313/posts/linux_command_permissions/">Read more...</a>
 		
@@ -132,49 +145,109 @@ My handy-dandy commands for Fedora:
 
 		
 			<article>
-	<h1><a href="http://localhost:1313/posts/2024-09-22-dirty_bytes/">Android Debug Bridge tricks</a></h1>
-	<b><time>2024-09-22 10:08:53</time></b>
+	<h1><a href="http://localhost:1313/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></h1>
+	<b><time>2025-01-04 00:00:00</time></b>
+	
+	<a href="/tags/ubuntu">ubuntu</a>
+	
+	<a href="/tags/gns3">gns3</a>
+	
+	<a href="/tags/arista">arista</a>
+	
+	<a href="/tags/containerlab">containerlab</a>
+	
+	<div>
+		<p>Work in progress&hellip;</p>
+<h2 id="lab-environment">Lab environment</h2>
+<p>All the lab runs on a <em>HP EliteDesk 800 G5 mini</em> (with an <em>Intel Core i5-9500</em> CPU and 16GB of RAM) running <em>Ubuntu 24.04 LTS</em>.</p>
+<p>Arista cEOSlab Docker image can be downloaded after creating an account on the <a href="https://www.arista.com/en/support/customer-support">Arista Customer Support page</a>.</p>
+<p>Differences with the bare-metal version:</p>
+<ul>
+<li>The <code>reload</code> command is not working on cEOS due to platform limitation.</li>
+<li>The <code>terminal monitor</code> command has no effect as no logs are displayed when something happens.</li>
+<li>The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.</li>
+<li>Network interfaces are named <code>ethX</code> as OS level but OSPF and ISIS need <code>etX</code> names. This must also be tweaked.</li>
+</ul>
+<h2 id="arista-ceos-with-containerlab">Arista cEOS with containerlab</h2>
+<p><a href="https://containerlab.dev">Containerlab</a> is specially made for running network devices containers.</p>
+		
+			<a href="http://localhost:1313/posts/arista_ceos_lab/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/android_adb/">Android Debug Bridge tricks</a></h1>
+	<b><time>2024-09-22 00:00:00</time></b>
 	
 	<a href="/tags/android">android</a>
 	
 	<a href="/tags/debug">debug</a>
 	
 	<div>
-		ADB tricks
-Commands List installed applications
-adb shell pm list packages Get application PID
-adb shell pidof -s com.application.name Logs for given PID
-adb logcat --pid=8064 Screenshot
-adb exec-out screencap -p &gt; &#34;$(date).png&#34; 
+		<p>ADB tricks</p>
+<h1 id="commands">Commands</h1>
+<p>List installed applications</p>
+<pre tabindex="0"><code>adb shell pm list packages
+</code></pre><p>Get application PID</p>
+<pre tabindex="0"><code>adb shell pidof -s com.application.name
+</code></pre><p>Logs for given PID</p>
+<pre tabindex="0"><code>adb logcat --pid=8064
+</code></pre><p>Screenshot</p>
+<pre tabindex="0"><code>adb exec-out screencap -p &gt; &#34;$(date).png&#34;
+</code></pre>
 		
 	</div>
 </article>
 
 		
 			<article>
-	<h1><a href="http://localhost:1313/posts/2024-09-15-openssl/">OpenSSL Cheat Sheet</a></h1>
-	<b><time>2024-09-15 17:41:12</time></b>
+	<h1><a href="http://localhost:1313/posts/openssl_cheat_sheet/">OpenSSL Cheat Sheet</a></h1>
+	<b><time>2024-09-15 00:00:00</time></b>
 	
 	<a href="/tags/certificates">certificates</a>
 	
 	<div>
-		Get things done with OpenSSL
-Private Key Generate (old devices don&rsquo;t like keys longer than 2048)
-openssl genrsa -aes128 -out example.key 2048
-Remove password protection
-openssl rsa -in example.key -out example_open.key
-Certificate Generation CSR template file (public CAs don&rsquo;t accept IP alternative names)
-[ req ] prompt = no distinguished_name = dn req_extensions = req_ext [ dn ] CN = example.com emailAddress = me@example.com O = Corp. OU = Geek L = City ST = State C = Country [ req_ext ] subjectAltName = @alt_names [ alt_names ] DNS.
+		<p>Get things done with OpenSSL</p>
+<h2 id="private-key">Private Key</h2>
+<p>Generate (old devices don&rsquo;t like keys longer than 2048)</p>
+<p><code>openssl genrsa -aes128 -out example.key 2048</code></p>
+<p>Remove password protection</p>
+<p><code>openssl rsa -in example.key -out example_open.key</code></p>
+<h2 id="certificate-generation">Certificate Generation</h2>
+<p>CSR template file (public CAs don&rsquo;t accept IP alternative names)</p>
+<pre tabindex="0"><code>[ req ]
+prompt = no
+distinguished_name = dn
+req_extensions = req_ext
+
+[ dn ]
+CN = example.com
+emailAddress = me@example.com
+O = Corp.
+OU = Geek
+L = City
+ST = State
+C = Country
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = example.com
+IP.1 = 10.11.12.13
+</code></pre><p>Generate the CSR from the template</p>
 		
-			<a href="http://localhost:1313/posts/2024-09-15-openssl/">Read more...</a>
+			<a href="http://localhost:1313/posts/openssl_cheat_sheet/">Read more...</a>
 		
 	</div>
 </article>
 
 		
 			<article>
-	<h1><a href="http://localhost:1313/posts/2024-02-04-gnome_boxes/">GNOME Boxes</a></h1>
-	<b><time>2024-02-04 13:15:49</time></b>
+	<h1><a href="http://localhost:1313/posts/gnome_boxes/">GNOME Boxes</a></h1>
+	<b><time>2024-02-04 00:00:00</time></b>
 	
 	<a href="/tags/virtualisation">virtualisation</a>
 	
@@ -183,31 +256,19 @@ Certificate Generation CSR template file (public CAs don&rsquo;t accept IP alter
 	<a href="/tags/boxes">boxes</a>
 	
 	<div>
-		Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&rsquo;s there, let&rsquo;s give it a try !
-File transfer Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:
-Install spice-webdavd and spice-client-gtk in the guest VM and restart it Share the folders through the Boxes settings Go in + Other Locations in the guest VM Nautilus file explorer An entry Spice client folder containing the shared folders should appear Advanced VM settings It&rsquo;s simplicity comes at the expense of configuration options.
+		<p>Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&rsquo;s there, let&rsquo;s give it a try !</p>
+<h2 id="file-transfer">File transfer</h2>
+<p>Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:</p>
+<ul>
+<li>Install <strong>spice-webdavd</strong> and <strong>spice-client-gtk</strong> in the guest VM and restart it</li>
+<li>Share the folders through the Boxes settings</li>
+<li>Go in <strong>+ Other Locations</strong> in the guest VM Nautilus file explorer</li>
+<li>An entry <strong>Spice client folder</strong> containing the shared folders should appear</li>
+</ul>
+<h2 id="advanced-vm-settings">Advanced VM settings</h2>
+<p>It&rsquo;s simplicity comes at the expense of configuration options. Fortunately it runs QEMU/KVM under the hood thus advanced settings can be managed with <strong>virt-manager</strong>. Once installed, simply connected to <strong>QEMU/KVM user session</strong> and all the Boxes VMs will show up.</p>
 		
-			<a href="http://localhost:1313/posts/2024-02-04-gnome_boxes/">Read more...</a>
-		
-	</div>
-</article>
-
-		
-			<article>
-	<h1><a href="http://localhost:1313/posts/storage_wipe/">Wiping storage devices</a></h1>
-	<b><time>2024-01-21 11:04:16</time></b>
-	
-	<a href="/tags/storage">storage</a>
-	
-	<a href="/tags/linux">linux</a>
-	
-	<div>
-		Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&hellip;
-Expeditive solution If you can&rsquo;t wipe your drive properly, have some fun and destroy it physically.
-Vendor provided solutions Some device vendors (HP for example) provide a built-in Secure Erase solution in the BIOS/UEFI.
-DIY solutions Hard Disk Drives All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out.
-		
-			<a href="http://localhost:1313/posts/storage_wipe/">Read more...</a>
+			<a href="http://localhost:1313/posts/gnome_boxes/">Read more...</a>
 		
 	</div>
 </article>
@@ -215,7 +276,7 @@ DIY solutions Hard Disk Drives All sectors of the magnetic drive must overwritte
 		
 			<article>
 	<h1><a href="http://localhost:1313/posts/boot_interruption/">Boot interruption keystrokes</a></h1>
-	<b><time>2024-01-21 10:46:14</time></b>
+	<b><time>2024-01-21 00:00:00</time></b>
 	
 	<a href="/tags/boot">boot</a>
 	
@@ -224,12 +285,30 @@ DIY solutions Hard Disk Drives All sectors of the magnetic drive must overwritte
 	<a href="/tags/android">android</a>
 	
 	<div>
-		Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.
-PC/Laptop Apple
-Boot device selection : hold option (alt) key while powering on HP
-BIOS : tap F10 when powering up Boot device selection : tap F9 when powering on Lenovo
-Interrupt boot : Enter BIOS : F1 Boot device selection : F12 Intel
-BIOS : F2 Boot menu : F10 Android Lenovo P2
+		<p>Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.</p>
+<h2 id="pclaptop">PC/Laptop</h2>
+<p>Apple</p>
+<ul>
+<li>Boot device selection : hold <strong>option</strong> (alt) key while powering on</li>
+</ul>
+<p>HP</p>
+<ul>
+<li>BIOS : tap <strong>F10</strong> when powering up</li>
+<li>Boot device selection : tap <strong>F9</strong> when powering on</li>
+</ul>
+<p>Lenovo</p>
+<ul>
+<li>Interrupt boot : <strong>Enter</strong></li>
+<li>BIOS : <strong>F1</strong></li>
+<li>Boot device selection : <strong>F12</strong></li>
+</ul>
+<p>Intel</p>
+<ul>
+<li>BIOS : <strong>F2</strong></li>
+<li>Boot menu : <strong>F10</strong></li>
+</ul>
+<h2 id="android">Android</h2>
+<p>Lenovo P2</p>
 		
 			<a href="http://localhost:1313/posts/boot_interruption/">Read more...</a>
 		
@@ -239,13 +318,13 @@ BIOS : F2 Boot menu : F10 Android Lenovo P2
 		
 			<article>
 	<h1><a href="http://localhost:1313/posts/dirty_bytes/">File transfer stuck at 99% on Linux</a></h1>
-	<b><time>2024-01-21 10:08:53</time></b>
+	<b><time>2024-01-21 00:00:00</time></b>
 	
 	<a href="/tags/storage">storage</a>
 	
 	<div>
-		When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&rsquo;s not the case.
-In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM).
+		<p>When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&rsquo;s not the case.</p>
+<p>In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM). In order to know when the copy is finished, the <code>sync</code> command can be run (it may take `d)</p>
 		
 			<a href="http://localhost:1313/posts/dirty_bytes/">Read more...</a>
 		

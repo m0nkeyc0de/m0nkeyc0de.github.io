@@ -38,7 +38,7 @@
 	<main>
 		<article>
 			<h1>Network lab with Arista cEOS</h1>
-			<b><time>2025-01-04 12:08:53</time></b>
+			<b><time>2025-01-04 00:00:00</time></b>
 		       
 		           <a href="/tags/ubuntu">ubuntu</a>
         	       
@@ -78,22 +78,22 @@
 </ul>
 <h3 id="getting-up-and-running">Getting up-and-running</h3>
 <p><em>Containerlab</em> is available as docker image which is great to keep your main OS clean and tidy. It can be started by running following bash script.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># https://containerlab.dev/install/#container</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># https://containerlab.dev/install/#container</span>
 </span></span><span style="display:flex;"><span>sudo docker run --rm -it --privileged <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --network host <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v /var/run/docker.sock:/var/run/docker.sock <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v /var/run/netns:/var/run/netns <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v /etc/hosts:/etc/hosts <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v /var/lib/docker/containers:/var/lib/docker/containers <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --pid<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;host&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    -w <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    ghcr.io/srl-labs/clab bash
+</span></span></span><span style="display:flex;"><span>    --network host <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -v /var/run/docker.sock:/var/run/docker.sock <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -v /var/run/netns:/var/run/netns <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -v /etc/hosts:/etc/hosts <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -v /var/lib/docker/containers:/var/lib/docker/containers <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    --pid<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;host&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    -w <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>    ghcr.io/srl-labs/clab bash
 </span></span></code></pre></div><p>The cEOS docker image must be imported with default parameters.</p>
 <pre tabindex="0"><code>sudo docker import cEOS64-lab-4.33.1F.tar.xz ceos64lab:4.33.1F
 </code></pre><p>Create the interface mapping JSON file (<em>et_mapping.json</em> in my case):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ManagementIntf&#34;</span>: {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;eth0&#34;</span>: <span style="color:#e6db74">&#34;Management1&#34;</span>
 </span></span><span style="display:flex;"><span>  },
@@ -109,7 +109,7 @@
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Create a test topology:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">topology</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">kinds</span>:
@@ -134,7 +134,7 @@
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">endpoints</span>: [<span style="color:#e6db74">&#34;host1:et1&#34;</span>, <span style="color:#e6db74">&#34;leaf1:et5&#34;</span>]
 </span></span><span style="display:flex;"><span>    - <span style="color:#f92672">endpoints</span>: [<span style="color:#e6db74">&#34;host1:et2&#34;</span>, <span style="color:#e6db74">&#34;leaf2:et5&#34;</span>]
 </span></span></code></pre></div><p>Then run your lab and wait until the table with devices IP addresses shows up:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Start the container</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Start the container</span>
 </span></span><span style="display:flex;"><span>./containerlab.sh
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Deploy the topology</span>
@@ -209,13 +209,13 @@ MGMT_INTF=eth0
 				
 				<li><a href="/posts/toolbox/">Toolbox</a></li>
 				
-				<li><a href="/posts/shellygarage/">Garage door control with Shelly and BLE</a></li>
+				<li><a href="/posts/linux_dd/">Raw data copy with dd on Linux</a></li>
 				
-				<li><a href="/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></li>
+				<li><a href="/posts/shellygarage/">Garage door control with Shelly and BLE</a></li>
 				
 				<li><a href="/posts/linux_command_permissions/">Fixing Linux command permissions</a></li>
 				
-				<li><a href="/posts/2024-09-22-dirty_bytes/">Android Debug Bridge tricks</a></li>
+				<li><a href="/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></li>
 				
 			</ul>
 		</div>

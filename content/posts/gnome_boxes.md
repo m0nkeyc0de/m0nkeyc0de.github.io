@@ -1,7 +1,7 @@
 ---
 title: "GNOME Boxes"
-date: 2024-02-04T13:15:49+01:00
-slug: 2024-02-04-gnome_boxes
+date: 2024-02-04
+slug: gnome_boxes
 type: posts
 draft: false
 categories:

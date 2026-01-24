@@ -1,6 +1,6 @@
 ---
 title: "Fixing Linux command permissions"
-date: 2025-01-04T10:08:53+01:00
+date: 2025-01-04
 slug: linux_command_permissions
 type: posts
 draft: false

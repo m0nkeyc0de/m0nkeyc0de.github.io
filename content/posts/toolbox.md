@@ -1,6 +1,6 @@
 ---
 title: "Toolbox"
-date: 2024-01-21T10:39:30+01:00
+date: 2024-01-21
 slug: toolbox
 type: posts
 draft: false

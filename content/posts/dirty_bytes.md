@@ -1,6 +1,6 @@
 ---
 title: "File transfer stuck at 99% on Linux"
-date: 2024-01-21T10:08:53+01:00
+date: 2024-01-21
 slug: dirty_bytes
 type: posts
 draft: false

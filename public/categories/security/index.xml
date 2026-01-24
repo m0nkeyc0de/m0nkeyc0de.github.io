@@ -4,7 +4,7 @@
     <title>Security on m0nkeyc0de&#39;s brain dump</title>
     <link>http://localhost:1313/categories/security/</link>
     <description>Recent content in Security on m0nkeyc0de&#39;s brain dump</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
     <lastBuildDate>Sun, 21 Jan 2024 11:04:16 +0100</lastBuildDate>
@@ -14,7 +14,7 @@
       <link>http://localhost:1313/posts/storage_wipe/</link>
       <pubDate>Sun, 21 Jan 2024 11:04:16 +0100</pubDate>
       <guid>http://localhost:1313/posts/storage_wipe/</guid>
-      <description>Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&amp;hellip;&#xA;Expeditive solution If you can&amp;rsquo;t wipe your drive properly, have some fun and destroy it physically.&#xA;Vendor provided solutions Some device vendors (HP for example) provide a built-in Secure Erase solution in the BIOS/UEFI.&#xA;DIY solutions Hard Disk Drives All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out.</description>
+      <description>&lt;p&gt;Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;expeditive-solution&#34;&gt;Expeditive solution&lt;/h2&gt;&#xA;&lt;p&gt;If you can&amp;rsquo;t wipe your drive properly, have some fun and &lt;strong&gt;destroy&lt;/strong&gt; it physically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;vendor-provided-solutions&#34;&gt;Vendor provided solutions&lt;/h2&gt;&#xA;&lt;p&gt;Some device vendors (HP for example) provide a built-in &lt;strong&gt;Secure Erase&lt;/strong&gt; solution in the BIOS/UEFI.&lt;/p&gt;&#xA;&lt;h2 id=&#34;diy-solutions&#34;&gt;DIY solutions&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hard-disk-drives&#34;&gt;Hard Disk Drives&lt;/h3&gt;&#xA;&lt;p&gt;All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out. The Linux &lt;strong&gt;shred&lt;/strong&gt; command does the job well by default (3 random iterations).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

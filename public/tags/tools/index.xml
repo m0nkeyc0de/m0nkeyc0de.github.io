@@ -4,7 +4,7 @@
     <title>Tools on m0nkeyc0de&#39;s brain dump</title>
     <link>http://localhost:1313/tags/tools/</link>
     <description>Recent content in Tools on m0nkeyc0de&#39;s brain dump</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
     <lastBuildDate>Sun, 21 Jan 2024 10:39:30 +0100</lastBuildDate>
@@ -14,7 +14,7 @@
       <link>http://localhost:1313/posts/toolbox/</link>
       <pubDate>Sun, 21 Jan 2024 10:39:30 +0100</pubDate>
       <guid>http://localhost:1313/posts/toolbox/</guid>
-      <description>List of handy tools.&#xA;Ventoy : Live USB bootloader with allows to chose from which ISO file you want to boot from. </description>
+      <description>&lt;p&gt;List of handy tools.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.ventoy.net/&#34;&gt;Ventoy&lt;/a&gt; : Live USB bootloader with allows to chose from which ISO file you want to boot from.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>Android on m0nkeyc0de&#39;s brain dump</title>
     <link>http://localhost:1313/categories/android/</link>
     <description>Recent content in Android on m0nkeyc0de&#39;s brain dump</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
     <lastBuildDate>Sun, 22 Sep 2024 10:08:53 +0100</lastBuildDate>
@@ -14,7 +14,7 @@
       <link>http://localhost:1313/posts/2024-09-22-dirty_bytes/</link>
       <pubDate>Sun, 22 Sep 2024 10:08:53 +0100</pubDate>
       <guid>http://localhost:1313/posts/2024-09-22-dirty_bytes/</guid>
-      <description>ADB tricks&#xA;Commands List installed applications&#xA;adb shell pm list packages Get application PID&#xA;adb shell pidof -s com.application.name Logs for given PID&#xA;adb logcat --pid=8064 Screenshot&#xA;adb exec-out screencap -p &amp;gt; &amp;#34;$(date).png&amp;#34; </description>
+      <description>&lt;p&gt;ADB tricks&lt;/p&gt;&#xA;&lt;h1 id=&#34;commands&#34;&gt;Commands&lt;/h1&gt;&#xA;&lt;p&gt;List installed applications&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb shell pm list packages&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Get application PID&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb shell pidof -s com.application.name&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Logs for given PID&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb logcat --pid=8064&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Screenshot&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb exec-out screencap -p &amp;gt; &amp;#34;$(date).png&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>
 </rss>
