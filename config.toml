@@ -1,6 +1,6 @@
 baseURL = 'https://m0nkeyc0de.github.io/'
 languageCode = 'fr-ch'
-title = 'Brain Dump'
+title = "m0nkeyc0de's brain dump"
 theme = 'smol'
 copyright = "Enjoy !"
 
