@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr-ch">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>File transfer stuck at 99% on Linux</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	================<br>
+	== <a href="http://localhost:1313/">Brain Dump</a> ==<br>
+	================
+	<div style="float: right;">Notes for my future self.</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+			<a href="/categories/"><b>Categories</b></a>.
+			
+			<a href="/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>File transfer stuck at 99% on Linux</h1>
+			<b><time>2024-01-21 10:08:53</time></b>
+		       
+		           <a href="/tags/storage">storage</a>
+        	       
+
+			<div>
+				<p>When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&rsquo;s not the case.</p>
+<p>In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM). In order to know when the copy is finished, the <code>sync</code> command can be run (it may take `d)</p>
+<pre tabindex="0"><code>[root@fedora ~]# sync
+</code></pre><p>It impacts more systems with a lot of RAM as <strong>vm.dirty_ratio</strong> is set instead of a fixed amount of bytes. Here are Fedora 39 defaults:</p>
+<pre tabindex="0"><code>[root@fedora ~]# sysctl vm.dirty_ratio
+vm.dirty_ratio = 20
+[root@fedora ~]# sysctl vm.dirty_bytes
+vm.dirty_bytes = 0
+</code></pre><p>In order to <em>align</em> those transfer speeds and have an almost consistent progress bar, the <strong>dirty bytes</strong> kernel setting can be tweaked.</p>
+<pre tabindex="0"><code># Temporarly set vm.dirty_bytes to 10Mb
+[root@fedora ~]# sysctl vm.dirty_bytes=10000000
+vm.dirty_bytes = 10000000
+
+# Ratio is now unused and set to 0
+[root@fedora ~]# sysctl vm.dirty_ratio
+vm.dirty_ratio = 0
+</code></pre><p>Note that setting it permanently to a low value may impact performance when transfering data between two fast storage devices.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/toolbox/">Toolbox</a></li>
+				
+				<li><a href="/posts/shelly_garage/shellygarage/">Garage door control with Shelly and BLE</a></li>
+				
+				<li><a href="/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></li>
+				
+				<li><a href="/posts/linux_command_permissions/">Fixing Linux command permissions</a></li>
+				
+				<li><a href="/posts/2024-09-22-dirty_bytes/">Android Debug Bridge tricks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
+	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

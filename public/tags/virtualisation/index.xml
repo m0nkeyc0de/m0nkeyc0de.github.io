@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtualisation on Brain Dump</title>
+    <link>http://localhost:1313/tags/virtualisation/</link>
+    <description>Recent content in Virtualisation on Brain Dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Sun, 04 Feb 2024 13:15:49 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/virtualisation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GNOME Boxes</title>
+      <link>http://localhost:1313/posts/2024-02-04-gnome_boxes/</link>
+      <pubDate>Sun, 04 Feb 2024 13:15:49 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-02-04-gnome_boxes/</guid>
+      <description>Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&amp;rsquo;s there, let&amp;rsquo;s give it a try !&#xA;File transfer Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:&#xA;Install spice-webdavd and spice-client-gtk in the guest VM and restart it Share the folders through the Boxes settings Go in + Other Locations in the guest VM Nautilus file explorer An entry Spice client folder containing the shared folders should appear Advanced VM settings It&amp;rsquo;s simplicity comes at the expense of configuration options.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr-ch">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Wiping storage devices</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	================<br>
+	== <a href="http://localhost:1313/">Brain Dump</a> ==<br>
+	================
+	<div style="float: right;">Notes for my future self.</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+			<a href="/categories/"><b>Categories</b></a>.
+			
+			<a href="/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Wiping storage devices</h1>
+			<b><time>2024-01-21 11:04:16</time></b>
+		       
+		           <a href="/tags/storage">storage</a>
+        	       
+		           <a href="/tags/linux">linux</a>
+        	       
+
+			<div>
+				<p>Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&hellip;</p>
+<h2 id="expeditive-solution">Expeditive solution</h2>
+<p>If you can&rsquo;t wipe your drive properly, have some fun and <strong>destroy</strong> it physically.</p>
+<h2 id="vendor-provided-solutions">Vendor provided solutions</h2>
+<p>Some device vendors (HP for example) provide a built-in <strong>Secure Erase</strong> solution in the BIOS/UEFI.</p>
+<h2 id="diy-solutions">DIY solutions</h2>
+<h3 id="hard-disk-drives">Hard Disk Drives</h3>
+<p>All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out. The Linux <strong>shred</strong> command does the job well by default (3 random iterations).</p>
+<pre tabindex="0"><code>shred /dev/sdX --force --verbose
+</code></pre><h3 id="flash-drives-and-memory-cards">Flash drives and memory cards</h3>
+<p>USB flash drives and memory cards only need one pass with zeroes to be wiped-out. The Linux command <strong>shred</strong> can do it well.</p>
+<pre tabindex="0"><code>shred /dev/sdX --force --verbose --iterations=0 --zeroes
+</code></pre><h3 id="solid-state-drives">Solid State Drives</h3>
+<p>Wiping SSDs is a little bit more tricky than other types of drives. They have a TRIM function which writes new data to the less used free sectors. Therefore you can&rsquo;t just use shred as it may not overwrite the entire drive (and also reducing its lifespan). ATA commands must be sent using <strong>hdparm</strong> as explained in this <a href="https://www.thomas-krenn.com/en/wiki/Perform_a_SSD_Secure_Erase">excellent article</a>.</p>
+<pre tabindex="0"><code>SSD=/dev/sdX
+USERMASTER=u
+PASS=Eins
+
+# 1a. NOT frozen
+# Note: SSD is &#34;frozen&#34; if the SATA port is not hot swappable
+# Check that &#34;not frozen&#34; is present in Security section
+hdparm -I $SSD
+
+# 1b. If it&#39;s frozen, try to supsend the machine (or make it sleep)
+systemctl suspend
+hdparm -I $SSD
+
+# 2. Set the user password
+# &#34;Security level high&#34; is added to the Security section output
+hdparm --user-master $USERMASTER --security-set-pass $PASS $SSD
+
+# 3. Secure Erase
+time hdparm --user-master $USERMASTER --security-erase $PASS $SSD
+
+# 4. Checking
+# &#34;Security level high&#34; should be away from Security section
+hdparm -I $SSD
+</code></pre><h2 id="android-phones">Android Phones</h2>
+<p>If the data is automatically encrypted (PIN code necessary to start applications), a factory reset will clean the encryption keys and make your data inaccessible.</p>
+<p>If you have an old device without data encryption, a factory reset may not be sufficient. You may try to <strong>dd</strong> zeroes on <strong>/data</strong> using <strong>adb</strong> (my best guess so far).</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/toolbox/">Toolbox</a></li>
+				
+				<li><a href="/posts/shelly_garage/shellygarage/">Garage door control with Shelly and BLE</a></li>
+				
+				<li><a href="/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></li>
+				
+				<li><a href="/posts/linux_command_permissions/">Fixing Linux command permissions</a></li>
+				
+				<li><a href="/posts/2024-09-22-dirty_bytes/">Android Debug Bridge tricks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
+	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

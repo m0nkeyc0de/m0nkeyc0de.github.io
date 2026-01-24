@@ -1,10 +1,90 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://example.org/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>Brain Dump</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Brain Dump</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Fri, 26 Dec 2025 17:41:12 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Toolbox</title>
+      <link>http://localhost:1313/posts/toolbox/</link>
+      <pubDate>Sun, 21 Jan 2024 10:39:30 +0100</pubDate>
+      <guid>http://localhost:1313/posts/toolbox/</guid>
+      <description>List of handy tools.&#xA;Ventoy : Live USB bootloader with allows to chose from which ISO file you want to boot from. </description>
+    </item>
+    <item>
+      <title>Garage door control with Shelly and BLE</title>
+      <link>http://localhost:1313/posts/shelly_garage/shellygarage/</link>
+      <pubDate>Fri, 26 Dec 2025 17:41:12 +0100</pubDate>
+      <guid>http://localhost:1313/posts/shelly_garage/shellygarage/</guid>
+      <description>Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.&#xA;DISCLAIMER: Electricity is dangerous, garage doors as well. I don&amp;rsquo;t take any responsibility if something goes wrong by following those instructions. If you&amp;rsquo;re unsure, ask a professional.&#xA;Analysing the door operator My Entrematic Magic 600-2 has RJ10 inputs at the back.</description>
+    </item>
+    <item>
+      <title>Network lab with Arista cEOS</title>
+      <link>http://localhost:1313/posts/arista_ceos_lab/</link>
+      <pubDate>Sat, 04 Jan 2025 12:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/arista_ceos_lab/</guid>
+      <description>Work in progress&amp;hellip;&#xA;Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.&#xA;Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.&#xA;Differences with the bare-metal version:&#xA;The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens.</description>
+    </item>
+    <item>
+      <title>Fixing Linux command permissions</title>
+      <link>http://localhost:1313/posts/linux_command_permissions/</link>
+      <pubDate>Sat, 04 Jan 2025 10:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/linux_command_permissions/</guid>
+      <description>Some often used commands don&amp;rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.&#xA;Sudoers For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.&#xA;My handy-dandy commands for Fedora:&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update %wheel ALL=(root) NOPASSWD:/usr/bin/sync %wheel ALL=(root) NOPASSWD:/usr/bin/nmap %wheel ALL=(root) NOPASSWD:/usr/bin/fastboot %wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump Wireshark or tshark as non-root Lauching wireshark or tshark as root is discouraged by the application itself.</description>
+    </item>
+    <item>
+      <title>Android Debug Bridge tricks</title>
+      <link>http://localhost:1313/posts/2024-09-22-dirty_bytes/</link>
+      <pubDate>Sun, 22 Sep 2024 10:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-09-22-dirty_bytes/</guid>
+      <description>ADB tricks&#xA;Commands List installed applications&#xA;adb shell pm list packages Get application PID&#xA;adb shell pidof -s com.application.name Logs for given PID&#xA;adb logcat --pid=8064 Screenshot&#xA;adb exec-out screencap -p &amp;gt; &amp;#34;$(date).png&amp;#34; </description>
+    </item>
+    <item>
+      <title>OpenSSL Cheat Sheet</title>
+      <link>http://localhost:1313/posts/2024-09-15-openssl/</link>
+      <pubDate>Sun, 15 Sep 2024 17:41:12 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-09-15-openssl/</guid>
+      <description>Get things done with OpenSSL&#xA;Private Key Generate (old devices don&amp;rsquo;t like keys longer than 2048)&#xA;openssl genrsa -aes128 -out example.key 2048&#xA;Remove password protection&#xA;openssl rsa -in example.key -out example_open.key&#xA;Certificate Generation CSR template file (public CAs don&amp;rsquo;t accept IP alternative names)&#xA;[ req ] prompt = no distinguished_name = dn req_extensions = req_ext [ dn ] CN = example.com emailAddress = me@example.com O = Corp. OU = Geek L = City ST = State C = Country [ req_ext ] subjectAltName = @alt_names [ alt_names ] DNS.</description>
+    </item>
+    <item>
+      <title>GNOME Boxes</title>
+      <link>http://localhost:1313/posts/2024-02-04-gnome_boxes/</link>
+      <pubDate>Sun, 04 Feb 2024 13:15:49 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-02-04-gnome_boxes/</guid>
+      <description>Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&amp;rsquo;s there, let&amp;rsquo;s give it a try !&#xA;File transfer Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:&#xA;Install spice-webdavd and spice-client-gtk in the guest VM and restart it Share the folders through the Boxes settings Go in + Other Locations in the guest VM Nautilus file explorer An entry Spice client folder containing the shared folders should appear Advanced VM settings It&amp;rsquo;s simplicity comes at the expense of configuration options.</description>
+    </item>
+    <item>
+      <title>Wiping storage devices</title>
+      <link>http://localhost:1313/posts/storage_wipe/</link>
+      <pubDate>Sun, 21 Jan 2024 11:04:16 +0100</pubDate>
+      <guid>http://localhost:1313/posts/storage_wipe/</guid>
+      <description>Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&amp;hellip;&#xA;Expeditive solution If you can&amp;rsquo;t wipe your drive properly, have some fun and destroy it physically.&#xA;Vendor provided solutions Some device vendors (HP for example) provide a built-in Secure Erase solution in the BIOS/UEFI.&#xA;DIY solutions Hard Disk Drives All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out.</description>
+    </item>
+    <item>
+      <title>Boot interruption keystrokes</title>
+      <link>http://localhost:1313/posts/boot_interruption/</link>
+      <pubDate>Sun, 21 Jan 2024 10:46:14 +0100</pubDate>
+      <guid>http://localhost:1313/posts/boot_interruption/</guid>
+      <description>Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.&#xA;PC/Laptop Apple&#xA;Boot device selection : hold option (alt) key while powering on HP&#xA;BIOS : tap F10 when powering up Boot device selection : tap F9 when powering on Lenovo&#xA;Interrupt boot : Enter BIOS : F1 Boot device selection : F12 Intel&#xA;BIOS : F2 Boot menu : F10 Android Lenovo P2</description>
+    </item>
+    <item>
+      <title>File transfer stuck at 99% on Linux</title>
+      <link>http://localhost:1313/posts/dirty_bytes/</link>
+      <pubDate>Sun, 21 Jan 2024 10:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/dirty_bytes/</guid>
+      <description>When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&amp;rsquo;s not the case.&#xA;In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM).</description>
+    </item>
+    <item>
+      <title>Hugo Cheat Sheet</title>
+      <link>http://localhost:1313/posts/hugo/</link>
+      <pubDate>Tue, 16 Jan 2024 20:23:50 +0100</pubDate>
+      <guid>http://localhost:1313/posts/hugo/</guid>
+      <description>Quick command reference for using Hugo day to day.&#xA;Run in local&#xA;hugo server -D --disableFastRender Add a post with hugo command&#xA;hugo new posts/hugo_cheat_sheet.md Add a post manually in contents/posts/new_post.md&#xA;--- title: &amp;#34;New Post&amp;#34; date: 2024-01-21T10:08:53+01:00 slug: 2024-01-21-dirty_bytes type: posts draft: true categories: - default tags: - default --- </description>
+    </item>
   </channel>
 </rss>

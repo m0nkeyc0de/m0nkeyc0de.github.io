@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Storage on Brain Dump</title>
+    <link>http://localhost:1313/tags/storage/</link>
+    <description>Recent content in Storage on Brain Dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Sun, 21 Jan 2024 11:04:16 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wiping storage devices</title>
+      <link>http://localhost:1313/posts/storage_wipe/</link>
+      <pubDate>Sun, 21 Jan 2024 11:04:16 +0100</pubDate>
+      <guid>http://localhost:1313/posts/storage_wipe/</guid>
+      <description>Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&amp;hellip;&#xA;Expeditive solution If you can&amp;rsquo;t wipe your drive properly, have some fun and destroy it physically.&#xA;Vendor provided solutions Some device vendors (HP for example) provide a built-in Secure Erase solution in the BIOS/UEFI.&#xA;DIY solutions Hard Disk Drives All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out.</description>
+    </item>
+    <item>
+      <title>File transfer stuck at 99% on Linux</title>
+      <link>http://localhost:1313/posts/dirty_bytes/</link>
+      <pubDate>Sun, 21 Jan 2024 10:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/dirty_bytes/</guid>
+      <description>When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&amp;rsquo;s not the case.&#xA;In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM).</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr-ch">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Fixing Linux command permissions</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	================<br>
+	== <a href="http://localhost:1313/">Brain Dump</a> ==<br>
+	================
+	<div style="float: right;">Notes for my future self.</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+			<a href="/categories/"><b>Categories</b></a>.
+			
+			<a href="/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Fixing Linux command permissions</h1>
+			<b><time>2025-01-04 10:08:53</time></b>
+		       
+		           <a href="/tags/fedora">fedora</a>
+        	       
+		           <a href="/tags/sudo">sudo</a>
+        	       
+		           <a href="/tags/setuid">setuid</a>
+        	       
+		           <a href="/tags/tcpdump">tcpdump</a>
+        	       
+		           <a href="/tags/tshark">tshark</a>
+        	       
+		           <a href="/tags/wireshark">wireshark</a>
+        	       
+		           <a href="/tags/minicom">minicom</a>
+        	       
+		           <a href="/tags/picocom">picocom</a>
+        	       
+
+			<div>
+				<p>Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.</p>
+<h2 id="sudoers">Sudoers</h2>
+<p>For applications that must be run as root, adding configuration in <code>/etc/sudoers.d/</code> is a solution.</p>
+<p>My handy-dandy commands for Fedora:</p>
+<pre tabindex="0"><code>%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update
+%wheel ALL=(root) NOPASSWD:/usr/bin/sync
+%wheel ALL=(root) NOPASSWD:/usr/bin/nmap
+%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot
+%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump
+</code></pre><h2 id="wireshark-or-tshark-as-non-root">Wireshark or tshark as non-root</h2>
+<p>Lauching <code>wireshark</code> or <code>tshark</code> as root is discouraged by the application itself.</p>
+<p>To capture packets with a non-root user, just add it to the <code>wireshark</code> group.</p>
+<h2 id="ttyusb">ttyUSB</h2>
+<p>By default accessing <code>/dev/ttyUSBx</code> with <code>picocom</code> or <code>minicom</code> does not work with standard privileges.</p>
+<p>Add your user to the group <code>dialout</code> and the problem is solved.</p>
+<pre tabindex="0"><code>[root@fedora ~]# ls -lh /dev/ttyUSB0 
+crw-rw----+ 1 root dialout 188, 0  4 jan 16:41 /dev/ttyUSB0
+</code></pre><h2 id="socket-operation-not-permitted">socket: Operation not permitted</h2>
+<p>This happens with <code>ping</code> command in Debian WSL (or with the <code>tcpdump</code> command). Instead of running them with <code>sudo</code>, the <code>setuid</code> bit can be set on the executable.</p>
+<pre tabindex="0"><code>[root@fedora ~]# ls -lh /bin/ping
+-rwxr-xr-x. 1 root root 162K  7 sep 02:00 /bin/ping
+
+[root@fedora ~]# chmod u+s /bin/ping
+
+[root@fedora ~]# ls -lh /bin/ping
+-rwsr-xr-x. 1 root root 162K  7 sep 02:00 /bin/ping
+</code></pre><p><strong>CAUTION</strong> : there may be security concerns as the command is now executed with root privileges for every user (you could overwrite anything on your system with the <code>-w</code> option of <code>tcpdump</code>). Using <code>sudoers</code> is a safer solution.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/toolbox/">Toolbox</a></li>
+				
+				<li><a href="/posts/shelly_garage/shellygarage/">Garage door control with Shelly and BLE</a></li>
+				
+				<li><a href="/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></li>
+				
+				<li><a href="/posts/linux_command_permissions/">Fixing Linux command permissions</a></li>
+				
+				<li><a href="/posts/2024-09-22-dirty_bytes/">Android Debug Bridge tricks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
+	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

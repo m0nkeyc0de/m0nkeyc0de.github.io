@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr-ch">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Garage door control with Shelly and BLE</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	================<br>
+	== <a href="http://localhost:1313/">Brain Dump</a> ==<br>
+	================
+	<div style="float: right;">Notes for my future self.</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+			<a href="/categories/"><b>Categories</b></a>.
+			
+			<a href="/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Garage door control with Shelly and BLE</h1>
+			<b><time>2025-12-26 17:41:12</time></b>
+		       
+		           <a href="/tags/shelly">shelly</a>
+        	       
+		           <a href="/tags/ble">ble</a>
+        	       
+		           <a href="/tags/bluetooth">bluetooth</a>
+        	       
+
+			<div>
+				<p>Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the <strong>Entrematic Magic 600-2</strong>, with the <strong>Shelly 1 Gen3</strong> relay and the <strong>Shelly BLU Button Tough 1</strong>.</p>
+<p><strong>DISCLAIMER</strong>: Electricity is dangerous, garage doors as well. I don&rsquo;t take any responsibility if something goes wrong by following those instructions. If you&rsquo;re unsure, ask a professional.</p>
+<h2 id="analysing-the-door-operator">Analysing the door operator</h2>
+<p>My Entrematic Magic 600-2 has RJ10 inputs at the back.</p>
+<p>
+<figure>
+  <img src="rj10_inputs.png" alt="Magic 600 RJ10" />
+</figure>
+
+
+</p>
+<p>According to the manual:</p>
+<ul>
+<li>RJ10 input 3 is an impulse input, but pinout isn&rsquo;t provided.</li>
+<li>Terminals 18 and 19 on the PCB are impulse input as well.</li>
+</ul>
+<p>Following PCB tracks we see that pins 2 and 3 of the RJ10 connector are linked to the terminals 18 and 19.</p>
+<p>
+<figure>
+  <img src="pcb_front.png" alt="PCB Front" />
+</figure>
+
+
+
+<figure>
+  <img src="pcb_back.png" alt="PCB Back" />
+</figure>
+
+
+</p>
+<p>Shorting those two pins (dry contact) controls the door the same way the remote does. A simple relay can be used to control the door operation.</p>
+<h2 id="requirements-and-hardware-selection">Requirements and hardware selection</h2>
+<p>For this projet to be successful, following requirements are needed:</p>
+<ul>
+<li>Relay with dry contact, like pressing a wall switch would do.</li>
+<li>Inexpensive, sturdy and reliable remotes.</li>
+<li>Secure communications, as I don&rsquo;t want my garage to be opened with a simple replay attack.</li>
+<li>Backup access if my remote breaks.</li>
+<li>Offline operation, without Internet. The garage door is controlled only in front of it.</li>
+</ul>
+<p><strong>DISCLAIMER</strong>: I&rsquo;m not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It&rsquo;s a lot of bang for the buck !</p>
+<p>The <strong><a href="https://www.shelly.com/products/shelly-1-gen3">Shelly 1 Gen3</a></strong> has following key characteristics:</p>
+<ul>
+<li>Dry contact relay output</li>
+<li>Offline operation, no internet needed.</li>
+<li>Built-in access point with WPA2-PSK, which allows to access the WebGUI (also as backup access)</li>
+<li>Integrated Bluetooth gateway which allows use of BLE remotes</li>
+</ul>
+<p>The <strong><a href="https://www.shelly.com/products/shelly-blu-button-tough-1-black">Shelly BLU Button Tough 1</a></strong> has following key characteristics:</p>
+<ul>
+<li>BLE with AES encryption (hard to forge messages)</li>
+<li>Message counter in each message (makes replay attacks very unlikely combined with AES encryption)</li>
+<li>Inexpensive</li>
+<li>Sturdy and reliable (a couple of months of testing do confirm that)</li>
+</ul>
+<p>Regarding the RJ10 connector and cable, a phone headset cable I cut did the job.</p>
+<p>
+<figure>
+  <img src="cable_shelly.png" alt="Cable on Shelly" />
+</figure>
+
+
+ 
+<figure>
+  <img src="cable_magic600.png" alt="Cable on Magic 600" />
+</figure>
+
+
+</p>
+<h2 id="setting-up-shelly-blu-button-tough-1">Setting up Shelly BLU Button Tough 1</h2>
+<p>The <a href="https://play.google.com/store/apps/details?id=cloud.shelly.bledebug&amp;hl=en-US">Shelly BLE debug</a> app is needed for that.</p>
+<p>Procedure:</p>
+<ul>
+<li>Start the app</li>
+<li>Press the button</li>
+<li>Pair the button the with <strong>Pair</strong></li>
+<li>Update firmware with <strong>OTA</strong></li>
+<li>Encrypt the button (don&rsquo;t lose the PIN you set as you&rsquo;ll need it to re-pair the button)</li>
+<li>Get the information JSON blob with <strong>Read</strong> and save it somewhere safe. It contains the AES encryption key.</li>
+</ul>
+<h2 id="setting-up-shelly-1-gen3">Setting up Shelly 1 Gen3</h2>
+<p>You&rsquo;ll need the latest firmware file, a laptop with Wi-Fi and a web browser, and at least one ready remote.</p>
+<h3 id="initial-device-setup">Initial device setup</h3>
+<ul>
+<li>Power on the device</li>
+<li>Connect to the open WLAN it just created</li>
+<li>Set up WPA2-PSK and reconnect</li>
+<li>Set a password for the web interface</li>
+<li>Upgrade firmware to latest version</li>
+<li>Enable Bluetooth</li>
+</ul>
+<h3 id="inputoutput-settings">Input/Output Settings</h3>
+<ul>
+<li>Input mode <strong>Button</strong></li>
+<li>Output type <strong>Momentary</strong></li>
+<li>Action on power on <strong>Turn OFF</strong></li>
+</ul>
+<p>
+<figure>
+  <img src="input_output_settings.png" alt="Input/Output settings" />
+</figure>
+
+
+</p>
+<h3 id="output-automation-settings">Output automation settings</h3>
+<ul>
+<li>Auto OFF after 1 second (like pressing a wall switch)</li>
+</ul>
+<p>
+<figure>
+  <img src="output_automation.png" alt="Automation settings" />
+</figure>
+
+
+</p>
+<h3 id="add-buttons">Add buttons</h3>
+<ul>
+<li>Enter button MAC Address</li>
+</ul>
+<p>
+<figure>
+  <img src="button_add_mac.png" alt="Button MAC" />
+</figure>
+
+
+</p>
+<ul>
+<li>In the button detail view, enter the encryption key</li>
+</ul>
+<p>
+<figure>
+  <img src="button_detail.png" alt="Button Detail" />
+</figure>
+
+
+</p>
+<ul>
+<li>Create an action for this button</li>
+</ul>
+<p>
+<figure>
+  <img src="button_action_detail.png" alt="Button Action" />
+</figure>
+
+
+</p>
+<ul>
+<li>Press the button : you should hear the relay switch and switch back after one second.</li>
+</ul>
+<p>Repeat operation for each button and you&rsquo;re good to go !</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/toolbox/">Toolbox</a></li>
+				
+				<li><a href="/posts/shelly_garage/shellygarage/">Garage door control with Shelly and BLE</a></li>
+				
+				<li><a href="/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></li>
+				
+				<li><a href="/posts/linux_command_permissions/">Fixing Linux command permissions</a></li>
+				
+				<li><a href="/posts/2024-09-22-dirty_bytes/">Android Debug Bridge tricks</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
+	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

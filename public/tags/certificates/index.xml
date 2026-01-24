@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Certificates on Brain Dump</title>
+    <link>http://localhost:1313/tags/certificates/</link>
+    <description>Recent content in Certificates on Brain Dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Sun, 15 Sep 2024 17:41:12 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/certificates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenSSL Cheat Sheet</title>
+      <link>http://localhost:1313/posts/2024-09-15-openssl/</link>
+      <pubDate>Sun, 15 Sep 2024 17:41:12 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-09-15-openssl/</guid>
+      <description>Get things done with OpenSSL&#xA;Private Key Generate (old devices don&amp;rsquo;t like keys longer than 2048)&#xA;openssl genrsa -aes128 -out example.key 2048&#xA;Remove password protection&#xA;openssl rsa -in example.key -out example_open.key&#xA;Certificate Generation CSR template file (public CAs don&amp;rsquo;t accept IP alternative names)&#xA;[ req ] prompt = no distinguished_name = dn req_extensions = req_ext [ dn ] CN = example.com emailAddress = me@example.com O = Corp. OU = Geek L = City ST = State C = Country [ req_ext ] subjectAltName = @alt_names [ alt_names ] DNS.</description>
+    </item>
+  </channel>
+</rss>

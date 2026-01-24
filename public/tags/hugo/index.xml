@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Brain Dump</title>
+    <link>http://localhost:1313/tags/hugo/</link>
+    <description>Recent content in Hugo on Brain Dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Tue, 16 Jan 2024 20:23:50 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Cheat Sheet</title>
+      <link>http://localhost:1313/posts/hugo/</link>
+      <pubDate>Tue, 16 Jan 2024 20:23:50 +0100</pubDate>
+      <guid>http://localhost:1313/posts/hugo/</guid>
+      <description>Quick command reference for using Hugo day to day.&#xA;Run in local&#xA;hugo server -D --disableFastRender Add a post with hugo command&#xA;hugo new posts/hugo_cheat_sheet.md Add a post manually in contents/posts/new_post.md&#xA;--- title: &amp;#34;New Post&amp;#34; date: 2024-01-21T10:08:53+01:00 slug: 2024-01-21-dirty_bytes type: posts draft: true categories: - default tags: - default --- </description>
+    </item>
+  </channel>
+</rss>

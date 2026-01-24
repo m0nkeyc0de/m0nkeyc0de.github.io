@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Brain Dump</title>
+    <link>http://localhost:1313/categories/linux/</link>
+    <description>Recent content in Linux on Brain Dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Sat, 04 Jan 2025 12:08:53 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Network lab with Arista cEOS</title>
+      <link>http://localhost:1313/posts/arista_ceos_lab/</link>
+      <pubDate>Sat, 04 Jan 2025 12:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/arista_ceos_lab/</guid>
+      <description>Work in progress&amp;hellip;&#xA;Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.&#xA;Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.&#xA;Differences with the bare-metal version:&#xA;The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens.</description>
+    </item>
+    <item>
+      <title>Fixing Linux command permissions</title>
+      <link>http://localhost:1313/posts/linux_command_permissions/</link>
+      <pubDate>Sat, 04 Jan 2025 10:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/linux_command_permissions/</guid>
+      <description>Some often used commands don&amp;rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.&#xA;Sudoers For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.&#xA;My handy-dandy commands for Fedora:&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update %wheel ALL=(root) NOPASSWD:/usr/bin/sync %wheel ALL=(root) NOPASSWD:/usr/bin/nmap %wheel ALL=(root) NOPASSWD:/usr/bin/fastboot %wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump Wireshark or tshark as non-root Lauching wireshark or tshark as root is discouraged by the application itself.</description>
+    </item>
+    <item>
+      <title>GNOME Boxes</title>
+      <link>http://localhost:1313/posts/2024-02-04-gnome_boxes/</link>
+      <pubDate>Sun, 04 Feb 2024 13:15:49 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-02-04-gnome_boxes/</guid>
+      <description>Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&amp;rsquo;s there, let&amp;rsquo;s give it a try !&#xA;File transfer Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:&#xA;Install spice-webdavd and spice-client-gtk in the guest VM and restart it Share the folders through the Boxes settings Go in + Other Locations in the guest VM Nautilus file explorer An entry Spice client folder containing the shared folders should appear Advanced VM settings It&amp;rsquo;s simplicity comes at the expense of configuration options.</description>
+    </item>
+    <item>
+      <title>File transfer stuck at 99% on Linux</title>
+      <link>http://localhost:1313/posts/dirty_bytes/</link>
+      <pubDate>Sun, 21 Jan 2024 10:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/dirty_bytes/</guid>
+      <description>When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&amp;rsquo;s not the case.&#xA;In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM).</description>
+    </item>
+  </channel>
+</rss>

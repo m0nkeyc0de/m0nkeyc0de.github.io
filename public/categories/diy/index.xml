@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diy on Brain Dump</title>
+    <link>http://localhost:1313/categories/diy/</link>
+    <description>Recent content in Diy on Brain Dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Fri, 26 Dec 2025 17:41:12 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/diy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Garage door control with Shelly and BLE</title>
+      <link>http://localhost:1313/posts/shelly_garage/shellygarage/</link>
+      <pubDate>Fri, 26 Dec 2025 17:41:12 +0100</pubDate>
+      <guid>http://localhost:1313/posts/shelly_garage/shellygarage/</guid>
+      <description>Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.&#xA;DISCLAIMER: Electricity is dangerous, garage doors as well. I don&amp;rsquo;t take any responsibility if something goes wrong by following those instructions. If you&amp;rsquo;re unsure, ask a professional.&#xA;Analysing the door operator My Entrematic Magic 600-2 has RJ10 inputs at the back.</description>
+    </item>
+  </channel>
+</rss>

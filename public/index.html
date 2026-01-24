@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr-ch">
+<head>
+	<meta name="generator" content="Hugo 0.123.7"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Brain Dump</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Brain Dump">
+</head>
+<body>
+	<header>
+	================<br>
+	== <a href="http://localhost:1313/">Brain Dump</a> ==<br>
+	================
+	<div style="float: right;">Notes for my future self.</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+			<a href="/categories/"><b>Categories</b></a>.
+			
+			<a href="/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/toolbox/">Toolbox</a></h1>
+	<b><time>2024-01-21 10:39:30</time></b>
+	
+	<a href="/tags/tools">tools</a>
+	
+	<div>
+		List of handy tools.
+Ventoy : Live USB bootloader with allows to chose from which ISO file you want to boot from. 
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/shelly_garage/shellygarage/">Garage door control with Shelly and BLE</a></h1>
+	<b><time>2025-12-26 17:41:12</time></b>
+	
+	<a href="/tags/shelly">shelly</a>
+	
+	<a href="/tags/ble">ble</a>
+	
+	<a href="/tags/bluetooth">bluetooth</a>
+	
+	<div>
+		Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.
+DISCLAIMER: Electricity is dangerous, garage doors as well. I don&rsquo;t take any responsibility if something goes wrong by following those instructions. If you&rsquo;re unsure, ask a professional.
+Analysing the door operator My Entrematic Magic 600-2 has RJ10 inputs at the back.
+		
+			<a href="http://localhost:1313/posts/shelly_garage/shellygarage/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/arista_ceos_lab/">Network lab with Arista cEOS</a></h1>
+	<b><time>2025-01-04 12:08:53</time></b>
+	
+	<a href="/tags/ubuntu">ubuntu</a>
+	
+	<a href="/tags/gns3">gns3</a>
+	
+	<a href="/tags/arista">arista</a>
+	
+	<a href="/tags/containerlab">containerlab</a>
+	
+	<div>
+		Work in progress&hellip;
+Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.
+Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.
+Differences with the bare-metal version:
+The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens.
+		
+			<a href="http://localhost:1313/posts/arista_ceos_lab/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/linux_command_permissions/">Fixing Linux command permissions</a></h1>
+	<b><time>2025-01-04 10:08:53</time></b>
+	
+	<a href="/tags/fedora">fedora</a>
+	
+	<a href="/tags/sudo">sudo</a>
+	
+	<a href="/tags/setuid">setuid</a>
+	
+	<a href="/tags/tcpdump">tcpdump</a>
+	
+	<a href="/tags/tshark">tshark</a>
+	
+	<a href="/tags/wireshark">wireshark</a>
+	
+	<a href="/tags/minicom">minicom</a>
+	
+	<a href="/tags/picocom">picocom</a>
+	
+	<div>
+		Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.
+Sudoers For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.
+My handy-dandy commands for Fedora:
+%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update %wheel ALL=(root) NOPASSWD:/usr/bin/sync %wheel ALL=(root) NOPASSWD:/usr/bin/nmap %wheel ALL=(root) NOPASSWD:/usr/bin/fastboot %wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump Wireshark or tshark as non-root Lauching wireshark or tshark as root is discouraged by the application itself.
+		
+			<a href="http://localhost:1313/posts/linux_command_permissions/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/2024-09-22-dirty_bytes/">Android Debug Bridge tricks</a></h1>
+	<b><time>2024-09-22 10:08:53</time></b>
+	
+	<a href="/tags/android">android</a>
+	
+	<a href="/tags/debug">debug</a>
+	
+	<div>
+		ADB tricks
+Commands List installed applications
+adb shell pm list packages Get application PID
+adb shell pidof -s com.application.name Logs for given PID
+adb logcat --pid=8064 Screenshot
+adb exec-out screencap -p &gt; &#34;$(date).png&#34; 
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/2024-09-15-openssl/">OpenSSL Cheat Sheet</a></h1>
+	<b><time>2024-09-15 17:41:12</time></b>
+	
+	<a href="/tags/certificates">certificates</a>
+	
+	<div>
+		Get things done with OpenSSL
+Private Key Generate (old devices don&rsquo;t like keys longer than 2048)
+openssl genrsa -aes128 -out example.key 2048
+Remove password protection
+openssl rsa -in example.key -out example_open.key
+Certificate Generation CSR template file (public CAs don&rsquo;t accept IP alternative names)
+[ req ] prompt = no distinguished_name = dn req_extensions = req_ext [ dn ] CN = example.com emailAddress = me@example.com O = Corp. OU = Geek L = City ST = State C = Country [ req_ext ] subjectAltName = @alt_names [ alt_names ] DNS.
+		
+			<a href="http://localhost:1313/posts/2024-09-15-openssl/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/2024-02-04-gnome_boxes/">GNOME Boxes</a></h1>
+	<b><time>2024-02-04 13:15:49</time></b>
+	
+	<a href="/tags/virtualisation">virtualisation</a>
+	
+	<a href="/tags/fedora">fedora</a>
+	
+	<a href="/tags/boxes">boxes</a>
+	
+	<div>
+		Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&rsquo;s there, let&rsquo;s give it a try !
+File transfer Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:
+Install spice-webdavd and spice-client-gtk in the guest VM and restart it Share the folders through the Boxes settings Go in + Other Locations in the guest VM Nautilus file explorer An entry Spice client folder containing the shared folders should appear Advanced VM settings It&rsquo;s simplicity comes at the expense of configuration options.
+		
+			<a href="http://localhost:1313/posts/2024-02-04-gnome_boxes/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/storage_wipe/">Wiping storage devices</a></h1>
+	<b><time>2024-01-21 11:04:16</time></b>
+	
+	<a href="/tags/storage">storage</a>
+	
+	<a href="/tags/linux">linux</a>
+	
+	<div>
+		Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&hellip;
+Expeditive solution If you can&rsquo;t wipe your drive properly, have some fun and destroy it physically.
+Vendor provided solutions Some device vendors (HP for example) provide a built-in Secure Erase solution in the BIOS/UEFI.
+DIY solutions Hard Disk Drives All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out.
+		
+			<a href="http://localhost:1313/posts/storage_wipe/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/boot_interruption/">Boot interruption keystrokes</a></h1>
+	<b><time>2024-01-21 10:46:14</time></b>
+	
+	<a href="/tags/boot">boot</a>
+	
+	<a href="/tags/bios">bios</a>
+	
+	<a href="/tags/android">android</a>
+	
+	<div>
+		Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.
+PC/Laptop Apple
+Boot device selection : hold option (alt) key while powering on HP
+BIOS : tap F10 when powering up Boot device selection : tap F9 when powering on Lenovo
+Interrupt boot : Enter BIOS : F1 Boot device selection : F12 Intel
+BIOS : F2 Boot menu : F10 Android Lenovo P2
+		
+			<a href="http://localhost:1313/posts/boot_interruption/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
+	<h1><a href="http://localhost:1313/posts/dirty_bytes/">File transfer stuck at 99% on Linux</a></h1>
+	<b><time>2024-01-21 10:08:53</time></b>
+	
+	<a href="/tags/storage">storage</a>
+	
+	<div>
+		When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&rsquo;s not the case.
+In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM).
+		
+			<a href="http://localhost:1313/posts/dirty_bytes/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+		<div>
+
+1 of 2
+
+	<a href="/page/2/">Next Page</a>
+
+</div>
+
+	</main>
+
+	<footer>
+	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
+	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Brain Dump</title>
+    <link>http://localhost:1313/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Brain Dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Sat, 04 Jan 2025 12:08:53 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Network lab with Arista cEOS</title>
+      <link>http://localhost:1313/posts/arista_ceos_lab/</link>
+      <pubDate>Sat, 04 Jan 2025 12:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/arista_ceos_lab/</guid>
+      <description>Work in progress&amp;hellip;&#xA;Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.&#xA;Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.&#xA;Differences with the bare-metal version:&#xA;The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens.</description>
+    </item>
+  </channel>
+</rss>

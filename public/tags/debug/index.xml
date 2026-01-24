@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debug on Brain Dump</title>
+    <link>http://localhost:1313/tags/debug/</link>
+    <description>Recent content in Debug on Brain Dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Sun, 22 Sep 2024 10:08:53 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android Debug Bridge tricks</title>
+      <link>http://localhost:1313/posts/2024-09-22-dirty_bytes/</link>
+      <pubDate>Sun, 22 Sep 2024 10:08:53 +0100</pubDate>
+      <guid>http://localhost:1313/posts/2024-09-22-dirty_bytes/</guid>
+      <description>ADB tricks&#xA;Commands List installed applications&#xA;adb shell pm list packages Get application PID&#xA;adb shell pidof -s com.application.name Logs for given PID&#xA;adb logcat --pid=8064 Screenshot&#xA;adb exec-out screencap -p &amp;gt; &amp;#34;$(date).png&amp;#34; </description>
+    </item>
+  </channel>
+</rss>
