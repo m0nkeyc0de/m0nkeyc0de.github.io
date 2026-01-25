@@ -7,91 +7,98 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Sat, 24 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Toolbox</title>
       <link>http://localhost:1313/posts/toolbox/</link>
-      <pubDate>Sun, 21 Jan 2024 10:39:30 +0100</pubDate>
+      <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/toolbox/</guid>
       <description>&lt;p&gt;List of handy tools.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.ventoy.net/&#34;&gt;Ventoy&lt;/a&gt; : Live USB bootloader with allows to chose from which ISO file you want to boot from.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
-      <title>Data copy with dd on Linux</title>
+      <title>Software Defined Radio with RTL2832U</title>
+      <link>http://localhost:1313/posts/rtlsdr/</link>
+      <pubDate>Sun, 25 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rtlsdr/</guid>
+      <description>&lt;h2 id=&#34;the-hardware&#34;&gt;The hardware&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;v got a cheap blue DVB-T+FM+DAB dongle.&#xA;&#xA;&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/rtlsdr/dongle.png&#34; alt=&#34;Blue dongle&#34; /&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;One chip on the PCB is marked &lt;code&gt;RTL2832U&lt;/code&gt;.&#xA;&#xA;&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/rtlsdr/dongle_rtl2832u.png&#34; alt=&#34;RTL2832U&#34; /&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;The other one is marked &lt;code&gt;R820T2&lt;/code&gt;. It matches what written on the case.&#xA;&#xA;&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/rtlsdr/dongle_r820t2.png&#34; alt=&#34;R820T2&#34; /&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;According to USB data it&amp;rsquo;s a &lt;em&gt;RTL2838&lt;/em&gt; but according to &lt;a href=&#34;https://osmocom.org/projects/rtl-sdr/wiki&#34;&gt;Osmocom wiki&lt;/a&gt;, RTL2838 chip do not exist.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T&#xA;Device Descriptor:&#xA;  bLength                18&#xA;  bDescriptorType         1&#xA;  bcdUSB               2.00&#xA;  bDeviceClass            0 [unknown]&#xA;  bDeviceSubClass         0 [unknown]&#xA;  bDeviceProtocol         0 &#xA;  bMaxPacketSize0        64&#xA;  idVendor           0x0bda Realtek Semiconductor Corp.&#xA;  idProduct          0x2838 RTL2838 DVB-T&#xA;  bcdDevice            1.00&#xA;  iManufacturer           1 Realtek&#xA;  iProduct                2 RTL2838UHIDIR&#xA;  iSerial                 3 00000001&#xA;  bNumConfigurations      1&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The tuner is physically a Rafael Micro 820T2, which provides the frequency range of 24 MHz to 1766 MHz according to Oscom&amp;rsquo;s Wiki.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Raw data copy with dd on Linux</title>
       <link>http://localhost:1313/posts/linux_dd/</link>
       <pubDate>Sat, 24 Jan 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/linux_dd/</guid>
-      <description>&lt;h2 id=&#34;basic-dd-usage&#34;&gt;Basic dd usage&lt;/h2&gt;&#xA;&lt;p&gt;In most cases this command will do the trick.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dd if=/path/to/source of=/path/to/destination status=progress&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You may optimize the block size according to your destination device for improved write speed, with the &lt;code&gt;bs=2048&lt;/code&gt;(for example) command line switch.&lt;/p&gt;&#xA;&lt;h2 id=&#34;create-an-iso-image-from-a-cddvd&#34;&gt;Create an ISO image from a CD/DVD&lt;/h2&gt;&#xA;&lt;p&gt;Bla bla bla bla&lt;/p&gt;&#xA;&lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.thomas-krenn.com/en/wiki/Create_an_ISO_Image_from_a_source_CD_or_DVD_under_Linux&#34;&gt;https://www.thomas-krenn.com/en/wiki/Create_an_ISO_Image_from_a_source_CD_or_DVD_under_Linux&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>&lt;p&gt;dd is a great tool to do a raw (or binary) copy of a storage device or a file.&lt;/p&gt;&#xA;&lt;h2 id=&#34;basic-dd-usage&#34;&gt;Basic dd usage&lt;/h2&gt;&#xA;&lt;p&gt;In most cases this command will do the trick.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dd if=/path/to/source of=/path/to/destination status=progress&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You may optimize the block size according to your source/destination (it depends&amp;hellip;) device for improved copy speed, with the &lt;code&gt;bs=...&lt;/code&gt; command line switch.&lt;/p&gt;&#xA;&lt;h2 id=&#34;create-an-iso-image-from-a-cddvd&#34;&gt;Create an ISO image from a CD/DVD&lt;/h2&gt;&#xA;&lt;p&gt;CDs and DVDs have blank bytes at the end and those may break your checksum and bloat your image file.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Garage door control with Shelly and BLE</title>
       <link>http://localhost:1313/posts/shellygarage/</link>
-      <pubDate>Fri, 26 Dec 2025 17:41:12 +0100</pubDate>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/shellygarage/</guid>
       <description>&lt;p&gt;Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the &lt;strong&gt;Entrematic Magic 600-2&lt;/strong&gt;, with the &lt;strong&gt;Shelly 1 Gen3&lt;/strong&gt; relay and the &lt;strong&gt;Shelly BLU Button Tough 1&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;DISCLAIMERS&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Electricity is dangerous, garage doors as well. I don&amp;rsquo;t take any responsibility if something goes wrong by following those instructions. If you&amp;rsquo;re unsure, ask a professional.&lt;/li&gt;&#xA;&lt;li&gt;Think twice before letting your home automation beeing controlled from the Cloud (someone else&amp;rsquo;s computer).&lt;/li&gt;&#xA;&lt;li&gt;I&amp;rsquo;m not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It&amp;rsquo;s a lot of bang for the buck !&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;analysing-the-door-operator&#34;&gt;Analysing the door operator&lt;/h2&gt;&#xA;&lt;p&gt;My Entrematic Magic 600-2 has RJ10 inputs at the back.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Network lab with Arista cEOS</title>
-      <link>http://localhost:1313/posts/arista_ceos_lab/</link>
-      <pubDate>Sat, 04 Jan 2025 12:08:53 +0100</pubDate>
-      <guid>http://localhost:1313/posts/arista_ceos_lab/</guid>
-      <description>&lt;p&gt;Work in progress&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;lab-environment&#34;&gt;Lab environment&lt;/h2&gt;&#xA;&lt;p&gt;All the lab runs on a &lt;em&gt;HP EliteDesk 800 G5 mini&lt;/em&gt; (with an &lt;em&gt;Intel Core i5-9500&lt;/em&gt; CPU and 16GB of RAM) running &lt;em&gt;Ubuntu 24.04 LTS&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Arista cEOSlab Docker image can be downloaded after creating an account on the &lt;a href=&#34;https://www.arista.com/en/support/customer-support&#34;&gt;Arista Customer Support page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Differences with the bare-metal version:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;code&gt;reload&lt;/code&gt; command is not working on cEOS due to platform limitation.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;terminal monitor&lt;/code&gt; command has no effect as no logs are displayed when something happens.&lt;/li&gt;&#xA;&lt;li&gt;The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.&lt;/li&gt;&#xA;&lt;li&gt;Network interfaces are named &lt;code&gt;ethX&lt;/code&gt; as OS level but OSPF and ISIS need &lt;code&gt;etX&lt;/code&gt; names. This must also be tweaked.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;arista-ceos-with-containerlab&#34;&gt;Arista cEOS with containerlab&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://containerlab.dev&#34;&gt;Containerlab&lt;/a&gt; is specially made for running network devices containers.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Fixing Linux command permissions</title>
       <link>http://localhost:1313/posts/linux_command_permissions/</link>
-      <pubDate>Sat, 04 Jan 2025 10:08:53 +0100</pubDate>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/linux_command_permissions/</guid>
       <description>&lt;p&gt;Some often used commands don&amp;rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.&lt;/p&gt;&#xA;&lt;h2 id=&#34;sudoers&#34;&gt;Sudoers&lt;/h2&gt;&#xA;&lt;p&gt;For applications that must be run as root, adding configuration in &lt;code&gt;/etc/sudoers.d/&lt;/code&gt; is a solution.&lt;/p&gt;&#xA;&lt;p&gt;My handy-dandy commands for Fedora:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/sync&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/nmap&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot&#xA;%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;wireshark-or-tshark-as-non-root&#34;&gt;Wireshark or tshark as non-root&lt;/h2&gt;&#xA;&lt;p&gt;Lauching &lt;code&gt;wireshark&lt;/code&gt; or &lt;code&gt;tshark&lt;/code&gt; as root is discouraged by the application itself.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Network lab with Arista cEOS</title>
+      <link>http://localhost:1313/posts/arista_ceos_lab/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/arista_ceos_lab/</guid>
+      <description>&lt;p&gt;Work in progress&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;lab-environment&#34;&gt;Lab environment&lt;/h2&gt;&#xA;&lt;p&gt;All the lab runs on a &lt;em&gt;HP EliteDesk 800 G5 mini&lt;/em&gt; (with an &lt;em&gt;Intel Core i5-9500&lt;/em&gt; CPU and 16GB of RAM) running &lt;em&gt;Ubuntu 24.04 LTS&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Arista cEOSlab Docker image can be downloaded after creating an account on the &lt;a href=&#34;https://www.arista.com/en/support/customer-support&#34;&gt;Arista Customer Support page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Differences with the bare-metal version:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;code&gt;reload&lt;/code&gt; command is not working on cEOS due to platform limitation.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;terminal monitor&lt;/code&gt; command has no effect as no logs are displayed when something happens.&lt;/li&gt;&#xA;&lt;li&gt;The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.&lt;/li&gt;&#xA;&lt;li&gt;Network interfaces are named &lt;code&gt;ethX&lt;/code&gt; as OS level but OSPF and ISIS need &lt;code&gt;etX&lt;/code&gt; names. This must also be tweaked.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;arista-ceos-with-containerlab&#34;&gt;Arista cEOS with containerlab&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://containerlab.dev&#34;&gt;Containerlab&lt;/a&gt; is specially made for running network devices containers.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Android Debug Bridge tricks</title>
-      <link>http://localhost:1313/posts/2024-09-22-dirty_bytes/</link>
-      <pubDate>Sun, 22 Sep 2024 10:08:53 +0100</pubDate>
-      <guid>http://localhost:1313/posts/2024-09-22-dirty_bytes/</guid>
+      <link>http://localhost:1313/posts/android_adb/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/android_adb/</guid>
       <description>&lt;p&gt;ADB tricks&lt;/p&gt;&#xA;&lt;h1 id=&#34;commands&#34;&gt;Commands&lt;/h1&gt;&#xA;&lt;p&gt;List installed applications&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb shell pm list packages&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Get application PID&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb shell pidof -s com.application.name&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Logs for given PID&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb logcat --pid=8064&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Screenshot&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb exec-out screencap -p &amp;gt; &amp;#34;$(date).png&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>OpenSSL Cheat Sheet</title>
-      <link>http://localhost:1313/posts/2024-09-15-openssl/</link>
-      <pubDate>Sun, 15 Sep 2024 17:41:12 +0100</pubDate>
-      <guid>http://localhost:1313/posts/2024-09-15-openssl/</guid>
+      <link>http://localhost:1313/posts/openssl_cheat_sheet/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/openssl_cheat_sheet/</guid>
       <description>&lt;p&gt;Get things done with OpenSSL&lt;/p&gt;&#xA;&lt;h2 id=&#34;private-key&#34;&gt;Private Key&lt;/h2&gt;&#xA;&lt;p&gt;Generate (old devices don&amp;rsquo;t like keys longer than 2048)&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;openssl genrsa -aes128 -out example.key 2048&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Remove password protection&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;openssl rsa -in example.key -out example_open.key&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;certificate-generation&#34;&gt;Certificate Generation&lt;/h2&gt;&#xA;&lt;p&gt;CSR template file (public CAs don&amp;rsquo;t accept IP alternative names)&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[ req ]&#xA;prompt = no&#xA;distinguished_name = dn&#xA;req_extensions = req_ext&#xA;&#xA;[ dn ]&#xA;CN = example.com&#xA;emailAddress = me@example.com&#xA;O = Corp.&#xA;OU = Geek&#xA;L = City&#xA;ST = State&#xA;C = Country&#xA;&#xA;[ req_ext ]&#xA;subjectAltName = @alt_names&#xA;&#xA;[ alt_names ]&#xA;DNS.1 = example.com&#xA;IP.1 = 10.11.12.13&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Generate the CSR from the template&lt;/p&gt;</description>
     </item>
     <item>
       <title>GNOME Boxes</title>
-      <link>http://localhost:1313/posts/2024-02-04-gnome_boxes/</link>
-      <pubDate>Sun, 04 Feb 2024 13:15:49 +0100</pubDate>
-      <guid>http://localhost:1313/posts/2024-02-04-gnome_boxes/</guid>
+      <link>http://localhost:1313/posts/gnome_boxes/</link>
+      <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gnome_boxes/</guid>
       <description>&lt;p&gt;Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&amp;rsquo;s there, let&amp;rsquo;s give it a try !&lt;/p&gt;&#xA;&lt;h2 id=&#34;file-transfer&#34;&gt;File transfer&lt;/h2&gt;&#xA;&lt;p&gt;Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install &lt;strong&gt;spice-webdavd&lt;/strong&gt; and &lt;strong&gt;spice-client-gtk&lt;/strong&gt; in the guest VM and restart it&lt;/li&gt;&#xA;&lt;li&gt;Share the folders through the Boxes settings&lt;/li&gt;&#xA;&lt;li&gt;Go in &lt;strong&gt;+ Other Locations&lt;/strong&gt; in the guest VM Nautilus file explorer&lt;/li&gt;&#xA;&lt;li&gt;An entry &lt;strong&gt;Spice client folder&lt;/strong&gt; containing the shared folders should appear&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;advanced-vm-settings&#34;&gt;Advanced VM settings&lt;/h2&gt;&#xA;&lt;p&gt;It&amp;rsquo;s simplicity comes at the expense of configuration options. Fortunately it runs QEMU/KVM under the hood thus advanced settings can be managed with &lt;strong&gt;virt-manager&lt;/strong&gt;. Once installed, simply connected to &lt;strong&gt;QEMU/KVM user session&lt;/strong&gt; and all the Boxes VMs will show up.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Wiping storage devices</title>
-      <link>http://localhost:1313/posts/storage_wipe/</link>
-      <pubDate>Sun, 21 Jan 2024 11:04:16 +0100</pubDate>
-      <guid>http://localhost:1313/posts/storage_wipe/</guid>
-      <description>&lt;p&gt;Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;expeditive-solution&#34;&gt;Expeditive solution&lt;/h2&gt;&#xA;&lt;p&gt;If you can&amp;rsquo;t wipe your drive properly, have some fun and &lt;strong&gt;destroy&lt;/strong&gt; it physically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;vendor-provided-solutions&#34;&gt;Vendor provided solutions&lt;/h2&gt;&#xA;&lt;p&gt;Some device vendors (HP for example) provide a built-in &lt;strong&gt;Secure Erase&lt;/strong&gt; solution in the BIOS/UEFI.&lt;/p&gt;&#xA;&lt;h2 id=&#34;diy-solutions&#34;&gt;DIY solutions&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hard-disk-drives&#34;&gt;Hard Disk Drives&lt;/h3&gt;&#xA;&lt;p&gt;All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out. The Linux &lt;strong&gt;shred&lt;/strong&gt; command does the job well by default (3 random iterations).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Boot interruption keystrokes</title>
       <link>http://localhost:1313/posts/boot_interruption/</link>
-      <pubDate>Sun, 21 Jan 2024 10:46:14 +0100</pubDate>
+      <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/boot_interruption/</guid>
       <description>&lt;p&gt;Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.&lt;/p&gt;&#xA;&lt;h2 id=&#34;pclaptop&#34;&gt;PC/Laptop&lt;/h2&gt;&#xA;&lt;p&gt;Apple&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Boot device selection : hold &lt;strong&gt;option&lt;/strong&gt; (alt) key while powering on&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;HP&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;BIOS : tap &lt;strong&gt;F10&lt;/strong&gt; when powering up&lt;/li&gt;&#xA;&lt;li&gt;Boot device selection : tap &lt;strong&gt;F9&lt;/strong&gt; when powering on&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Lenovo&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Interrupt boot : &lt;strong&gt;Enter&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;BIOS : &lt;strong&gt;F1&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Boot device selection : &lt;strong&gt;F12&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Intel&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;BIOS : &lt;strong&gt;F2&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Boot menu : &lt;strong&gt;F10&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;android&#34;&gt;Android&lt;/h2&gt;&#xA;&lt;p&gt;Lenovo P2&lt;/p&gt;</description>
     </item>
     <item>
       <title>File transfer stuck at 99% on Linux</title>
       <link>http://localhost:1313/posts/dirty_bytes/</link>
-      <pubDate>Sun, 21 Jan 2024 10:08:53 +0100</pubDate>
+      <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/dirty_bytes/</guid>
       <description>&lt;p&gt;When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&amp;rsquo;s not the case.&lt;/p&gt;&#xA;&lt;p&gt;In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM). In order to know when the copy is finished, the &lt;code&gt;sync&lt;/code&gt; command can be run (it may take `d)&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Wiping storage devices</title>
+      <link>http://localhost:1313/posts/storage_wipe/</link>
+      <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/storage_wipe/</guid>
+      <description>&lt;p&gt;Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;expeditive-solution&#34;&gt;Expeditive solution&lt;/h2&gt;&#xA;&lt;p&gt;If you can&amp;rsquo;t wipe your drive properly, have some fun and &lt;strong&gt;destroy&lt;/strong&gt; it physically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;vendor-provided-solutions&#34;&gt;Vendor provided solutions&lt;/h2&gt;&#xA;&lt;p&gt;Some device vendors (HP for example) provide a built-in &lt;strong&gt;Secure Erase&lt;/strong&gt; solution in the BIOS/UEFI.&lt;/p&gt;&#xA;&lt;h2 id=&#34;diy-solutions&#34;&gt;DIY solutions&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hard-disk-drives&#34;&gt;Hard Disk Drives&lt;/h3&gt;&#xA;&lt;p&gt;All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out. The Linux &lt;strong&gt;shred&lt;/strong&gt; command does the job well by default (3 random iterations).&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Hugo Cheat Sheet</title>
       <link>http://localhost:1313/posts/hugo/</link>
-      <pubDate>Tue, 16 Jan 2024 20:23:50 +0100</pubDate>
+      <pubDate>Tue, 16 Jan 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/hugo/</guid>
-      <description>&lt;p&gt;Quick command reference for using Hugo day to day.&lt;/p&gt;&#xA;&lt;p&gt;Run in local&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo server ---debug&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Add a post with &lt;strong&gt;hugo&lt;/strong&gt; command&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new posts/hugo_cheat_sheet.md&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Add a post manually in &lt;strong&gt;contents/posts/new_post.md&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;---&#xA;title: &amp;#34;New Post&amp;#34;&#xA;date: 2024-01-21T10:08:53+01:00&#xA;slug: 2024-01-21-dirty_bytes&#xA;type: posts&#xA;draft: true&#xA;categories:&#xA;  - default&#xA;tags:&#xA;  - default&#xA;---&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+      <description>&lt;p&gt;Quick command reference for using Hugo day to day.&lt;/p&gt;&#xA;&lt;p&gt;Run in local&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo server -D&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Add a post with &lt;strong&gt;hugo&lt;/strong&gt; command&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new posts/hugo_cheat_sheet.md&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Add a post manually in &lt;strong&gt;contents/posts/new_post.md&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;---&#xA;title: &amp;#34;New Post&amp;#34;&#xA;date: 2024-01-21&#xA;slug: new_post&#xA;type: posts&#xA;draft: true&#xA;categories:&#xA;  - default&#xA;tags:&#xA;  - default&#xA;---&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>
 </rss>

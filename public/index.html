@@ -56,6 +56,63 @@
 
 		
 			<article>
+	<h1><a href="http://localhost:1313/posts/rtlsdr/">Software Defined Radio with RTL2832U</a></h1>
+	<b><time>2026-01-25 00:00:00</time></b>
+	
+	<a href="/tags/sdr">sdr</a>
+	
+	<div>
+		<p>I&rsquo;v got a cheap blue DVB-T+FM+DAB dongle to play with SDR.</p>
+<h2 id="the-hardware">The hardware</h2>
+<p>
+<figure>
+  <img src="/rtlsdr/dongle.png" alt="Blue dongle" />
+</figure>
+
+
+</p>
+<p>One chip on the PCB is marked <code>RTL2832U</code>.
+
+<figure>
+  <img src="/rtlsdr/dongle_rtl2832u.png" alt="RTL2832U" />
+</figure>
+
+
+</p>
+<p>The other one is marked <code>R820T2</code>. It matches what written on the case.
+
+<figure>
+  <img src="/rtlsdr/dongle_r820t2.png" alt="R820T2" />
+</figure>
+
+
+</p>
+<p>According to USB data it&rsquo;s a <em>RTL2838</em> but according to <a href="https://osmocom.org/projects/rtl-sdr/wiki">Osmocom wiki</a>, RTL2838 chip do not exist.</p>
+<pre tabindex="0"><code>Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
+Device Descriptor:
+  bLength                18
+  bDescriptorType         1
+  bcdUSB               2.00
+  bDeviceClass            0 [unknown]
+  bDeviceSubClass         0 [unknown]
+  bDeviceProtocol         0 
+  bMaxPacketSize0        64
+  idVendor           0x0bda Realtek Semiconductor Corp.
+  idProduct          0x2838 RTL2838 DVB-T
+  bcdDevice            1.00
+  iManufacturer           1 Realtek
+  iProduct                2 RTL2838UHIDIR
+  iSerial                 3 00000001
+  bNumConfigurations      1
+</code></pre><p>The tuner is physically a Rafael Micro 820T2, which provides the frequency range of 24 MHz to 1766 MHz according to Oscom&rsquo;s Wiki.</p>
+		
+			<a href="http://localhost:1313/posts/rtlsdr/">Read more...</a>
+		
+	</div>
+</article>
+
+		
+			<article>
 	<h1><a href="http://localhost:1313/posts/linux_dd/">Raw data copy with dd on Linux</a></h1>
 	<b><time>2026-01-24 00:00:00</time></b>
 	
@@ -311,22 +368,6 @@ IP.1 = 10.11.12.13
 <p>Lenovo P2</p>
 		
 			<a href="http://localhost:1313/posts/boot_interruption/">Read more...</a>
-		
-	</div>
-</article>
-
-		
-			<article>
-	<h1><a href="http://localhost:1313/posts/dirty_bytes/">File transfer stuck at 99% on Linux</a></h1>
-	<b><time>2024-01-21 00:00:00</time></b>
-	
-	<a href="/tags/storage">storage</a>
-	
-	<div>
-		<p>When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&rsquo;s not the case.</p>
-<p>In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM). In order to know when the copy is finished, the <code>sync</code> command can be run (it may take `d)</p>
-		
-			<a href="http://localhost:1313/posts/dirty_bytes/">Read more...</a>
 		
 	</div>
 </article>

@@ -7,12 +7,12 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Fri, 26 Dec 2025 17:41:12 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 26 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/shelly/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Garage door control with Shelly and BLE</title>
       <link>http://localhost:1313/posts/shellygarage/</link>
-      <pubDate>Fri, 26 Dec 2025 17:41:12 +0100</pubDate>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/shellygarage/</guid>
       <description>&lt;p&gt;Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the &lt;strong&gt;Entrematic Magic 600-2&lt;/strong&gt;, with the &lt;strong&gt;Shelly 1 Gen3&lt;/strong&gt; relay and the &lt;strong&gt;Shelly BLU Button Tough 1&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;DISCLAIMERS&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Electricity is dangerous, garage doors as well. I don&amp;rsquo;t take any responsibility if something goes wrong by following those instructions. If you&amp;rsquo;re unsure, ask a professional.&lt;/li&gt;&#xA;&lt;li&gt;Think twice before letting your home automation beeing controlled from the Cloud (someone else&amp;rsquo;s computer).&lt;/li&gt;&#xA;&lt;li&gt;I&amp;rsquo;m not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It&amp;rsquo;s a lot of bang for the buck !&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;analysing-the-door-operator&#34;&gt;Analysing the door operator&lt;/h2&gt;&#xA;&lt;p&gt;My Entrematic Magic 600-2 has RJ10 inputs at the back.&lt;/p&gt;</description>
     </item>

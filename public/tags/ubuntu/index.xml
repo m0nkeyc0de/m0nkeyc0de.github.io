@@ -7,12 +7,12 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Sat, 04 Jan 2025 12:08:53 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Network lab with Arista cEOS</title>
       <link>http://localhost:1313/posts/arista_ceos_lab/</link>
-      <pubDate>Sat, 04 Jan 2025 12:08:53 +0100</pubDate>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/arista_ceos_lab/</guid>
       <description>&lt;p&gt;Work in progress&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;lab-environment&#34;&gt;Lab environment&lt;/h2&gt;&#xA;&lt;p&gt;All the lab runs on a &lt;em&gt;HP EliteDesk 800 G5 mini&lt;/em&gt; (with an &lt;em&gt;Intel Core i5-9500&lt;/em&gt; CPU and 16GB of RAM) running &lt;em&gt;Ubuntu 24.04 LTS&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Arista cEOSlab Docker image can be downloaded after creating an account on the &lt;a href=&#34;https://www.arista.com/en/support/customer-support&#34;&gt;Arista Customer Support page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Differences with the bare-metal version:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;code&gt;reload&lt;/code&gt; command is not working on cEOS due to platform limitation.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;terminal monitor&lt;/code&gt; command has no effect as no logs are displayed when something happens.&lt;/li&gt;&#xA;&lt;li&gt;The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.&lt;/li&gt;&#xA;&lt;li&gt;Network interfaces are named &lt;code&gt;ethX&lt;/code&gt; as OS level but OSPF and ISIS need &lt;code&gt;etX&lt;/code&gt; names. This must also be tweaked.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;arista-ceos-with-containerlab&#34;&gt;Arista cEOS with containerlab&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://containerlab.dev&#34;&gt;Containerlab&lt;/a&gt; is specially made for running network devices containers.&lt;/p&gt;</description>
     </item>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr-ch">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Software Defined Radio with RTL2832U</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	=============================<br>
+	== <a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a> ==<br>
+	=============================
+	<div style="float: right;">Notes for my future self.</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+			<a href="/categories/"><b>Categories</b></a>.
+			
+			<a href="/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Software Defined Radio with RTL2832U</h1>
+			<b><time>2026-01-25 00:00:00</time></b>
+		       
+		           <a href="/tags/sdr">sdr</a>
+        	       
+
+			<div>
+				<p>I&rsquo;v got a cheap blue DVB-T+FM+DAB dongle to play with SDR.</p>
+<h2 id="the-hardware">The hardware</h2>
+<p>
+<figure>
+  <img src="/rtlsdr/dongle.png" alt="Blue dongle" />
+</figure>
+
+
+</p>
+<p>One chip on the PCB is marked <code>RTL2832U</code>.
+
+<figure>
+  <img src="/rtlsdr/dongle_rtl2832u.png" alt="RTL2832U" />
+</figure>
+
+
+</p>
+<p>The other one is marked <code>R820T2</code>. It matches what written on the case.
+
+<figure>
+  <img src="/rtlsdr/dongle_r820t2.png" alt="R820T2" />
+</figure>
+
+
+</p>
+<p>According to USB data it&rsquo;s a <em>RTL2838</em> but according to <a href="https://osmocom.org/projects/rtl-sdr/wiki">Osmocom wiki</a>, RTL2838 chip do not exist.</p>
+<pre tabindex="0"><code>Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
+Device Descriptor:
+  bLength                18
+  bDescriptorType         1
+  bcdUSB               2.00
+  bDeviceClass            0 [unknown]
+  bDeviceSubClass         0 [unknown]
+  bDeviceProtocol         0 
+  bMaxPacketSize0        64
+  idVendor           0x0bda Realtek Semiconductor Corp.
+  idProduct          0x2838 RTL2838 DVB-T
+  bcdDevice            1.00
+  iManufacturer           1 Realtek
+  iProduct                2 RTL2838UHIDIR
+  iSerial                 3 00000001
+  bNumConfigurations      1
+</code></pre><p>The tuner is physically a Rafael Micro 820T2, which provides the frequency range of 24 MHz to 1766 MHz according to Oscom&rsquo;s Wiki.</p>
+<h2 id="getting-it-to-work-on-linux-mint-22">Getting it to work on Linux Mint 22</h2>
+<p>Some RTL SDR libs exist in the official repos. Let&rsquo;s install them.</p>
+<pre tabindex="0"><code>apt install rtl-sdr librtlsdr2 librtlsdr-dev
+</code></pre><p>Osmocom software and GNU radio blocks are also there.</p>
+<pre tabindex="0"><code>apt install osmo-sdr gnuradio gr-osmosdr
+</code></pre><p><code>rtl_test</code> output</p>
+<pre tabindex="0"><code>Found 1 device(s):
+  0:  Realtek, RTL2838UHIDIR, SN: 00000001
+
+Using device 0: Generic RTL2832U OEM
+Detached kernel driver
+Found Rafael Micro R820T tuner
+Supported gain values (29): 0.0 0.9 1.4 2.7 3.7 7.7 8.7 12.5 14.4 15.7 16.6 19.7 20.7 22.9 25.4 28.0 29.7 32.8 33.8 36.4 37.2 38.6 40.2 42.1 43.4 43.9 44.5 48.0 49.6 
+</code></pre><p>Checking for a known FM radio signal presence with <code>osmocom_fft --samp-rate=2.554M --center-freq=100M --waterfall</code>:
+
+<figure>
+  <img src="/rtlsdr/osmocom_fft_fm_waterfall.png" alt="Osmocom FM waterfall" />
+</figure>
+
+
+</p>
+<p>Testing FM reception with <a href="https://wiki.gnuradio.org/index.php?title=RTL-SDR_FM_Receiver">GNU Radio</a>:
+
+<figure>
+  <img src="/rtlsdr/gnuradio_fft.png" alt="FM FFT" />
+</figure>
+
+
+</p>
+<p>It works !</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/toolbox/">Toolbox</a></li>
+				
+				<li><a href="/posts/rtlsdr/">Software Defined Radio with RTL2832U</a></li>
+				
+				<li><a href="/posts/linux_dd/">Raw data copy with dd on Linux</a></li>
+				
+				<li><a href="/posts/shellygarage/">Garage door control with Shelly and BLE</a></li>
+				
+				<li><a href="/posts/linux_command_permissions/">Fixing Linux command permissions</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
+	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>

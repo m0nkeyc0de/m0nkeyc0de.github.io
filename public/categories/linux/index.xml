@@ -7,33 +7,33 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Sat, 04 Jan 2025 12:08:53 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Network lab with Arista cEOS</title>
-      <link>http://localhost:1313/posts/arista_ceos_lab/</link>
-      <pubDate>Sat, 04 Jan 2025 12:08:53 +0100</pubDate>
-      <guid>http://localhost:1313/posts/arista_ceos_lab/</guid>
-      <description>&lt;p&gt;Work in progress&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;lab-environment&#34;&gt;Lab environment&lt;/h2&gt;&#xA;&lt;p&gt;All the lab runs on a &lt;em&gt;HP EliteDesk 800 G5 mini&lt;/em&gt; (with an &lt;em&gt;Intel Core i5-9500&lt;/em&gt; CPU and 16GB of RAM) running &lt;em&gt;Ubuntu 24.04 LTS&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Arista cEOSlab Docker image can be downloaded after creating an account on the &lt;a href=&#34;https://www.arista.com/en/support/customer-support&#34;&gt;Arista Customer Support page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Differences with the bare-metal version:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;code&gt;reload&lt;/code&gt; command is not working on cEOS due to platform limitation.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;terminal monitor&lt;/code&gt; command has no effect as no logs are displayed when something happens.&lt;/li&gt;&#xA;&lt;li&gt;The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.&lt;/li&gt;&#xA;&lt;li&gt;Network interfaces are named &lt;code&gt;ethX&lt;/code&gt; as OS level but OSPF and ISIS need &lt;code&gt;etX&lt;/code&gt; names. This must also be tweaked.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;arista-ceos-with-containerlab&#34;&gt;Arista cEOS with containerlab&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://containerlab.dev&#34;&gt;Containerlab&lt;/a&gt; is specially made for running network devices containers.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Fixing Linux command permissions</title>
       <link>http://localhost:1313/posts/linux_command_permissions/</link>
-      <pubDate>Sat, 04 Jan 2025 10:08:53 +0100</pubDate>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/linux_command_permissions/</guid>
       <description>&lt;p&gt;Some often used commands don&amp;rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.&lt;/p&gt;&#xA;&lt;h2 id=&#34;sudoers&#34;&gt;Sudoers&lt;/h2&gt;&#xA;&lt;p&gt;For applications that must be run as root, adding configuration in &lt;code&gt;/etc/sudoers.d/&lt;/code&gt; is a solution.&lt;/p&gt;&#xA;&lt;p&gt;My handy-dandy commands for Fedora:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/sync&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/nmap&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot&#xA;%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;wireshark-or-tshark-as-non-root&#34;&gt;Wireshark or tshark as non-root&lt;/h2&gt;&#xA;&lt;p&gt;Lauching &lt;code&gt;wireshark&lt;/code&gt; or &lt;code&gt;tshark&lt;/code&gt; as root is discouraged by the application itself.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Network lab with Arista cEOS</title>
+      <link>http://localhost:1313/posts/arista_ceos_lab/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/arista_ceos_lab/</guid>
+      <description>&lt;p&gt;Work in progress&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;lab-environment&#34;&gt;Lab environment&lt;/h2&gt;&#xA;&lt;p&gt;All the lab runs on a &lt;em&gt;HP EliteDesk 800 G5 mini&lt;/em&gt; (with an &lt;em&gt;Intel Core i5-9500&lt;/em&gt; CPU and 16GB of RAM) running &lt;em&gt;Ubuntu 24.04 LTS&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Arista cEOSlab Docker image can be downloaded after creating an account on the &lt;a href=&#34;https://www.arista.com/en/support/customer-support&#34;&gt;Arista Customer Support page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Differences with the bare-metal version:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;code&gt;reload&lt;/code&gt; command is not working on cEOS due to platform limitation.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;code&gt;terminal monitor&lt;/code&gt; command has no effect as no logs are displayed when something happens.&lt;/li&gt;&#xA;&lt;li&gt;The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.&lt;/li&gt;&#xA;&lt;li&gt;Network interfaces are named &lt;code&gt;ethX&lt;/code&gt; as OS level but OSPF and ISIS need &lt;code&gt;etX&lt;/code&gt; names. This must also be tweaked.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;arista-ceos-with-containerlab&#34;&gt;Arista cEOS with containerlab&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://containerlab.dev&#34;&gt;Containerlab&lt;/a&gt; is specially made for running network devices containers.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>GNOME Boxes</title>
-      <link>http://localhost:1313/posts/2024-02-04-gnome_boxes/</link>
-      <pubDate>Sun, 04 Feb 2024 13:15:49 +0100</pubDate>
-      <guid>http://localhost:1313/posts/2024-02-04-gnome_boxes/</guid>
+      <link>http://localhost:1313/posts/gnome_boxes/</link>
+      <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gnome_boxes/</guid>
       <description>&lt;p&gt;Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&amp;rsquo;s there, let&amp;rsquo;s give it a try !&lt;/p&gt;&#xA;&lt;h2 id=&#34;file-transfer&#34;&gt;File transfer&lt;/h2&gt;&#xA;&lt;p&gt;Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install &lt;strong&gt;spice-webdavd&lt;/strong&gt; and &lt;strong&gt;spice-client-gtk&lt;/strong&gt; in the guest VM and restart it&lt;/li&gt;&#xA;&lt;li&gt;Share the folders through the Boxes settings&lt;/li&gt;&#xA;&lt;li&gt;Go in &lt;strong&gt;+ Other Locations&lt;/strong&gt; in the guest VM Nautilus file explorer&lt;/li&gt;&#xA;&lt;li&gt;An entry &lt;strong&gt;Spice client folder&lt;/strong&gt; containing the shared folders should appear&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;advanced-vm-settings&#34;&gt;Advanced VM settings&lt;/h2&gt;&#xA;&lt;p&gt;It&amp;rsquo;s simplicity comes at the expense of configuration options. Fortunately it runs QEMU/KVM under the hood thus advanced settings can be managed with &lt;strong&gt;virt-manager&lt;/strong&gt;. Once installed, simply connected to &lt;strong&gt;QEMU/KVM user session&lt;/strong&gt; and all the Boxes VMs will show up.&lt;/p&gt;</description>
     </item>
     <item>
       <title>File transfer stuck at 99% on Linux</title>
       <link>http://localhost:1313/posts/dirty_bytes/</link>
-      <pubDate>Sun, 21 Jan 2024 10:08:53 +0100</pubDate>
+      <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/dirty_bytes/</guid>
       <description>&lt;p&gt;When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&amp;rsquo;s not the case.&lt;/p&gt;&#xA;&lt;p&gt;In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM). In order to know when the copy is finished, the &lt;code&gt;sync&lt;/code&gt; command can be run (it may take `d)&lt;/p&gt;</description>
     </item>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sdr on m0nkeyc0de&#39;s brain dump</title>
+    <link>http://localhost:1313/tags/sdr/</link>
+    <description>Recent content in Sdr on m0nkeyc0de&#39;s brain dump</description>
+    <generator>Hugo</generator>
+    <language>fr-ch</language>
+    <copyright>Enjoy !</copyright>
+    <lastBuildDate>Sun, 25 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sdr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Defined Radio with RTL2832U</title>
+      <link>http://localhost:1313/posts/rtlsdr/</link>
+      <pubDate>Sun, 25 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rtlsdr/</guid>
+      <description>&lt;h2 id=&#34;the-hardware&#34;&gt;The hardware&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;v got a cheap blue DVB-T+FM+DAB dongle.&#xA;&#xA;&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/rtlsdr/dongle.png&#34; alt=&#34;Blue dongle&#34; /&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;One chip on the PCB is marked &lt;code&gt;RTL2832U&lt;/code&gt;.&#xA;&#xA;&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/rtlsdr/dongle_rtl2832u.png&#34; alt=&#34;RTL2832U&#34; /&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;The other one is marked &lt;code&gt;R820T2&lt;/code&gt;. It matches what written on the case.&#xA;&#xA;&lt;figure&gt;&#xA;  &lt;img src=&#34;http://localhost:1313/rtlsdr/dongle_r820t2.png&#34; alt=&#34;R820T2&#34; /&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;According to USB data it&amp;rsquo;s a &lt;em&gt;RTL2838&lt;/em&gt; but according to &lt;a href=&#34;https://osmocom.org/projects/rtl-sdr/wiki&#34;&gt;Osmocom wiki&lt;/a&gt;, RTL2838 chip do not exist.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T&#xA;Device Descriptor:&#xA;  bLength                18&#xA;  bDescriptorType         1&#xA;  bcdUSB               2.00&#xA;  bDeviceClass            0 [unknown]&#xA;  bDeviceSubClass         0 [unknown]&#xA;  bDeviceProtocol         0 &#xA;  bMaxPacketSize0        64&#xA;  idVendor           0x0bda Realtek Semiconductor Corp.&#xA;  idProduct          0x2838 RTL2838 DVB-T&#xA;  bcdDevice            1.00&#xA;  iManufacturer           1 Realtek&#xA;  iProduct                2 RTL2838UHIDIR&#xA;  iSerial                 3 00000001&#xA;  bNumConfigurations      1&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The tuner is physically a Rafael Micro 820T2, which provides the frequency range of 24 MHz to 1766 MHz according to Oscom&amp;rsquo;s Wiki.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

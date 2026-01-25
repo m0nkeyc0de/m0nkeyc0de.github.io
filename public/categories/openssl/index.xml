@@ -7,13 +7,13 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Sun, 15 Sep 2024 17:41:12 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 15 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/openssl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenSSL Cheat Sheet</title>
-      <link>http://localhost:1313/posts/2024-09-15-openssl/</link>
-      <pubDate>Sun, 15 Sep 2024 17:41:12 +0100</pubDate>
-      <guid>http://localhost:1313/posts/2024-09-15-openssl/</guid>
+      <link>http://localhost:1313/posts/openssl_cheat_sheet/</link>
+      <pubDate>Sun, 15 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/openssl_cheat_sheet/</guid>
       <description>&lt;p&gt;Get things done with OpenSSL&lt;/p&gt;&#xA;&lt;h2 id=&#34;private-key&#34;&gt;Private Key&lt;/h2&gt;&#xA;&lt;p&gt;Generate (old devices don&amp;rsquo;t like keys longer than 2048)&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;openssl genrsa -aes128 -out example.key 2048&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Remove password protection&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;openssl rsa -in example.key -out example_open.key&lt;/code&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;certificate-generation&#34;&gt;Certificate Generation&lt;/h2&gt;&#xA;&lt;p&gt;CSR template file (public CAs don&amp;rsquo;t accept IP alternative names)&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[ req ]&#xA;prompt = no&#xA;distinguished_name = dn&#xA;req_extensions = req_ext&#xA;&#xA;[ dn ]&#xA;CN = example.com&#xA;emailAddress = me@example.com&#xA;O = Corp.&#xA;OU = Geek&#xA;L = City&#xA;ST = State&#xA;C = Country&#xA;&#xA;[ req_ext ]&#xA;subjectAltName = @alt_names&#xA;&#xA;[ alt_names ]&#xA;DNS.1 = example.com&#xA;IP.1 = 10.11.12.13&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Generate the CSR from the template&lt;/p&gt;</description>
     </item>
   </channel>

@@ -7,13 +7,13 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Sun, 22 Sep 2024 10:08:53 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 22 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Android Debug Bridge tricks</title>
-      <link>http://localhost:1313/posts/2024-09-22-dirty_bytes/</link>
-      <pubDate>Sun, 22 Sep 2024 10:08:53 +0100</pubDate>
-      <guid>http://localhost:1313/posts/2024-09-22-dirty_bytes/</guid>
+      <link>http://localhost:1313/posts/android_adb/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/android_adb/</guid>
       <description>&lt;p&gt;ADB tricks&lt;/p&gt;&#xA;&lt;h1 id=&#34;commands&#34;&gt;Commands&lt;/h1&gt;&#xA;&lt;p&gt;List installed applications&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb shell pm list packages&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Get application PID&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb shell pidof -s com.application.name&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Logs for given PID&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb logcat --pid=8064&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Screenshot&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;adb exec-out screencap -p &amp;gt; &amp;#34;$(date).png&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>

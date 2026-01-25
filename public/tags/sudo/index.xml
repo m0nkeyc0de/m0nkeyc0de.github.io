@@ -7,12 +7,12 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Sat, 04 Jan 2025 10:08:53 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/sudo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fixing Linux command permissions</title>
       <link>http://localhost:1313/posts/linux_command_permissions/</link>
-      <pubDate>Sat, 04 Jan 2025 10:08:53 +0100</pubDate>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/linux_command_permissions/</guid>
       <description>&lt;p&gt;Some often used commands don&amp;rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.&lt;/p&gt;&#xA;&lt;h2 id=&#34;sudoers&#34;&gt;Sudoers&lt;/h2&gt;&#xA;&lt;p&gt;For applications that must be run as root, adding configuration in &lt;code&gt;/etc/sudoers.d/&lt;/code&gt; is a solution.&lt;/p&gt;&#xA;&lt;p&gt;My handy-dandy commands for Fedora:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/sync&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/nmap&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot&#xA;%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;wireshark-or-tshark-as-non-root&#34;&gt;Wireshark or tshark as non-root&lt;/h2&gt;&#xA;&lt;p&gt;Lauching &lt;code&gt;wireshark&lt;/code&gt; or &lt;code&gt;tshark&lt;/code&gt; as root is discouraged by the application itself.&lt;/p&gt;</description>
     </item>
