@@ -58,9 +58,13 @@
 </code></pre><p>Lines <code>Logical block size is: 2048</code> and <code>Volume size is: 187723</code> contain the information we need for <code>dd</code>.</p>
 <p>Launch the copy with the values gathered above.</p>
 <pre tabindex="0"><code>dd if=/dev/cdrom of=cdrom.iso bs=2048 count=187723 status=progress
+</code></pre><h2 id="create-an-image-of-a-144mb-floppy-disk">Create an image of a 1.44MB floppy disk</h2>
+<p>DOS sector size is 512 bytes. My USB floppy drive shows up as  <code>/dev/sda</code>.</p>
+<pre tabindex="0"><code>dd if=/dev/sda of=&#39;floppy.img&#39; bs=512 status=progress
 </code></pre><h2 id="sources">Sources</h2>
 <ul>
 <li><a href="https://www.thomas-krenn.com/en/wiki/Create_an_ISO_Image_from_a_source_CD_or_DVD_under_Linux">https://www.thomas-krenn.com/en/wiki/Create_an_ISO_Image_from_a_source_CD_or_DVD_under_Linux</a></li>
+<li><a href="http://manmrk.net/tutorials/DOS/PSBOOK/book4/floppyd.htm">http://manmrk.net/tutorials/DOS/PSBOOK/book4/floppyd.htm</a></li>
 </ul>
 
 			</div>
@@ -76,13 +80,13 @@
 				
 				<li><a href="/posts/toolbox/">Toolbox</a></li>
 				
+				<li><a href="/posts/qemu_w11/">Run Windows 11 IoT with QMU</a></li>
+				
 				<li><a href="/posts/rtlsdr/">Software Defined Radio with RTL2832U</a></li>
 				
 				<li><a href="/posts/linux_dd/">Raw data copy with dd on Linux</a></li>
 				
 				<li><a href="/posts/shellygarage/">Garage door control with Shelly and BLE</a></li>
-				
-				<li><a href="/posts/linux_command_permissions/">Fixing Linux command permissions</a></li>
 				
 			</ul>
 		</div>

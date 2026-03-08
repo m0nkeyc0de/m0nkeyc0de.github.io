@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr-ch">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Windows 11 IoT in QEMU</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	=============================<br>
+	== <a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a> ==<br>
+	=============================
+	<div style="float: right;">Notes for my future self.</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+			
+			<a href="/posts/"><b>Posts</b></a>.
+			
+			<a href="/categories/"><b>Categories</b></a>.
+			
+			<a href="/tags/"><b>Tags</b></a>.
+			
+	</nav>
+	</p>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Windows 11 IoT in QEMU</h1>
+			<b><time>2026-03-08 00:00:00</time></b>
+		       
+		           <a href="/tags/qemu">qemu</a>
+        	       
+		           <a href="/tags/linux">linux</a>
+        	       
+
+			<div>
+				<p>Sometimes you absolutely need Windows to run a piece of software. This page explains how to install and run Windows 11 IoT LTSC into QEMU in less than 30 minutes.</p>
+<h2 id="windows-11-iot-ltsc">Windows 11 IoT LTSC</h2>
+<p>This is the best version of Windows so far as it contains no bloat and doesn&rsquo;t require TPM. The catch is that <a href="https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/deployment/volume-license?pivots=windows11">Microsoft doesn&rsquo;t want you to use it</a>.</p>
+<p>Nothing is perfect and here are the non-technical limitations (Microsoft is what it is&hellip;) so far:</p>
+<ul>
+<li>You can&rsquo;t officially buy a license for it.</li>
+<li>Will only work for 90 days without beeing activated (then it&rsquo;ll reboot every hour).</li>
+<li>The online account creation also needs to by bypassed.</li>
+</ul>
+<p>The ISO file can be downloaded from <a href="https://www.microsoft.com/en-us/evalcenter/download-windows-11-iot-enterprise-ltsc-eval">here</a>.</p>
+<p>Here is the way I used to <a href="https://pureinfotech.com/bypass-microsoft-account-setup-windows-11/">bypass Microsoft Account</a> dark pattern:</p>
+<ul>
+<li>Start the terminal with <code>SHIFT+F10</code> on the Region Settings page</li>
+<li>Execute <code>reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f</code></li>
+<li>Reboot with <code>shutdown /r /t 0</code></li>
+<li>Start the terminal with <code>SHIFT+F10</code> on the Region Settings page.</li>
+<li>Disconnect from network with <code>ipconfig /release</code></li>
+<li>Click on <code>I don't have internet</code> when it appears.</li>
+</ul>
+<h2 id="bridge-network">Bridge network</h2>
+<p>If you need to access internet or other network ressources, you&rsquo;ll need a NAT-ed bridge.</p>
+<p>In <strong>NetworkManager</strong>, create a bridge named <code>bridge0</code> and select <code>Share with other computers</code> in the IPv4/IPv6 sections. Bring this connection up.</p>
+<h2 id="qemu">QEMU</h2>
+<p>Windows 11 IoT can be started in QEMU <a href="https://computernewb.com/wiki/QEMU/Guests/Windows_10">with following command</a> (as no TPM is needed, the Windows 10 way works fine):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Sudo is required for bridge nic</span>
+</span></span><span style="display:flex;"><span>sudo qemu-system-x86_64 -M q35,usb<span style="color:#f92672">=</span>on,acpi<span style="color:#f92672">=</span>on,hpet<span style="color:#f92672">=</span>off -m 6G -cpu host,hv_relaxed,hv_frequencies,hv_vpindex,hv_ipi,hv_tlbflush,hv_spinlocks<span style="color:#f92672">=</span>0x1fff,hv_synic,hv_runtime,hv_time,hv_stimer,hv_vapic -smp cores<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> -accel kvm -drive file<span style="color:#f92672">=</span>win11.qcow2 -device usb-tablet -device VGA,vgamem_mb<span style="color:#f92672">=</span><span style="color:#ae81ff">256</span> -monitor stdio -nic bridge,model<span style="color:#f92672">=</span>e1000,br<span style="color:#f92672">=</span>bridge0
+</span></span></code></pre></div><p>Steps for installation:</p>
+<ul>
+<li>Create the disk QCOW image with <code>qemu-img create -f qcow2 win11.qcow2 40G</code></li>
+<li>Add the ISO image as cdrom to qemu command line <code>-cdrom ~/Downloads/26100.1742.240906-0331.ge_release_svc_refresh_CLIENT_IOT_LTSC_EVAL_x64FRE_en-us.iso</code></li>
+</ul>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/toolbox/">Toolbox</a></li>
+				
+				<li><a href="/posts/qemu_w11/">Windows 11 IoT in QEMU</a></li>
+				
+				<li><a href="/posts/rtlsdr/">Software Defined Radio with RTL2832U</a></li>
+				
+				<li><a href="/posts/linux_dd/">Raw data copy with dd on Linux</a></li>
+				
+				<li><a href="/posts/shellygarage/">Garage door control with Shelly and BLE</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
+	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
+	</p>
+</footer>
+
+</body>
+</html>
