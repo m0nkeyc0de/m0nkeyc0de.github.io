@@ -36,5 +36,15 @@ Launch the copy with the values gathered above.
 dd if=/dev/cdrom of=cdrom.iso bs=2048 count=187723 status=progress
 ```
 
+## Create an image of a 1.44MB floppy disk
+
+DOS sector size is 512 bytes. My USB floppy drive shows up as  `/dev/sda`.
+
+```
+dd if=/dev/sda of='floppy.img' bs=512 status=progress
+```
+
+
 ## Sources
 * https://www.thomas-krenn.com/en/wiki/Create_an_ISO_Image_from_a_source_CD_or_DVD_under_Linux
+* http://manmrk.net/tutorials/DOS/PSBOOK/book4/floppyd.htm
