@@ -12,7 +12,7 @@ Quick command reference for using Hugo day to day.
 
 Run in local
 ```
-hugo server -D
+hugo server --disableFastRender --logLevel=debug
 ```
 
 Add a post with **hugo** command

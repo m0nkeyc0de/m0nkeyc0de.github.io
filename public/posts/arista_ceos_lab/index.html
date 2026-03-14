@@ -1,56 +1,82 @@
 <!DOCTYPE html>
-<html lang="fr-ch">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<style type=text/css>body{font-family:monospace;}</style>
-	<title>Network lab with Arista cEOS</title>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Network lab with Arista cEOS - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Work in progress&hellip;
+Lab environment
+All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.
+Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.
+Differences with the bare-metal version:
+
+The reload command is not working on cEOS due to platform limitation.
+The terminal monitor command has no effect as no logs are displayed when something happens.
+The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.
+Network interfaces are named ethX as OS level but OSPF and ISIS need etX names. This must also be tweaked.
+
+Arista cEOS with containerlab
+Containerlab is specially made for running network devices containers." />
+	<meta property="og:image" content="http://localhost:1313/"/>
+	<meta property="og:url" content="http://localhost:1313/posts/arista_ceos_lab/">
+  <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
+  <meta property="og:title" content="Network lab with Arista cEOS">
+  <meta property="og:description" content="Work in progress…
+Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.
+Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.
+Differences with the bare-metal version:
+The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens. The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working. Network interfaces are named ethX as OS level but OSPF and ISIS need etX names. This must also be tweaked. Arista cEOS with containerlab Containerlab is specially made for running network devices containers.">
+  <meta property="og:locale" content="fr_ch">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-04T00:00:00+00:00">
+    <meta property="article:tag" content="Ubuntu">
+    <meta property="article:tag" content="Gns3">
+    <meta property="article:tag" content="Arista">
+    <meta property="article:tag" content="Containerlab">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Network lab with Arista cEOS">
+  <meta name="twitter:description" content="Work in progress…
+Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.
+Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.
+Differences with the bare-metal version:
+The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens. The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working. Network interfaces are named ethX as OS level but OSPF and ISIS need etX names. This must also be tweaked. Arista cEOS with containerlab Containerlab is specially made for running network devices containers.">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
+
 	
-	<link rel="stylesheet" href="/css/style.css">
-	
-	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.a87126a5d38398207e58225b2d1a9faf97f546982f44b3ffb9715a264da36c90.css" />
 </head>
 <body>
-	<header>
-	=============================<br>
-	== <a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a> ==<br>
-	=============================
-	<div style="float: right;">Notes for my future self.</div><br>
-	<p>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a>
+	</div>
 	<nav>
-			<a href="/"><b>Start</b></a>.
-			
-			
-			<a href="/posts/"><b>Posts</b></a>.
-			
-			<a href="/categories/"><b>Categories</b></a>.
-			
-			<a href="/tags/"><b>Tags</b></a>.
-			
+		
+		<a href="/posts/">Posts</a>
+		
+		<a href="/categories/">Categories</a>
+		
+		<a href="/tags/">Tags</a>
+		
+		
 	</nav>
-	</p>
-	
 </header>
 
-	
-	<main>
-		<article>
-			<h1>Network lab with Arista cEOS</h1>
-			<b><time>2025-01-04 00:00:00</time></b>
-		       
-		           <a href="/tags/ubuntu">ubuntu</a>
-        	       
-		           <a href="/tags/gns3">gns3</a>
-        	       
-		           <a href="/tags/arista">arista</a>
-        	       
-		           <a href="/tags/containerlab">containerlab</a>
-        	       
-
-			<div>
-				<p>Work in progress&hellip;</p>
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Network lab with Arista cEOS</h1>
+          <div class="meta">Posted on Jan 4, 2025</div>
+        </div>
+        
+        <section class="body">
+          <p>Work in progress&hellip;</p>
 <h2 id="lab-environment">Lab environment</h2>
 <p>All the lab runs on a <em>HP EliteDesk 800 G5 mini</em> (with an <em>Intel Core i5-9500</em> CPU and 16GB of RAM) running <em>Ubuntu 24.04 LTS</em>.</p>
 <p>Arista cEOSlab Docker image can be downloaded after creating an account on the <a href="https://www.arista.com/en/support/customer-support">Arista Customer Support page</a>.</p>
@@ -196,38 +222,42 @@ MGMT_INTF=eth0
 </code></pre><p>Then you can add a device to your topology and start it. To enter in the shell you need to open the auxiliary console and run <code>FastCli</code> command, unless the Management0 interface is available.</p>
 <p>System MAC and interface naming scheme have to be tweaked but it can only be done manually in GNS3 as far as I&rsquo;ve seen. As I want my lab setups to be as automated as possible, the GNS3 experience stops here.</p>
 
-			</div>
-		</article>
-	</main>
-<aside>
-	<div>
-		<div>
-			<h3>LATEST POSTS</h3>
-		</div>
-		<div>
-			<ul>
-				
-				<li><a href="/posts/toolbox/">Toolbox</a></li>
-				
-				<li><a href="/posts/qemu_w11/">Run Windows 11 IoT with QMU</a></li>
-				
-				<li><a href="/posts/rtlsdr/">Software Defined Radio with RTL2832U</a></li>
-				
-				<li><a href="/posts/linux_dd/">Raw data copy with dd on Linux</a></li>
-				
-				<li><a href="/posts/shellygarage/">Garage door control with Shelly and BLE</a></li>
-				
-			</ul>
-		</div>
-	</div>
-</aside>
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/ubuntu/">ubuntu</a></li>
+              
+              <li><a href="/tags/gns3/">gns3</a></li>
+              
+              <li><a href="/tags/arista/">arista</a></li>
+              
+              <li><a href="/tags/containerlab/">containerlab</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
 
+      
+      
+    </div>
 
-	<footer>
-	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
-	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
-	</p>
+    </article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2026  Enjoy ! |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
 </footer>
 
-</body>
+</div>
+    </body>
 </html>

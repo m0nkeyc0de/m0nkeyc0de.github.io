@@ -7,20 +7,27 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Fri, 26 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/categories/linux/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wi-Fi</title>
+      <link>http://localhost:1313/categories/wi-fi/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/wi-fi/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Diy</title>
       <link>http://localhost:1313/categories/diy/</link>
       <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/categories/diy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>http://localhost:1313/categories/linux/</link>
-      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/linux/</guid>
       <description></description>
     </item>
     <item>

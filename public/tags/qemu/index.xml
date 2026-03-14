@@ -10,11 +10,11 @@
     <lastBuildDate>Sun, 08 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/qemu/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Run Windows 11 IoT with QMU</title>
+      <title>Windows 11 IoT in QEMU</title>
       <link>http://localhost:1313/posts/qemu_w11/</link>
       <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/qemu_w11/</guid>
-      <description>&lt;p&gt;Sometimes you absolutely need Windows to run a piece of software. This page explains how to run Windows 11 IoT LTSC into QEMU. This can be achieved in less than 30 minutes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;qemu-and-networking&#34;&gt;QEMU and networking&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;strong&gt;NetworkManager&lt;/strong&gt;, create a bridge named &lt;code&gt;bridge0&lt;/code&gt; and select &lt;code&gt;Share with other computers&lt;/code&gt; in the IPv4 section. Bring this connection up.&lt;/p&gt;&#xA;&lt;p&gt;Once installed, run your W11 virtual machine &lt;a href=&#34;https://computernewb.com/wiki/QEMU/Guests/Windows_10&#34;&gt;that way&lt;/a&gt; (as no TPM is needed, the W10 way works):&lt;/p&gt;</description>
+      <description>&lt;p&gt;Sometimes you absolutely need Windows to run a piece of software. This page explains how to install and run Windows 11 IoT LTSC into QEMU in less than 30 minutes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;windows-11-iot-ltsc&#34;&gt;Windows 11 IoT LTSC&lt;/h2&gt;&#xA;&lt;p&gt;This is the best version of Windows so far as it contains no bloat and doesn&amp;rsquo;t require TPM. The catch is that &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/deployment/volume-license?pivots=windows11&#34;&gt;Microsoft doesn&amp;rsquo;t want you to use it&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Nothing is perfect and here are the non-technical limitations (Microsoft is what it is&amp;hellip;) so far:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,56 +1,117 @@
 <!DOCTYPE html>
-<html lang="fr-ch">
-<head>
-	<meta name="generator" content="Hugo 0.158.0-DEV"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<style type=text/css>body{font-family:monospace;}</style>
-	<title>m0nkeyc0de&#39;s brain dump</title>
+<html>
+	<head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>m0nkeyc0de&#39;s brain dump | Home </title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta property="og:image" content="http://localhost:1313/"/>
+	<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="m0nkeyc0de's brain dump" />
+	<meta property="og:url" content="http://localhost:1313/">
+  <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
+  <meta property="og:title" content="m0nkeyc0de&#39;s brain dump">
+  <meta property="og:locale" content="fr_ch">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="m0nkeyc0de&#39;s brain dump">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
-	
-	<link rel="stylesheet" href="/css/style.css">
-	
-	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="m0nkeyc0de's brain dump">
-</head>
-<body>
-	<header>
-	=============================<br>
-	== <a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a> ==<br>
-	=============================
-	<div style="float: right;">Notes for my future self.</div><br>
-	<p>
-	<nav>
-			<a href="/"><b>Start</b></a>.
-			
-			
-			<a href="/posts/"><b>Posts</b></a>.
-			
-			<a href="/categories/"><b>Categories</b></a>.
-			
-			<a href="/tags/"><b>Tags</b></a>.
-			
-	</nav>
-	</p>
-	
-</header>
 
 	
-	<main>
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.a87126a5d38398207e58225b2d1a9faf97f546982f44b3ffb9715a264da36c90.css" />
+</head>
+
+	<body>
+		<div class="content">
+			<header>
+	<div class="main">
+		<a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a>
+	</div>
+	<nav>
+		
+		<a href="/posts/">Posts</a>
+		
+		<a href="/categories/">Categories</a>
+		
+		<a href="/tags/">Tags</a>
 		
 		
-			<article>
-	<h1><a href="http://localhost:1313/posts/boot_interruption/">Boot interruption keystrokes</a></h1>
-	<b><time>2024-01-21 00:00:00</time></b>
+	</nav>
+</header>
+
+			
+			<main class="list">
+				<div class="site-description"><p>Notes for my future self.</p></div>
+				
+				
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/posts/openssl_cheat_sheet/">OpenSSL Cheat Sheet</a></h1>
+					<time>Sep 15, 2024</time>
+					<br><div class="description">
 	
-	<a href="/tags/boot">boot</a>
+	<p>Get things done with OpenSSL</p>
+<h2 id="private-key">Private Key</h2>
+<p>Generate (old devices don&rsquo;t like keys longer than 2048)</p>
+<p><code>openssl genrsa -aes128 -out example.key 2048</code></p>
+<p>Remove password protection</p>
+<p><code>openssl rsa -in example.key -out example_open.key</code></p>
+<h2 id="certificate-generation">Certificate Generation</h2>
+<p>CSR template file (public CAs don&rsquo;t accept IP alternative names)</p>
+<pre tabindex="0"><code>[ req ]
+prompt = no
+distinguished_name = dn
+req_extensions = req_ext
+
+[ dn ]
+CN = example.com
+emailAddress = me@example.com
+O = Corp.
+OU = Geek
+L = City
+ST = State
+C = Country
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = example.com
+IP.1 = 10.11.12.13
+</code></pre><p>Generate the CSR from the template</p>&hellip;
 	
-	<a href="/tags/bios">bios</a>
+</div>
+					<a class="readmore" href="/posts/openssl_cheat_sheet/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/posts/gnome_boxes/">GNOME Boxes</a></h1>
+					<time>Feb 4, 2024</time>
+					<br><div class="description">
 	
-	<a href="/tags/android">android</a>
+	<p>Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&rsquo;s there, let&rsquo;s give it a try !</p>
+<h2 id="file-transfer">File transfer</h2>
+<p>Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:</p>
+<ul>
+<li>Install <strong>spice-webdavd</strong> and <strong>spice-client-gtk</strong> in the guest VM and restart it</li>
+<li>Share the folders through the Boxes settings</li>
+<li>Go in <strong>+ Other Locations</strong> in the guest VM Nautilus file explorer</li>
+<li>An entry <strong>Spice client folder</strong> containing the shared folders should appear</li>
+</ul>
+<h2 id="advanced-vm-settings">Advanced VM settings</h2>
+<p>It&rsquo;s simplicity comes at the expense of configuration options. Fortunately it runs QEMU/KVM under the hood thus advanced settings can be managed with <strong>virt-manager</strong>. Once installed, simply connected to <strong>QEMU/KVM user session</strong> and all the Boxes VMs will show up.</p>&hellip;
 	
-	<div>
-		<p>Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.</p>
+</div>
+					<a class="readmore" href="/posts/gnome_boxes/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/posts/boot_interruption/">Boot interruption keystrokes</a></h1>
+					<time>Jan 21, 2024</time>
+					<br><div class="description">
+	
+	<p>Each vendor uses different keys to interrupt boot sequence and chose boot device, open the BIOS/UEFI configuration page or do whatever is possible.</p>
 <h2 id="pclaptop">PC/Laptop</h2>
 <p>Apple</p>
 <ul>
@@ -73,64 +134,50 @@
 <li>Boot menu : <strong>F10</strong></li>
 </ul>
 <h2 id="android">Android</h2>
-<p>Lenovo P2</p>
-		
-			<a href="http://localhost:1313/posts/boot_interruption/">Read more...</a>
-		
-	</div>
-</article>
-
-		
-			<article>
-	<h1><a href="http://localhost:1313/posts/dirty_bytes/">File transfer stuck at 99% on Linux</a></h1>
-	<b><time>2024-01-21 00:00:00</time></b>
+<p>Lenovo P2</p>&hellip;
 	
-	<a href="/tags/storage">storage</a>
+</div>
+					<a class="readmore" href="/posts/boot_interruption/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/posts/dirty_bytes/">File transfer stuck at 99% on Linux</a></h1>
+					<time>Jan 21, 2024</time>
+					<br><div class="description">
 	
-	<div>
-		<p>When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&rsquo;s not the case.</p>
-<p>In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM). In order to know when the copy is finished, the <code>sync</code> command can be run (it may take `d)</p>
-		
-			<a href="http://localhost:1313/posts/dirty_bytes/">Read more...</a>
-		
-	</div>
-</article>
-
-		
-			<article>
-	<h1><a href="http://localhost:1313/posts/storage_wipe/">Wiping storage devices</a></h1>
-	<b><time>2024-01-21 00:00:00</time></b>
+	<p>When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it&rsquo;s not the case.</p>
+<p>In fact from the point of view of the copy command (GUI or CLI) the file transfer is almost finished but from the OS point of view data is still syncing from the RAM to the flash drive (which has a lower write speed than the read speed of the SSD to your RAM). In order to know when the copy is finished, the <code>sync</code> command can be run (it may take `d)</p>&hellip;
 	
-	<a href="/tags/storage">storage</a>
+</div>
+					<a class="readmore" href="/posts/dirty_bytes/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/posts/storage_wipe/">Wiping storage devices</a></h1>
+					<time>Jan 21, 2024</time>
+					<br><div class="description">
 	
-	<a href="/tags/linux">linux</a>
-	
-	<div>
-		<p>Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&hellip;</p>
+	<p>Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&hellip;</p>
 <h2 id="expeditive-solution">Expeditive solution</h2>
 <p>If you can&rsquo;t wipe your drive properly, have some fun and <strong>destroy</strong> it physically.</p>
 <h2 id="vendor-provided-solutions">Vendor provided solutions</h2>
 <p>Some device vendors (HP for example) provide a built-in <strong>Secure Erase</strong> solution in the BIOS/UEFI.</p>
 <h2 id="diy-solutions">DIY solutions</h2>
 <h3 id="hard-disk-drives">Hard Disk Drives</h3>
-<p>All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out. The Linux <strong>shred</strong> command does the job well by default (3 random iterations).</p>
-		
-			<a href="http://localhost:1313/posts/storage_wipe/">Read more...</a>
-		
-	</div>
-</article>
-
-		
-			<article>
-	<h1><a href="http://localhost:1313/posts/hugo/">Hugo Cheat Sheet</a></h1>
-	<b><time>2024-01-16 00:00:00</time></b>
+<p>All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out. The Linux <strong>shred</strong> command does the job well by default (3 random iterations).</p>&hellip;
 	
-	<a href="/tags/hugo">hugo</a>
+</div>
+					<a class="readmore" href="/posts/storage_wipe/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
+					<h1 class="title"><a href="/posts/hugo/">Hugo Cheat Sheet</a></h1>
+					<time>Jan 16, 2024</time>
+					<br><div class="description">
 	
-	<div>
-		<p>Quick command reference for using Hugo day to day.</p>
+	<p>Quick command reference for using Hugo day to day.</p>
 <p>Run in local</p>
-<pre tabindex="0"><code>hugo server -D
+<pre tabindex="0"><code>hugo server --disableFastRender --logLevel=debug
 </code></pre><p>Add a post with <strong>hugo</strong> command</p>
 <pre tabindex="0"><code>hugo new posts/hugo_cheat_sheet.md
 </code></pre><p>Add a post manually in <strong>contents/posts/new_post.md</strong></p>
@@ -145,27 +192,37 @@ categories:
 tags:
   - default
 ---
-</code></pre>
-		
-	</div>
-</article>
-
-		
-		<div>
-
-	<a href="/">Previous Page</a>
-
-2 of 2
-
+</code></pre>&hellip;
+	
 </div>
+					<a class="readmore" href="/posts/hugo/">Read more ⟶</a>
+				</section>
+				
+				
 
-	</main>
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+    <a href="/" class="page-link" aria-label="Previous"><span aria-hidden="true">← Prev</span></a>
+	
+	</span>
+	<span class="page-item page-next">
+	
+	</span>
+</ul>
 
-	<footer>
-	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
-	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
-	</p>
+
+			</main>
+			<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2026  Enjoy ! |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
 </footer>
 
-</body>
+
+		</div>
+		
+	</body>
 </html>

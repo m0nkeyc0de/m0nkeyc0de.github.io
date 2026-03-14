@@ -1,64 +1,80 @@
 <!DOCTYPE html>
-<html lang="fr-ch">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<style type=text/css>body{font-family:monospace;}</style>
-	<title>Fixing Linux command permissions</title>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Fixing Linux command permissions - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.
+Sudoers
+For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.
+My handy-dandy commands for Fedora:
+%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update
+%wheel ALL=(root) NOPASSWD:/usr/bin/sync
+%wheel ALL=(root) NOPASSWD:/usr/bin/nmap
+%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot
+%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump
+Wireshark or tshark as non-root
+Lauching wireshark or tshark as root is discouraged by the application itself." />
+	<meta property="og:image" content="http://localhost:1313/"/>
+	<meta property="og:url" content="http://localhost:1313/posts/linux_command_permissions/">
+  <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
+  <meta property="og:title" content="Fixing Linux command permissions">
+  <meta property="og:description" content="Some often used commands don’t work out-of-the-box with an unprivileged user. This page will explain how to get around.
+Sudoers For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.
+My handy-dandy commands for Fedora:
+%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update %wheel ALL=(root) NOPASSWD:/usr/bin/sync %wheel ALL=(root) NOPASSWD:/usr/bin/nmap %wheel ALL=(root) NOPASSWD:/usr/bin/fastboot %wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump Wireshark or tshark as non-root Lauching wireshark or tshark as root is discouraged by the application itself.">
+  <meta property="og:locale" content="fr_ch">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-04T00:00:00+00:00">
+    <meta property="article:tag" content="Fedora">
+    <meta property="article:tag" content="Sudo">
+    <meta property="article:tag" content="Setuid">
+    <meta property="article:tag" content="Tcpdump">
+    <meta property="article:tag" content="Tshark">
+    <meta property="article:tag" content="Wireshark">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fixing Linux command permissions">
+  <meta name="twitter:description" content="Some often used commands don’t work out-of-the-box with an unprivileged user. This page will explain how to get around.
+Sudoers For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.
+My handy-dandy commands for Fedora:
+%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update %wheel ALL=(root) NOPASSWD:/usr/bin/sync %wheel ALL=(root) NOPASSWD:/usr/bin/nmap %wheel ALL=(root) NOPASSWD:/usr/bin/fastboot %wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump Wireshark or tshark as non-root Lauching wireshark or tshark as root is discouraged by the application itself.">
+
+        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
+
 	
-	<link rel="stylesheet" href="/css/style.css">
-	
-	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.a87126a5d38398207e58225b2d1a9faf97f546982f44b3ffb9715a264da36c90.css" />
 </head>
 <body>
-	<header>
-	=============================<br>
-	== <a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a> ==<br>
-	=============================
-	<div style="float: right;">Notes for my future self.</div><br>
-	<p>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a>
+	</div>
 	<nav>
-			<a href="/"><b>Start</b></a>.
-			
-			
-			<a href="/posts/"><b>Posts</b></a>.
-			
-			<a href="/categories/"><b>Categories</b></a>.
-			
-			<a href="/tags/"><b>Tags</b></a>.
-			
+		
+		<a href="/posts/">Posts</a>
+		
+		<a href="/categories/">Categories</a>
+		
+		<a href="/tags/">Tags</a>
+		
+		
 	</nav>
-	</p>
-	
 </header>
 
-	
-	<main>
-		<article>
-			<h1>Fixing Linux command permissions</h1>
-			<b><time>2025-01-04 00:00:00</time></b>
-		       
-		           <a href="/tags/fedora">fedora</a>
-        	       
-		           <a href="/tags/sudo">sudo</a>
-        	       
-		           <a href="/tags/setuid">setuid</a>
-        	       
-		           <a href="/tags/tcpdump">tcpdump</a>
-        	       
-		           <a href="/tags/tshark">tshark</a>
-        	       
-		           <a href="/tags/wireshark">wireshark</a>
-        	       
-		           <a href="/tags/minicom">minicom</a>
-        	       
-		           <a href="/tags/picocom">picocom</a>
-        	       
-
-			<div>
-				<p>Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.</p>
+<main>
+  <article>
+    <div class="post-container">
+      
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">Fixing Linux command permissions</h1>
+          <div class="meta">Posted on Jan 4, 2025</div>
+        </div>
+        
+        <section class="body">
+          <p>Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.</p>
 <h2 id="sudoers">Sudoers</h2>
 <p>For applications that must be run as root, adding configuration in <code>/etc/sudoers.d/</code> is a solution.</p>
 <p>My handy-dandy commands for Fedora:</p>
@@ -86,38 +102,50 @@ crw-rw----+ 1 root dialout 188, 0  4 jan 16:41 /dev/ttyUSB0
 -rwsr-xr-x. 1 root root 162K  7 sep 02:00 /bin/ping
 </code></pre><p><strong>CAUTION</strong> : there may be security concerns as the command is now executed with root privileges for every user (you could overwrite anything on your system with the <code>-w</code> option of <code>tcpdump</code>). Using <code>sudoers</code> is a safer solution.</p>
 
-			</div>
-		</article>
-	</main>
-<aside>
-	<div>
-		<div>
-			<h3>LATEST POSTS</h3>
-		</div>
-		<div>
-			<ul>
-				
-				<li><a href="/posts/toolbox/">Toolbox</a></li>
-				
-				<li><a href="/posts/qemu_w11/">Run Windows 11 IoT with QMU</a></li>
-				
-				<li><a href="/posts/rtlsdr/">Software Defined Radio with RTL2832U</a></li>
-				
-				<li><a href="/posts/linux_dd/">Raw data copy with dd on Linux</a></li>
-				
-				<li><a href="/posts/shellygarage/">Garage door control with Shelly and BLE</a></li>
-				
-			</ul>
-		</div>
-	</div>
-</aside>
+        </section>
+        <div class="post-tags">
+          
+          
+          <nav class="nav tags">
+            <ul class="tags">
+              
+              <li><a href="/tags/fedora/">fedora</a></li>
+              
+              <li><a href="/tags/sudo/">sudo</a></li>
+              
+              <li><a href="/tags/setuid/">setuid</a></li>
+              
+              <li><a href="/tags/tcpdump/">tcpdump</a></li>
+              
+              <li><a href="/tags/tshark/">tshark</a></li>
+              
+              <li><a href="/tags/wireshark/">wireshark</a></li>
+              
+              <li><a href="/tags/minicom/">minicom</a></li>
+              
+              <li><a href="/tags/picocom/">picocom</a></li>
+              
+            </ul>
+          </nav>
+          
+          
+        </div>
+      </div>
 
+      
+      
+    </div>
 
-	<footer>
-	<p>&copy; 2026 <a href="http://localhost:1313/"><b>Enjoy !</b></a>.
-	<a href="https://github.com/m0nkeyc0de"><b>Github</b></a>.
-	</p>
+    </article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2026  Enjoy ! |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
 </footer>
 
-</body>
+</div>
+    </body>
 </html>

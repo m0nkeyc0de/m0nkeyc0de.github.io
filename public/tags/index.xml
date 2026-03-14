@@ -7,13 +7,27 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Sun, 08 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux</title>
       <link>http://localhost:1313/tags/linux/</link>
-      <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wifi</title>
+      <link>http://localhost:1313/tags/wifi/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/wifi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wlan</title>
+      <link>http://localhost:1313/tags/wlan/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/wlan/</guid>
       <description></description>
     </item>
     <item>
