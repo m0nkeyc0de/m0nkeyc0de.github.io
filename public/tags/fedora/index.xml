@@ -14,14 +14,14 @@
       <link>http://localhost:1313/posts/linux_command_permissions/</link>
       <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/linux_command_permissions/</guid>
-      <description>&lt;p&gt;Some often used commands don&amp;rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.&lt;/p&gt;&#xA;&lt;h2 id=&#34;sudoers&#34;&gt;Sudoers&lt;/h2&gt;&#xA;&lt;p&gt;For applications that must be run as root, adding configuration in &lt;code&gt;/etc/sudoers.d/&lt;/code&gt; is a solution.&lt;/p&gt;&#xA;&lt;p&gt;My handy-dandy commands for Fedora:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/sync&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/nmap&#xA;%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot&#xA;%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;wireshark-or-tshark-as-non-root&#34;&gt;Wireshark or tshark as non-root&lt;/h2&gt;&#xA;&lt;p&gt;Lauching &lt;code&gt;wireshark&lt;/code&gt; or &lt;code&gt;tshark&lt;/code&gt; as root is discouraged by the application itself.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Some often used commands don&amp;rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.&lt;/p&gt;</description>
     </item>
     <item>
       <title>GNOME Boxes</title>
       <link>http://localhost:1313/posts/gnome_boxes/</link>
       <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/gnome_boxes/</guid>
-      <description>&lt;p&gt;Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&amp;rsquo;s there, let&amp;rsquo;s give it a try !&lt;/p&gt;&#xA;&lt;h2 id=&#34;file-transfer&#34;&gt;File transfer&lt;/h2&gt;&#xA;&lt;p&gt;Drag and drop works, but you may want to mount some folders. The SPICE protocol does the trick:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Install &lt;strong&gt;spice-webdavd&lt;/strong&gt; and &lt;strong&gt;spice-client-gtk&lt;/strong&gt; in the guest VM and restart it&lt;/li&gt;&#xA;&lt;li&gt;Share the folders through the Boxes settings&lt;/li&gt;&#xA;&lt;li&gt;Go in &lt;strong&gt;+ Other Locations&lt;/strong&gt; in the guest VM Nautilus file explorer&lt;/li&gt;&#xA;&lt;li&gt;An entry &lt;strong&gt;Spice client folder&lt;/strong&gt; containing the shared folders should appear&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;advanced-vm-settings&#34;&gt;Advanced VM settings&lt;/h2&gt;&#xA;&lt;p&gt;It&amp;rsquo;s simplicity comes at the expense of configuration options. Fortunately it runs QEMU/KVM under the hood thus advanced settings can be managed with &lt;strong&gt;virt-manager&lt;/strong&gt;. Once installed, simply connected to &lt;strong&gt;QEMU/KVM user session&lt;/strong&gt; and all the Boxes VMs will show up.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it&amp;rsquo;s there, let&amp;rsquo;s give it a try !&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

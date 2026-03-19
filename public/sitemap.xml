@@ -5,7 +5,7 @@
     <loc>http://localhost:1313/posts/toolbox/</loc>
     <lastmod>2024-01-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/quickref/</loc>
+    <loc>http://localhost:1313/posts/cheatsheets/</loc>
     <lastmod>2026-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
@@ -32,7 +32,7 @@
     <loc>http://localhost:1313/tags/wlan/</loc>
     <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/toolbox/</loc>
+    <loc>http://localhost:1313/posts/wlanaphostapd/</loc>
     <lastmod>2026-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/miscellanous/</loc>
@@ -175,14 +175,5 @@
   </url><url>
     <loc>http://localhost:1313/posts/storage_wipe/</loc>
     <lastmod>2024-01-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/how-to/</loc>
-    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/hugo/</loc>
-    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/hugo/</loc>
-    <lastmod>2024-01-16T00:00:00+00:00</lastmod>
   </url>
 </urlset>

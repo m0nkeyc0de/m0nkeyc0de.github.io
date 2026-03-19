@@ -2,27 +2,12 @@
 <html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Android Debug Bridge tricks - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="ADB tricks
-Commands
-List installed applications
-adb shell pm list packages
-Get application PID
-adb shell pidof -s com.application.name
-Logs for given PID
-adb logcat --pid=8064
-Screenshot
-adb exec-out screencap -p &gt; &#34;$(date).png&#34;
-" />
+	<meta name="description" content="ADB tricks" />
 	<meta property="og:image" content="http://localhost:1313/"/>
 	<meta property="og:url" content="http://localhost:1313/posts/android_adb/">
   <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
   <meta property="og:title" content="Android Debug Bridge tricks">
-  <meta property="og:description" content="ADB tricks
-Commands List installed applications
-adb shell pm list packages Get application PID
-adb shell pidof -s com.application.name Logs for given PID
-adb logcat --pid=8064 Screenshot
-adb exec-out screencap -p &gt; &#34;$(date).png&#34;">
+  <meta property="og:description" content="ADB tricks">
   <meta property="og:locale" content="fr_ch">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -33,12 +18,7 @@ adb exec-out screencap -p &gt; &#34;$(date).png&#34;">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Android Debug Bridge tricks">
-  <meta name="twitter:description" content="ADB tricks
-Commands List installed applications
-adb shell pm list packages Get application PID
-adb shell pidof -s com.application.name Logs for given PID
-adb logcat --pid=8064 Screenshot
-adb exec-out screencap -p &gt; &#34;$(date).png&#34;">
+  <meta name="twitter:description" content="ADB tricks">
 
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -75,7 +55,7 @@ adb exec-out screencap -p &gt; &#34;$(date).png&#34;">
         
         <section class="body">
           <p>ADB tricks</p>
-<h1 id="commands">Commands</h1>
+<h2 id="commands">Commands</h2>
 <p>List installed applications</p>
 <pre tabindex="0"><code>adb shell pm list packages
 </code></pre><p>Get application PID</p>

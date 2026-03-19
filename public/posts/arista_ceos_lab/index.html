@@ -2,28 +2,12 @@
 <html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Network lab with Arista cEOS - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Work in progress&hellip;
-Lab environment
-All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.
-Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.
-Differences with the bare-metal version:
-
-The reload command is not working on cEOS due to platform limitation.
-The terminal monitor command has no effect as no logs are displayed when something happens.
-The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.
-Network interfaces are named ethX as OS level but OSPF and ISIS need etX names. This must also be tweaked.
-
-Arista cEOS with containerlab
-Containerlab is specially made for running network devices containers." />
+	<meta name="description" content="Work in progress&hellip;" />
 	<meta property="og:image" content="http://localhost:1313/"/>
 	<meta property="og:url" content="http://localhost:1313/posts/arista_ceos_lab/">
   <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
   <meta property="og:title" content="Network lab with Arista cEOS">
-  <meta property="og:description" content="Work in progress…
-Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.
-Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.
-Differences with the bare-metal version:
-The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens. The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working. Network interfaces are named ethX as OS level but OSPF and ISIS need etX names. This must also be tweaked. Arista cEOS with containerlab Containerlab is specially made for running network devices containers.">
+  <meta property="og:description" content="Work in progress…">
   <meta property="og:locale" content="fr_ch">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -36,11 +20,7 @@ The reload command is not working on cEOS due to platform limitation. The termin
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Network lab with Arista cEOS">
-  <meta name="twitter:description" content="Work in progress…
-Lab environment All the lab runs on a HP EliteDesk 800 G5 mini (with an Intel Core i5-9500 CPU and 16GB of RAM) running Ubuntu 24.04 LTS.
-Arista cEOSlab Docker image can be downloaded after creating an account on the Arista Customer Support page.
-Differences with the bare-metal version:
-The reload command is not working on cEOS due to platform limitation. The terminal monitor command has no effect as no logs are displayed when something happens. The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working. Network interfaces are named ethX as OS level but OSPF and ISIS need etX names. This must also be tweaked. Arista cEOS with containerlab Containerlab is specially made for running network devices containers.">
+  <meta name="twitter:description" content="Work in progress…">
 
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -245,6 +225,29 @@ MGMT_INTF=eth0
       </div>
 
       
+      
+      <div class="toc">
+        <strong>Table of contents:</strong>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lab-environment">Lab environment</a></li>
+    <li><a href="#arista-ceos-with-containerlab">Arista cEOS with containerlab</a>
+      <ul>
+        <li><a href="#getting-up-and-running">Getting up-and-running</a></li>
+        <li><a href="#usage-tips">Usage tips</a></li>
+      </ul>
+    </li>
+    <li><a href="#arista-ceos-with-gns3">Arista cEOS with GNS3</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#http-gui">HTTP GUI</a></li>
+        <li><a href="#heavy-client">Heavy client</a></li>
+        <li><a href="#ceos-setup-for-gns3">cEOS setup for GNS3</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
       
     </div>
 

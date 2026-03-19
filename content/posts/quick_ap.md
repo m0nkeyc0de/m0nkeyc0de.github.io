@@ -10,17 +10,20 @@ tags:
   - wlan
   - linux
   - hostapd
+toc: true
 ---
-With **hostapd** you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark. Inspiration is taken from [Matt Brown's mitmrouter project](https://github.com/nmatt0/mitmrouter) which configures the entire network stack manually. Here we leverage **NetworkManager** instead.
+With **hostapd** you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark.
 
-# Hardware considerations
+Inspiration is taken from [Matt Brown's mitmrouter project](https://github.com/nmatt0/mitmrouter) which configures the entire network stack manually. Here we leverage **NetworkManager** instead.
+
+## Hardware considerations
 As usual when messing around with WLAN, adapter support is hit-or-miss:
 
 * [**Alfa Network AWUS036AXML**](https://www.alfa.com.tw/products/awus036axml) adapter, based on a MediaTek MT7921AUN chipset works well.
 * TP-Link Archer T3U adapter, based on a Realtek RTl8812BU chipset did not send any beacons out. Not great for an access point.
-* Intel AX200 PCIe card works, but you end up with the international regulatory domain (see [the monitor mode article](wlan_capture.md) for more details).
+* Intel AX200 PCIe card works, but you end up with the international regulatory domain (see [the OTA WLAN capture article](../wlan_capture) for more details).
 
-# Uplink connectivity
+## Uplink connectivity
 Connected devices need at least to receive an IP address. They may also connect to internet. We're going to create `bridge0` interface with NetworkManager and apply connection sharing on it.
 
 ```bash
@@ -37,7 +40,7 @@ nmcli connection add type bridge \
 nmcli con up bridge0
 ```
 
-# Access point
+## Access point
 Create a `hostapd.conf` file with following content.
 
 ```

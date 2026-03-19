@@ -2,46 +2,12 @@
 <html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>OpenSSL Cheat Sheet - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Get things done with OpenSSL
-Private Key
-Generate (old devices don&rsquo;t like keys longer than 2048)
-openssl genrsa -aes128 -out example.key 2048
-Remove password protection
-openssl rsa -in example.key -out example_open.key
-Certificate Generation
-CSR template file (public CAs don&rsquo;t accept IP alternative names)
-[ req ]
-prompt = no
-distinguished_name = dn
-req_extensions = req_ext
-
-[ dn ]
-CN = example.com
-emailAddress = me@example.com
-O = Corp.
-OU = Geek
-L = City
-ST = State
-C = Country
-
-[ req_ext ]
-subjectAltName = @alt_names
-
-[ alt_names ]
-DNS.1 = example.com
-IP.1 = 10.11.12.13
-Generate the CSR from the template" />
+	<meta name="description" content="Get things done with OpenSSL" />
 	<meta property="og:image" content="http://localhost:1313/"/>
 	<meta property="og:url" content="http://localhost:1313/posts/openssl_cheat_sheet/">
   <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
   <meta property="og:title" content="OpenSSL Cheat Sheet">
-  <meta property="og:description" content="Get things done with OpenSSL
-Private Key Generate (old devices don’t like keys longer than 2048)
-openssl genrsa -aes128 -out example.key 2048
-Remove password protection
-openssl rsa -in example.key -out example_open.key
-Certificate Generation CSR template file (public CAs don’t accept IP alternative names)
-[ req ] prompt = no distinguished_name = dn req_extensions = req_ext [ dn ] CN = example.com emailAddress = me@example.com O = Corp. OU = Geek L = City ST = State C = Country [ req_ext ] subjectAltName = @alt_names [ alt_names ] DNS.1 = example.com IP.1 = 10.11.12.13 Generate the CSR from the template">
+  <meta property="og:description" content="Get things done with OpenSSL">
   <meta property="og:locale" content="fr_ch">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -51,13 +17,7 @@ Certificate Generation CSR template file (public CAs don’t accept IP alternati
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="OpenSSL Cheat Sheet">
-  <meta name="twitter:description" content="Get things done with OpenSSL
-Private Key Generate (old devices don’t like keys longer than 2048)
-openssl genrsa -aes128 -out example.key 2048
-Remove password protection
-openssl rsa -in example.key -out example_open.key
-Certificate Generation CSR template file (public CAs don’t accept IP alternative names)
-[ req ] prompt = no distinguished_name = dn req_extensions = req_ext [ dn ] CN = example.com emailAddress = me@example.com O = Corp. OU = Geek L = City ST = State C = Country [ req_ext ] subjectAltName = @alt_names [ alt_names ] DNS.1 = example.com IP.1 = 10.11.12.13 Generate the CSR from the template">
+  <meta name="twitter:description" content="Get things done with OpenSSL">
 
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -182,6 +142,24 @@ IP.1 = 10.11.12.13
       </div>
 
       
+      
+      <div class="toc">
+        <strong>Table of contents:</strong>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#private-key">Private Key</a></li>
+    <li><a href="#certificate-generation">Certificate Generation</a>
+      <ul>
+        <li><a href="#self-signed-root-ca">Self signed (Root CA)</a></li>
+      </ul>
+    </li>
+    <li><a href="#format-conversions">Format Conversions</a></li>
+    <li><a href="#server-analysis">Server Analysis</a></li>
+    <li><a href="#certificate-validation">Certificate Validation</a></li>
+    <li><a href="#file-encryption">File Encryption</a></li>
+  </ul>
+</nav>
+      </div>
       
     </div>
 

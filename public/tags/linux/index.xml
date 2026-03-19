@@ -11,38 +11,38 @@
     <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WLAN access point with hostapd</title>
-      <link>http://localhost:1313/posts/toolbox/</link>
+      <link>http://localhost:1313/posts/wlanaphostapd/</link>
       <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/toolbox/</guid>
-      <description>&lt;p&gt;With &lt;strong&gt;hostapd&lt;/strong&gt; you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark. Inspiration is taken from &lt;a href=&#34;https://github.com/nmatt0/mitmrouter&#34;&gt;Matt Brown&amp;rsquo;s mitmrouter project&lt;/a&gt; which configures the entire network stack manually. Here we leverage **NetworkManager&amp;quot;&amp;quot; instead.&lt;/p&gt;&#xA;&lt;h1 id=&#34;hardware-considerations&#34;&gt;Hardware considerations&lt;/h1&gt;&#xA;&lt;p&gt;As usual when messing around with WLAN, adapter support is hit-or-miss:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.alfa.com.tw/products/awus036axml&#34;&gt;&lt;strong&gt;Alfa Network AWUS036AXML&lt;/strong&gt;&lt;/a&gt; adapter, based on a MediaTek MT7921AUN chipset works well.&lt;/li&gt;&#xA;&lt;li&gt;TP-Link Archer T3U adapter, based on a Realtek RTl8812BU chipset did not send any beacons out. Not great for an access point.&lt;/li&gt;&#xA;&lt;li&gt;Intel AX200 PCIe card works, but you end up with the international regulatory domain (see &lt;a href=&#34;wlan_capture.md&#34;&gt;the monitor mode article&lt;/a&gt; for more details).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;uplink-connectivity&#34;&gt;Uplink connectivity&lt;/h1&gt;&#xA;&lt;p&gt;Connected devices need at least to receive an IP address. They may also connect to internet. We&amp;rsquo;re going to create &lt;code&gt;bridge0&lt;/code&gt; interface with NetworkManager and apply connection sharing on it.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/wlanaphostapd/</guid>
+      <description>&lt;p&gt;With &lt;strong&gt;hostapd&lt;/strong&gt; you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark.&lt;/p&gt;</description>
     </item>
     <item>
       <title>OTA WLAN packet capture</title>
       <link>http://localhost:1313/posts/wlan_capture/</link>
       <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/wlan_capture/</guid>
-      <description>&lt;p&gt;Capturing raw WLAN frames Over-The-Air isn&amp;rsquo;t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).&lt;/p&gt;&#xA;&lt;h1 id=&#34;capture-adapter&#34;&gt;Capture adapter&lt;/h1&gt;&#xA;&lt;p&gt;The capture adapter must have drivers that support &lt;strong&gt;monitor mode&lt;/strong&gt;. The &lt;a href=&#34;https://wireless.docs.kernel.org/en/latest/en/users/drivers.html&#34;&gt;Linux Kernel documentation&lt;/a&gt; and the &lt;a href=&#34;https://github.com/morrownr/USB-WiFi&#34;&gt;USB-WiFi project&lt;/a&gt; provide valuable information.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://www.alfa.com.tw/products/awus036axml&#34;&gt;&lt;strong&gt;Alfa Network AWUS036AXML&lt;/strong&gt;&lt;/a&gt; adapter, based on a MediaTek MT7921AUN chipset, works pretty well.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Capturing raw WLAN frames Over-The-Air isn&amp;rsquo;t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Windows 11 IoT in QEMU</title>
       <link>http://localhost:1313/posts/qemu_w11/</link>
       <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/qemu_w11/</guid>
-      <description>&lt;p&gt;Sometimes you absolutely need Windows to run a piece of software. This page explains how to install and run Windows 11 IoT LTSC into QEMU in less than 30 minutes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;windows-11-iot-ltsc&#34;&gt;Windows 11 IoT LTSC&lt;/h2&gt;&#xA;&lt;p&gt;This is the best version of Windows so far as it contains no bloat and doesn&amp;rsquo;t require TPM. The catch is that &lt;a href=&#34;https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/deployment/volume-license?pivots=windows11&#34;&gt;Microsoft doesn&amp;rsquo;t want you to use it&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Nothing is perfect and here are the non-technical limitations (Microsoft is what it is&amp;hellip;) so far:&lt;/p&gt;</description>
+      <description>&lt;p&gt;Sometimes you absolutely need Windows to run a piece of software. This page explains how to install and run Windows 11 IoT LTSC into QEMU in less than 30 minutes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Raw data copy with dd on Linux</title>
       <link>http://localhost:1313/posts/linux_dd/</link>
       <pubDate>Sat, 24 Jan 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/linux_dd/</guid>
-      <description>&lt;p&gt;dd is a great tool to do a raw (or binary) copy of a storage device or a file.&lt;/p&gt;&#xA;&lt;h2 id=&#34;basic-dd-usage&#34;&gt;Basic dd usage&lt;/h2&gt;&#xA;&lt;p&gt;In most cases this command will do the trick.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;dd if=/path/to/source of=/path/to/destination status=progress&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You may optimize the block size according to your source/destination (it depends&amp;hellip;) device for improved copy speed, with the &lt;code&gt;bs=...&lt;/code&gt; command line switch.&lt;/p&gt;&#xA;&lt;h2 id=&#34;create-an-iso-image-from-a-cddvd&#34;&gt;Create an ISO image from a CD/DVD&lt;/h2&gt;&#xA;&lt;p&gt;CDs and DVDs have blank bytes at the end and those may break your checksum and bloat your image file.&lt;/p&gt;</description>
+      <description>&lt;p&gt;dd is a great tool to do a raw (or binary) copy of a storage device or a file.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Wiping storage devices</title>
       <link>http://localhost:1313/posts/storage_wipe/</link>
       <pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/storage_wipe/</guid>
-      <description>&lt;p&gt;Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;expeditive-solution&#34;&gt;Expeditive solution&lt;/h2&gt;&#xA;&lt;p&gt;If you can&amp;rsquo;t wipe your drive properly, have some fun and &lt;strong&gt;destroy&lt;/strong&gt; it physically.&lt;/p&gt;&#xA;&lt;h2 id=&#34;vendor-provided-solutions&#34;&gt;Vendor provided solutions&lt;/h2&gt;&#xA;&lt;p&gt;Some device vendors (HP for example) provide a built-in &lt;strong&gt;Secure Erase&lt;/strong&gt; solution in the BIOS/UEFI.&lt;/p&gt;&#xA;&lt;h2 id=&#34;diy-solutions&#34;&gt;DIY solutions&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hard-disk-drives&#34;&gt;Hard Disk Drives&lt;/h3&gt;&#xA;&lt;p&gt;All sectors of the magnetic drive must overwritten several times to ensure data is properly wiped out. The Linux &lt;strong&gt;shred&lt;/strong&gt; command does the job well by default (3 random iterations).&lt;/p&gt;</description>
+      <description>&lt;p&gt;Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

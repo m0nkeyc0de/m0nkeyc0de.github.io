@@ -2,38 +2,12 @@
 <html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Software Defined Radio with RTL2832U - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="I&rsquo;v got a cheap blue DVB-T&#43;FM&#43;DAB dongle to play with SDR.
-The hardware
-
-One chip on the PCB is marked RTL2832U.
-
-The other one is marked R820T2. It matches what written on the case.
-
-According to USB data it&rsquo;s a RTL2838 but according to Osmocom wiki, RTL2838 chip do not exist.
-Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
-Device Descriptor:
-  bLength                18
-  bDescriptorType         1
-  bcdUSB               2.00
-  bDeviceClass            0 [unknown]
-  bDeviceSubClass         0 [unknown]
-  bDeviceProtocol         0 
-  bMaxPacketSize0        64
-  idVendor           0x0bda Realtek Semiconductor Corp.
-  idProduct          0x2838 RTL2838 DVB-T
-  bcdDevice            1.00
-  iManufacturer           1 Realtek
-  iProduct                2 RTL2838UHIDIR
-  iSerial                 3 00000001
-  bNumConfigurations      1
-The tuner is physically a Rafael Micro 820T2, which provides the frequency range of 24 MHz to 1766 MHz according to Oscom&rsquo;s Wiki." />
+	<meta name="description" content="I&rsquo;v got a cheap blue DVB-T&#43;FM&#43;DAB dongle to play with SDR." />
 	<meta property="og:image" content="http://localhost:1313/"/>
 	<meta property="og:url" content="http://localhost:1313/posts/rtlsdr/">
   <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
   <meta property="og:title" content="Software Defined Radio with RTL2832U">
-  <meta property="og:description" content="I’v got a cheap blue DVB-T&#43;FM&#43;DAB dongle to play with SDR.
-The hardware One chip on the PCB is marked RTL2832U. The other one is marked R820T2. It matches what written on the case. According to USB data it’s a RTL2838 but according to Osmocom wiki, RTL2838 chip do not exist.
-Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T Device Descriptor: bLength 18 bDescriptorType 1 bcdUSB 2.00 bDeviceClass 0 [unknown] bDeviceSubClass 0 [unknown] bDeviceProtocol 0 bMaxPacketSize0 64 idVendor 0x0bda Realtek Semiconductor Corp. idProduct 0x2838 RTL2838 DVB-T bcdDevice 1.00 iManufacturer 1 Realtek iProduct 2 RTL2838UHIDIR iSerial 3 00000001 bNumConfigurations 1 The tuner is physically a Rafael Micro 820T2, which provides the frequency range of 24 MHz to 1766 MHz according to Oscom’s Wiki.">
+  <meta property="og:description" content="I’v got a cheap blue DVB-T&#43;FM&#43;DAB dongle to play with SDR.">
   <meta property="og:locale" content="fr_ch">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -43,9 +17,7 @@ Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T Devic
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Software Defined Radio with RTL2832U">
-  <meta name="twitter:description" content="I’v got a cheap blue DVB-T&#43;FM&#43;DAB dongle to play with SDR.
-The hardware One chip on the PCB is marked RTL2832U. The other one is marked R820T2. It matches what written on the case. According to USB data it’s a RTL2838 but according to Osmocom wiki, RTL2838 chip do not exist.
-Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T Device Descriptor: bLength 18 bDescriptorType 1 bcdUSB 2.00 bDeviceClass 0 [unknown] bDeviceSubClass 0 [unknown] bDeviceProtocol 0 bMaxPacketSize0 64 idVendor 0x0bda Realtek Semiconductor Corp. idProduct 0x2838 RTL2838 DVB-T bcdDevice 1.00 iManufacturer 1 Realtek iProduct 2 RTL2838UHIDIR iSerial 3 00000001 bNumConfigurations 1 The tuner is physically a Rafael Micro 820T2, which provides the frequency range of 24 MHz to 1766 MHz according to Oscom’s Wiki.">
+  <meta name="twitter:description" content="I’v got a cheap blue DVB-T&#43;FM&#43;DAB dongle to play with SDR.">
 
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -142,6 +114,16 @@ Supported gain values (29): 0.0 0.9 1.4 2.7 3.7 7.7 8.7 12.5 14.4 15.7 16.6 19.7
       </div>
 
       
+      
+      <div class="toc">
+        <strong>Table of contents:</strong>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-hardware">The hardware</a></li>
+    <li><a href="#getting-it-to-work-on-linux-mint-22">Getting it to work on Linux Mint 22</a></li>
+  </ul>
+</nav>
+      </div>
       
     </div>
 

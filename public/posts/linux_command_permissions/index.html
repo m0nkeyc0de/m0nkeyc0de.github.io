@@ -2,25 +2,12 @@
 <html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Fixing Linux command permissions - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.
-Sudoers
-For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.
-My handy-dandy commands for Fedora:
-%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update
-%wheel ALL=(root) NOPASSWD:/usr/bin/sync
-%wheel ALL=(root) NOPASSWD:/usr/bin/nmap
-%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot
-%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump
-Wireshark or tshark as non-root
-Lauching wireshark or tshark as root is discouraged by the application itself." />
+	<meta name="description" content="Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around." />
 	<meta property="og:image" content="http://localhost:1313/"/>
 	<meta property="og:url" content="http://localhost:1313/posts/linux_command_permissions/">
   <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
   <meta property="og:title" content="Fixing Linux command permissions">
-  <meta property="og:description" content="Some often used commands don’t work out-of-the-box with an unprivileged user. This page will explain how to get around.
-Sudoers For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.
-My handy-dandy commands for Fedora:
-%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update %wheel ALL=(root) NOPASSWD:/usr/bin/sync %wheel ALL=(root) NOPASSWD:/usr/bin/nmap %wheel ALL=(root) NOPASSWD:/usr/bin/fastboot %wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump Wireshark or tshark as non-root Lauching wireshark or tshark as root is discouraged by the application itself.">
+  <meta property="og:description" content="Some often used commands don’t work out-of-the-box with an unprivileged user. This page will explain how to get around.">
   <meta property="og:locale" content="fr_ch">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -35,10 +22,7 @@ My handy-dandy commands for Fedora:
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Fixing Linux command permissions">
-  <meta name="twitter:description" content="Some often used commands don’t work out-of-the-box with an unprivileged user. This page will explain how to get around.
-Sudoers For applications that must be run as root, adding configuration in /etc/sudoers.d/ is a solution.
-My handy-dandy commands for Fedora:
-%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update %wheel ALL=(root) NOPASSWD:/usr/bin/sync %wheel ALL=(root) NOPASSWD:/usr/bin/nmap %wheel ALL=(root) NOPASSWD:/usr/bin/fastboot %wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump Wireshark or tshark as non-root Lauching wireshark or tshark as root is discouraged by the application itself.">
+  <meta name="twitter:description" content="Some often used commands don’t work out-of-the-box with an unprivileged user. This page will explain how to get around.">
 
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	

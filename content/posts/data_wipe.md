@@ -9,6 +9,7 @@ categories:
 tags:
   - storage
   - linux
+toc: true
 ---
 Before giving or throwing devices away, you should better wipe storage drives properly. Otherwise your data may be recovered and who knows what happens next...
 

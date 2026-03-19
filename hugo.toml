@@ -3,6 +3,7 @@ languageCode = 'fr-ch'
 title = "m0nkeyc0de's brain dump"
 theme = 'archie'
 copyright = "Enjoy !"
+summaryLength = 1
 
 [params]
   subtitle = 'Notes for my future self.'

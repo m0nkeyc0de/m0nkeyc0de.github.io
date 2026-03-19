@@ -51,35 +51,21 @@
 					<time>Jan 21, 2024</time>
 					<br><div class="description">
 	
-	<p>List of handy tools.</p>
-<ul>
-<li><a href="https://www.ventoy.net/">Ventoy</a> : Live USB bootloader with allows to chose from which ISO file you want to boot from.</li>
-</ul>&hellip;
+	<p>List of handy tools and other resources coming accross my way.</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/toolbox/">Read more ⟶</a>
 				</section>
 				
 				<section class="list-item">
-					<h1 class="title"><a href="/posts/quickref/">Quick References</a></h1>
+					<h1 class="title"><a href="/posts/cheatsheets/">Cheat Sheet</a></h1>
 					<time>Mar 14, 2026</time>
 					<br><div class="description">
 	
-	<p>Repertory of useful commands.</p>
-<h1 id="git-and-github">Git and Github</h1>
-<p>Undo last commit</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git reset HEAD~
-</span></span></code></pre></div><p>Set username and email</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global user.name <span style="color:#e6db74">&#34;m0nkeyc0de&#34;</span>
-</span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#e6db74">&#34;30374340+m0nkeyc0de@users.noreply.github.com&#34;</span>
-</span></span></code></pre></div><p>SSH remote instead of HTTPS</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git remote remove origin
-</span></span><span style="display:flex;"><span>git remove add origin git@github.com:m0nkeyc0de/repo_name.git
-</span></span><span style="display:flex;"><span>git push --set-upstream origin main
-</span></span></code></pre></div>&hellip;
+	<p>Repertory of useful commands which don&rsquo;t need their own page.</p>&hellip;
 	
 </div>
-					<a class="readmore" href="/posts/quickref/">Read more ⟶</a>
+					<a class="readmore" href="/posts/cheatsheets/">Read more ⟶</a>
 				</section>
 				
 				<section class="list-item">
@@ -87,16 +73,7 @@
 					<time>Mar 19, 2026</time>
 					<br><div class="description">
 	
-	<p>With <strong>hostapd</strong> you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark. Inspiration is taken from <a href="https://github.com/nmatt0/mitmrouter">Matt Brown&rsquo;s mitmrouter project</a> which configures the entire network stack manually. Here we leverage <strong>NetworkManager</strong> instead.</p>
-<h1 id="hardware-considerations">Hardware considerations</h1>
-<p>As usual when messing around with WLAN, adapter support is hit-or-miss:</p>
-<ul>
-<li><a href="https://www.alfa.com.tw/products/awus036axml"><strong>Alfa Network AWUS036AXML</strong></a> adapter, based on a MediaTek MT7921AUN chipset works well.</li>
-<li>TP-Link Archer T3U adapter, based on a Realtek RTl8812BU chipset did not send any beacons out. Not great for an access point.</li>
-<li>Intel AX200 PCIe card works, but you end up with the international regulatory domain (see <a href="wlan_capture.md">the monitor mode article</a> for more details).</li>
-</ul>
-<h1 id="uplink-connectivity">Uplink connectivity</h1>
-<p>Connected devices need at least to receive an IP address. They may also connect to internet. We&rsquo;re going to create <code>bridge0</code> interface with NetworkManager and apply connection sharing on it.</p>&hellip;
+	<p>With <strong>hostapd</strong> you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark.</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/wlanaphostapd/">Read more ⟶</a>
@@ -107,10 +84,7 @@
 					<time>Mar 12, 2026</time>
 					<br><div class="description">
 	
-	<p>Capturing raw WLAN frames Over-The-Air isn&rsquo;t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).</p>
-<h1 id="capture-adapter">Capture adapter</h1>
-<p>The capture adapter must have drivers that support <strong>monitor mode</strong>. The <a href="https://wireless.docs.kernel.org/en/latest/en/users/drivers.html">Linux Kernel documentation</a> and the <a href="https://github.com/morrownr/USB-WiFi">USB-WiFi project</a> provide valuable information.</p>
-<p>The <a href="https://www.alfa.com.tw/products/awus036axml"><strong>Alfa Network AWUS036AXML</strong></a> adapter, based on a MediaTek MT7921AUN chipset, works pretty well.</p>&hellip;
+	<p>Capturing raw WLAN frames Over-The-Air isn&rsquo;t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/wlan_capture/">Read more ⟶</a>
@@ -121,10 +95,7 @@
 					<time>Mar 8, 2026</time>
 					<br><div class="description">
 	
-	<p>Sometimes you absolutely need Windows to run a piece of software. This page explains how to install and run Windows 11 IoT LTSC into QEMU in less than 30 minutes.</p>
-<h2 id="windows-11-iot-ltsc">Windows 11 IoT LTSC</h2>
-<p>This is the best version of Windows so far as it contains no bloat and doesn&rsquo;t require TPM. The catch is that <a href="https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/deployment/volume-license?pivots=windows11">Microsoft doesn&rsquo;t want you to use it</a>.</p>
-<p>Nothing is perfect and here are the non-technical limitations (Microsoft is what it is&hellip;) so far:</p>&hellip;
+	<p>Sometimes you absolutely need Windows to run a piece of software. This page explains how to install and run Windows 11 IoT LTSC into QEMU in less than 30 minutes.</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/qemu_w11/">Read more ⟶</a>
@@ -135,31 +106,7 @@
 					<time>Jan 25, 2026</time>
 					<br><div class="description">
 	
-	<p>I&rsquo;v got a cheap blue DVB-T+FM+DAB dongle to play with SDR.</p>
-<h2 id="the-hardware">The hardware</h2>
-<p><img src="/rtlsdr/dongle.png" alt="Blue dongle"></p>
-<p>One chip on the PCB is marked <code>RTL2832U</code>.
-<img src="/rtlsdr/dongle_rtl2832u.png" alt="RTL2832U"></p>
-<p>The other one is marked <code>R820T2</code>. It matches what written on the case.
-<img src="/rtlsdr/dongle_r820t2.png" alt="R820T2"></p>
-<p>According to USB data it&rsquo;s a <em>RTL2838</em> but according to <a href="https://osmocom.org/projects/rtl-sdr/wiki">Osmocom wiki</a>, RTL2838 chip do not exist.</p>
-<pre tabindex="0"><code>Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
-Device Descriptor:
-  bLength                18
-  bDescriptorType         1
-  bcdUSB               2.00
-  bDeviceClass            0 [unknown]
-  bDeviceSubClass         0 [unknown]
-  bDeviceProtocol         0 
-  bMaxPacketSize0        64
-  idVendor           0x0bda Realtek Semiconductor Corp.
-  idProduct          0x2838 RTL2838 DVB-T
-  bcdDevice            1.00
-  iManufacturer           1 Realtek
-  iProduct                2 RTL2838UHIDIR
-  iSerial                 3 00000001
-  bNumConfigurations      1
-</code></pre><p>The tuner is physically a Rafael Micro 820T2, which provides the frequency range of 24 MHz to 1766 MHz according to Oscom&rsquo;s Wiki.</p>&hellip;
+	<p>I&rsquo;v got a cheap blue DVB-T+FM+DAB dongle to play with SDR.</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/rtlsdr/">Read more ⟶</a>
@@ -170,13 +117,7 @@ Device Descriptor:
 					<time>Jan 24, 2026</time>
 					<br><div class="description">
 	
-	<p>dd is a great tool to do a raw (or binary) copy of a storage device or a file.</p>
-<h2 id="basic-dd-usage">Basic dd usage</h2>
-<p>In most cases this command will do the trick.</p>
-<pre tabindex="0"><code>dd if=/path/to/source of=/path/to/destination status=progress
-</code></pre><p>You may optimize the block size according to your source/destination (it depends&hellip;) device for improved copy speed, with the <code>bs=...</code> command line switch.</p>
-<h2 id="create-an-iso-image-from-a-cddvd">Create an ISO image from a CD/DVD</h2>
-<p>CDs and DVDs have blank bytes at the end and those may break your checksum and bloat your image file.</p>&hellip;
+	<p>dd is a great tool to do a raw (or binary) copy of a storage device or a file.</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/linux_dd/">Read more ⟶</a>
@@ -187,15 +128,7 @@ Device Descriptor:
 					<time>Dec 26, 2025</time>
 					<br><div class="description">
 	
-	<p>Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the <strong>Entrematic Magic 600-2</strong>, with the <strong>Shelly 1 Gen3</strong> relay and the <strong>Shelly BLU Button Tough 1</strong>.</p>
-<p><strong>DISCLAIMERS</strong>:</p>
-<ul>
-<li>Electricity is dangerous, garage doors as well. I don&rsquo;t take any responsibility if something goes wrong by following those instructions. If you&rsquo;re unsure, ask a professional.</li>
-<li>Think twice before letting your home automation beeing controlled from the Cloud (someone else&rsquo;s computer).</li>
-<li>I&rsquo;m not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It&rsquo;s a lot of bang for the buck !</li>
-</ul>
-<h2 id="analysing-the-door-operator">Analysing the door operator</h2>
-<p>My Entrematic Magic 600-2 has RJ10 inputs at the back.</p>&hellip;
+	<p>Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the <strong>Entrematic Magic 600-2</strong>, with the <strong>Shelly 1 Gen3</strong> relay and the <strong>Shelly BLU Button Tough 1</strong>.</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/shellygarage/">Read more ⟶</a>
@@ -206,17 +139,7 @@ Device Descriptor:
 					<time>Jan 4, 2025</time>
 					<br><div class="description">
 	
-	<p>Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.</p>
-<h2 id="sudoers">Sudoers</h2>
-<p>For applications that must be run as root, adding configuration in <code>/etc/sudoers.d/</code> is a solution.</p>
-<p>My handy-dandy commands for Fedora:</p>
-<pre tabindex="0"><code>%wheel ALL=(root) NOPASSWD:/usr/bin/dnf update
-%wheel ALL=(root) NOPASSWD:/usr/bin/sync
-%wheel ALL=(root) NOPASSWD:/usr/bin/nmap
-%wheel ALL=(root) NOPASSWD:/usr/bin/fastboot
-%wireshark ALL=(root) NOPASSWD:/usr/sbin/tcpdump
-</code></pre><h2 id="wireshark-or-tshark-as-non-root">Wireshark or tshark as non-root</h2>
-<p>Lauching <code>wireshark</code> or <code>tshark</code> as root is discouraged by the application itself.</p>&hellip;
+	<p>Some often used commands don&rsquo;t work out-of-the-box with an unprivileged user. This page will explain how to get around.</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/linux_command_permissions/">Read more ⟶</a>
@@ -227,19 +150,7 @@ Device Descriptor:
 					<time>Jan 4, 2025</time>
 					<br><div class="description">
 	
-	<p>Work in progress&hellip;</p>
-<h2 id="lab-environment">Lab environment</h2>
-<p>All the lab runs on a <em>HP EliteDesk 800 G5 mini</em> (with an <em>Intel Core i5-9500</em> CPU and 16GB of RAM) running <em>Ubuntu 24.04 LTS</em>.</p>
-<p>Arista cEOSlab Docker image can be downloaded after creating an account on the <a href="https://www.arista.com/en/support/customer-support">Arista Customer Support page</a>.</p>
-<p>Differences with the bare-metal version:</p>
-<ul>
-<li>The <code>reload</code> command is not working on cEOS due to platform limitation.</li>
-<li>The <code>terminal monitor</code> command has no effect as no logs are displayed when something happens.</li>
-<li>The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.</li>
-<li>Network interfaces are named <code>ethX</code> as OS level but OSPF and ISIS need <code>etX</code> names. This must also be tweaked.</li>
-</ul>
-<h2 id="arista-ceos-with-containerlab">Arista cEOS with containerlab</h2>
-<p><a href="https://containerlab.dev">Containerlab</a> is specially made for running network devices containers.</p>&hellip;
+	<p>Work in progress&hellip;</p>&hellip;
 	
 </div>
 					<a class="readmore" href="/posts/arista_ceos_lab/">Read more ⟶</a>

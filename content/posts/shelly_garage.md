@@ -10,6 +10,7 @@ tags:
   - shelly
   - ble
   - bluetooth
+toc: true
 ---
 Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the **Entrematic Magic 600-2**, with the **Shelly 1 Gen3** relay and the **Shelly BLU Button Tough 1**.
 

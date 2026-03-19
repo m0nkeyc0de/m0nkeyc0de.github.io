@@ -8,6 +8,7 @@ categories:
   - openssl
 tags:
   - certificates
+toc: true
 ---
 Get things done with OpenSSL
 

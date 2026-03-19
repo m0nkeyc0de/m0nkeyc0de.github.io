@@ -2,17 +2,12 @@
 <html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>OTA WLAN packet capture - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Capturing raw WLAN frames Over-The-Air isn&rsquo;t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).
-Capture adapter
-The capture adapter must have drivers that support monitor mode. The Linux Kernel documentation and the USB-WiFi project provide valuable information.
-The Alfa Network AWUS036AXML adapter, based on a MediaTek MT7921AUN chipset, works pretty well." />
+	<meta name="description" content="Capturing raw WLAN frames Over-The-Air isn&rsquo;t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E)." />
 	<meta property="og:image" content="http://localhost:1313/"/>
 	<meta property="og:url" content="http://localhost:1313/posts/wlan_capture/">
   <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
   <meta property="og:title" content="OTA WLAN packet capture">
-  <meta property="og:description" content="Capturing raw WLAN frames Over-The-Air isn’t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).
-Capture adapter The capture adapter must have drivers that support monitor mode. The Linux Kernel documentation and the USB-WiFi project provide valuable information.
-The Alfa Network AWUS036AXML adapter, based on a MediaTek MT7921AUN chipset, works pretty well.">
+  <meta property="og:description" content="Capturing raw WLAN frames Over-The-Air isn’t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).">
   <meta property="og:locale" content="fr_ch">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -24,9 +19,7 @@ The Alfa Network AWUS036AXML adapter, based on a MediaTek MT7921AUN chipset, wor
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="OTA WLAN packet capture">
-  <meta name="twitter:description" content="Capturing raw WLAN frames Over-The-Air isn’t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).
-Capture adapter The capture adapter must have drivers that support monitor mode. The Linux Kernel documentation and the USB-WiFi project provide valuable information.
-The Alfa Network AWUS036AXML adapter, based on a MediaTek MT7921AUN chipset, works pretty well.">
+  <meta name="twitter:description" content="Capturing raw WLAN frames Over-The-Air isn’t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).">
 
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -63,10 +56,10 @@ The Alfa Network AWUS036AXML adapter, based on a MediaTek MT7921AUN chipset, wor
         
         <section class="body">
           <p>Capturing raw WLAN frames Over-The-Air isn&rsquo;t the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).</p>
-<h1 id="capture-adapter">Capture adapter</h1>
+<h2 id="capture-adapter">Capture adapter</h2>
 <p>The capture adapter must have drivers that support <strong>monitor mode</strong>. The <a href="https://wireless.docs.kernel.org/en/latest/en/users/drivers.html">Linux Kernel documentation</a> and the <a href="https://github.com/morrownr/USB-WiFi">USB-WiFi project</a> provide valuable information.</p>
 <p>The <a href="https://www.alfa.com.tw/products/awus036axml"><strong>Alfa Network AWUS036AXML</strong></a> adapter, based on a MediaTek MT7921AUN chipset, works pretty well.</p>
-<h1 id="enabling-monitor-mode">Enabling monitor mode</h1>
+<h2 id="enabling-monitor-mode">Enabling monitor mode</h2>
 <p>In the monitor mode, all the 802.11 frames and their headers can be captured (in opposition to the &ldquo;normal&rdquo; mode where the driver strips all that information).</p>
 <p>To reliably enable monitor mode, use the <code>airmon-ng</code> command from the <a href="https://www.aircrack-ng.org/">aircrack-ng suite</a>. Be aware that NetworkManager may ruin your efforts as it may compete (and probably win) for the control of the card.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Calm NetworkManager down</span>
@@ -75,7 +68,7 @@ The Alfa Network AWUS036AXML adapter, based on a MediaTek MT7921AUN chipset, wor
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Start monitor mode</span>
 </span></span><span style="display:flex;"><span>airmon-ng start wlan1
 </span></span></code></pre></div><p>Now you can see all the 802.11 frames on <code>wlan1mon</code> with Wireshark or tcpdump.</p>
-<h1 id="selecting-the-capture-channel">Selecting the capture channel</h1>
+<h2 id="selecting-the-capture-channel">Selecting the capture channel</h2>
 <p>First check the active regulatory domain and available frequencies with <code>iw reg get</code>. If it doesn&rsquo;t match your country, try to set the regulatory domain with <code>iw reg set CH</code>, if your adapter isn&rsquo;t <em>self-managed</em> (good luck for that if you have an Intel card&hellip;).</p>
 <p>For channels in the 2.4GHz or 5GHz band, you can chose channel by number.</p>
 <pre tabindex="0"><code>iw dev wlan1mon set channel 36
@@ -105,6 +98,17 @@ The Alfa Network AWUS036AXML adapter, based on a MediaTek MT7921AUN chipset, wor
       </div>
 
       
+      
+      <div class="toc">
+        <strong>Table of contents:</strong>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#capture-adapter">Capture adapter</a></li>
+    <li><a href="#enabling-monitor-mode">Enabling monitor mode</a></li>
+    <li><a href="#selecting-the-capture-channel">Selecting the capture channel</a></li>
+  </ul>
+</nav>
+      </div>
       
     </div>
 

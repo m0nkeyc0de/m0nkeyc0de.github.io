@@ -12,7 +12,7 @@ tags:
 ---
 ADB tricks
 
-# Commands
+## Commands
 List installed applications
 ```
 adb shell pm list packages

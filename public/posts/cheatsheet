@@ -11,7 +11,7 @@ weight: 2
 ---
 Repertory of useful commands.
 
-# Git and Github
+## Git and Github
 
 Undo last commit
 ```bash
@@ -30,4 +30,28 @@ git remote remove origin
 git remove add origin git@github.com:m0nkeyc0de/repo_name.git
 git push --set-upstream origin main
 ```
+## Hugo
+Run in local
+```
+hugo server --disableFastRender --logLevel=debug
+```
 
+Add a post with **hugo** command
+```
+hugo new posts/hugo_cheat_sheet.md
+```
+
+Add a post manually in **contents/posts/new_post.md**
+```
+---
+title: "New Post"
+date: 2024-01-21
+slug: new_post
+type: posts
+draft: true
+categories:https://www.youtube.com/@mattbrwn
+  - default
+tags:
+  - default
+---
+```

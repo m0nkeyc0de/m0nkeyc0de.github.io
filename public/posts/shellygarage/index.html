@@ -2,22 +2,12 @@
 <html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Garage door control with Shelly and BLE - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.
-DISCLAIMERS:
-
-Electricity is dangerous, garage doors as well. I don&rsquo;t take any responsibility if something goes wrong by following those instructions. If you&rsquo;re unsure, ask a professional.
-Think twice before letting your home automation beeing controlled from the Cloud (someone else&rsquo;s computer).
-I&rsquo;m not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It&rsquo;s a lot of bang for the buck !
-
-Analysing the door operator
-My Entrematic Magic 600-2 has RJ10 inputs at the back." />
+	<meta name="description" content="Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1." />
 	<meta property="og:image" content="http://localhost:1313/"/>
 	<meta property="og:url" content="http://localhost:1313/posts/shellygarage/">
   <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
   <meta property="og:title" content="Garage door control with Shelly and BLE">
-  <meta property="og:description" content="Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.
-DISCLAIMERS:
-Electricity is dangerous, garage doors as well. I don’t take any responsibility if something goes wrong by following those instructions. If you’re unsure, ask a professional. Think twice before letting your home automation beeing controlled from the Cloud (someone else’s computer). I’m not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It’s a lot of bang for the buck ! Analysing the door operator My Entrematic Magic 600-2 has RJ10 inputs at the back.">
+  <meta property="og:description" content="Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.">
   <meta property="og:locale" content="fr_ch">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -29,9 +19,7 @@ Electricity is dangerous, garage doors as well. I don’t take any responsibilit
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Garage door control with Shelly and BLE">
-  <meta name="twitter:description" content="Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.
-DISCLAIMERS:
-Electricity is dangerous, garage doors as well. I don’t take any responsibility if something goes wrong by following those instructions. If you’re unsure, ask a professional. Think twice before letting your home automation beeing controlled from the Cloud (someone else’s computer). I’m not related to Shelly by any means. Their hardware just checks all the boxes and their tech support is helpful. It’s a lot of bang for the buck ! Analysing the door operator My Entrematic Magic 600-2 has RJ10 inputs at the back.">
+  <meta name="twitter:description" content="Garage doors usually come with proprietary remotes, which may have drawbacks. This page explains how to replace remotes for the Entrematic Magic 600-2, with the Shelly 1 Gen3 relay and the Shelly BLU Button Tough 1.">
 
         <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
 	
@@ -183,6 +171,25 @@ Electricity is dangerous, garage doors as well. I don’t take any responsibilit
       </div>
 
       
+      
+      <div class="toc">
+        <strong>Table of contents:</strong>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#analysing-the-door-operator">Analysing the door operator</a></li>
+    <li><a href="#requirements-and-hardware-selection">Requirements and hardware selection</a></li>
+    <li><a href="#setting-up-shelly-blu-button-tough-1">Setting up Shelly BLU Button Tough 1</a></li>
+    <li><a href="#setting-up-shelly-1-gen3">Setting up Shelly 1 Gen3</a>
+      <ul>
+        <li><a href="#initial-device-setup">Initial device setup</a></li>
+        <li><a href="#inputoutput-settings">Input/Output Settings</a></li>
+        <li><a href="#output-automation-settings">Output automation settings</a></li>
+        <li><a href="#add-buttons">Add buttons</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
       
     </div>
 
