@@ -47,6 +47,27 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/posts/android_adb/">Android Debug Bridge tricks</a></h1>
+					<time>Sep 22, 2024</time>
+					<br><div class="description">
+	
+	<p>ADB tricks</p>
+<h1 id="commands">Commands</h1>
+<p>List installed applications</p>
+<pre tabindex="0"><code>adb shell pm list packages
+</code></pre><p>Get application PID</p>
+<pre tabindex="0"><code>adb shell pidof -s com.application.name
+</code></pre><p>Logs for given PID</p>
+<pre tabindex="0"><code>adb logcat --pid=8064
+</code></pre><p>Screenshot</p>
+<pre tabindex="0"><code>adb exec-out screencap -p &gt; &#34;$(date).png&#34;
+</code></pre>&hellip;
+	
+</div>
+					<a class="readmore" href="/posts/android_adb/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/posts/openssl_cheat_sheet/">OpenSSL Cheat Sheet</a></h1>
 					<time>Sep 15, 2024</time>
 					<br><div class="description">

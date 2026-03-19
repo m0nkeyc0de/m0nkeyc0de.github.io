@@ -83,6 +83,26 @@
 				</section>
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/posts/wlanaphostapd/">WLAN access point with hostapd</a></h1>
+					<time>Mar 19, 2026</time>
+					<br><div class="description">
+	
+	<p>With <strong>hostapd</strong> you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark. Inspiration is taken from <a href="https://github.com/nmatt0/mitmrouter">Matt Brown&rsquo;s mitmrouter project</a> which configures the entire network stack manually. Here we leverage <strong>NetworkManager</strong> instead.</p>
+<h1 id="hardware-considerations">Hardware considerations</h1>
+<p>As usual when messing around with WLAN, adapter support is hit-or-miss:</p>
+<ul>
+<li><a href="https://www.alfa.com.tw/products/awus036axml"><strong>Alfa Network AWUS036AXML</strong></a> adapter, based on a MediaTek MT7921AUN chipset works well.</li>
+<li>TP-Link Archer T3U adapter, based on a Realtek RTl8812BU chipset did not send any beacons out. Not great for an access point.</li>
+<li>Intel AX200 PCIe card works, but you end up with the international regulatory domain (see <a href="wlan_capture.md">the monitor mode article</a> for more details).</li>
+</ul>
+<h1 id="uplink-connectivity">Uplink connectivity</h1>
+<p>Connected devices need at least to receive an IP address. They may also connect to internet. We&rsquo;re going to create <code>bridge0</code> interface with NetworkManager and apply connection sharing on it.</p>&hellip;
+	
+</div>
+					<a class="readmore" href="/posts/wlanaphostapd/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/posts/wlan_capture/">OTA WLAN packet capture</a></h1>
 					<time>Mar 12, 2026</time>
 					<br><div class="description">
@@ -223,27 +243,6 @@ Device Descriptor:
 	
 </div>
 					<a class="readmore" href="/posts/arista_ceos_lab/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/posts/android_adb/">Android Debug Bridge tricks</a></h1>
-					<time>Sep 22, 2024</time>
-					<br><div class="description">
-	
-	<p>ADB tricks</p>
-<h1 id="commands">Commands</h1>
-<p>List installed applications</p>
-<pre tabindex="0"><code>adb shell pm list packages
-</code></pre><p>Get application PID</p>
-<pre tabindex="0"><code>adb shell pidof -s com.application.name
-</code></pre><p>Logs for given PID</p>
-<pre tabindex="0"><code>adb logcat --pid=8064
-</code></pre><p>Screenshot</p>
-<pre tabindex="0"><code>adb exec-out screencap -p &gt; &#34;$(date).png&#34;
-</code></pre>&hellip;
-	
-</div>
-					<a class="readmore" href="/posts/android_adb/">Read more ⟶</a>
 				</section>
 				
 				

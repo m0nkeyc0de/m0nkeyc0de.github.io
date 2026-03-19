@@ -37,7 +37,17 @@ In **NetworkManager**, create a bridge named `bridge0` and select `Share with ot
 Windows 11 IoT can be started in QEMU [with following command](https://computernewb.com/wiki/QEMU/Guests/Windows_10) (as no TPM is needed, the Windows 10 way works fine):
 ```bash
 # Sudo is required for bridge nic
-sudo qemu-system-x86_64 -M q35,usb=on,acpi=on,hpet=off -m 6G -cpu host,hv_relaxed,hv_frequencies,hv_vpindex,hv_ipi,hv_tlbflush,hv_spinlocks=0x1fff,hv_synic,hv_runtime,hv_time,hv_stimer,hv_vapic -smp cores=4 -accel kvm -drive file=win11.qcow2 -device usb-tablet -device VGA,vgamem_mb=256 -monitor stdio -nic bridge,model=e1000,br=bridge0
+sudo qemu-system-x86_64 \
+  -M q35,usb=on,acpi=on,hpet=off \
+  -m 6G \
+  -cpu host,hv_relaxed,hv_frequencies,hv_vpindex,hv_ipi,hv_tlbflush,hv_spinlocks=0x1fff,hv_synic,hv_runtime,hv_time,hv_stimer,hv_vapic \
+  -smp cores=4 \
+  -accel kvm \
+  -drive file=win11.qcow2 \
+  -device usb-tablet \
+  -device VGA,vgamem_mb=256 \
+  -monitor stdio \
+  -nic bridge,model=e1000,br=bridge0
 ```
 
 Steps for installation:

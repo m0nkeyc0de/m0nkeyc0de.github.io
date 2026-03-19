@@ -86,7 +86,17 @@ Nothing is perfect and here are the non-technical limitations (Microsoft is what
 <h2 id="qemu">QEMU</h2>
 <p>Windows 11 IoT can be started in QEMU <a href="https://computernewb.com/wiki/QEMU/Guests/Windows_10">with following command</a> (as no TPM is needed, the Windows 10 way works fine):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Sudo is required for bridge nic</span>
-</span></span><span style="display:flex;"><span>sudo qemu-system-x86_64 -M q35,usb<span style="color:#f92672">=</span>on,acpi<span style="color:#f92672">=</span>on,hpet<span style="color:#f92672">=</span>off -m 6G -cpu host,hv_relaxed,hv_frequencies,hv_vpindex,hv_ipi,hv_tlbflush,hv_spinlocks<span style="color:#f92672">=</span>0x1fff,hv_synic,hv_runtime,hv_time,hv_stimer,hv_vapic -smp cores<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> -accel kvm -drive file<span style="color:#f92672">=</span>win11.qcow2 -device usb-tablet -device VGA,vgamem_mb<span style="color:#f92672">=</span><span style="color:#ae81ff">256</span> -monitor stdio -nic bridge,model<span style="color:#f92672">=</span>e1000,br<span style="color:#f92672">=</span>bridge0
+</span></span><span style="display:flex;"><span>sudo qemu-system-x86_64 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -M q35,usb<span style="color:#f92672">=</span>on,acpi<span style="color:#f92672">=</span>on,hpet<span style="color:#f92672">=</span>off <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -m 6G <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -cpu host,hv_relaxed,hv_frequencies,hv_vpindex,hv_ipi,hv_tlbflush,hv_spinlocks<span style="color:#f92672">=</span>0x1fff,hv_synic,hv_runtime,hv_time,hv_stimer,hv_vapic <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -smp cores<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -accel kvm <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -drive file<span style="color:#f92672">=</span>win11.qcow2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -device usb-tablet <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -device VGA,vgamem_mb<span style="color:#f92672">=</span><span style="color:#ae81ff">256</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -monitor stdio <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -nic bridge,model<span style="color:#f92672">=</span>e1000,br<span style="color:#f92672">=</span>bridge0
 </span></span></code></pre></div><p>Steps for installation:</p>
 <ul>
 <li>Create the disk QCOW image with <code>qemu-img create -f qcow2 win11.qcow2 40G</code></li>

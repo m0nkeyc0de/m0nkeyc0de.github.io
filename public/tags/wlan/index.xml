@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>fr-ch</language>
     <copyright>Enjoy !</copyright>
-    <lastBuildDate>Thu, 12 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/wlan/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WLAN access point with hostapd</title>
+      <link>http://localhost:1313/posts/toolbox/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/toolbox/</guid>
+      <description>&lt;p&gt;With &lt;strong&gt;hostapd&lt;/strong&gt; you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark. Inspiration is taken from &lt;a href=&#34;https://github.com/nmatt0/mitmrouter&#34;&gt;Matt Brown&amp;rsquo;s mitmrouter project&lt;/a&gt; which configures the entire network stack manually. Here we leverage **NetworkManager&amp;quot;&amp;quot; instead.&lt;/p&gt;&#xA;&lt;h1 id=&#34;hardware-considerations&#34;&gt;Hardware considerations&lt;/h1&gt;&#xA;&lt;p&gt;As usual when messing around with WLAN, adapter support is hit-or-miss:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.alfa.com.tw/products/awus036axml&#34;&gt;&lt;strong&gt;Alfa Network AWUS036AXML&lt;/strong&gt;&lt;/a&gt; adapter, based on a MediaTek MT7921AUN chipset works well.&lt;/li&gt;&#xA;&lt;li&gt;TP-Link Archer T3U adapter, based on a Realtek RTl8812BU chipset did not send any beacons out. Not great for an access point.&lt;/li&gt;&#xA;&lt;li&gt;Intel AX200 PCIe card works, but you end up with the international regulatory domain (see &lt;a href=&#34;wlan_capture.md&#34;&gt;the monitor mode article&lt;/a&gt; for more details).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;uplink-connectivity&#34;&gt;Uplink connectivity&lt;/h1&gt;&#xA;&lt;p&gt;Connected devices need at least to receive an IP address. They may also connect to internet. We&amp;rsquo;re going to create &lt;code&gt;bridge0&lt;/code&gt; interface with NetworkManager and apply connection sharing on it.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>OTA WLAN packet capture</title>
       <link>http://localhost:1313/posts/wlan_capture/</link>
