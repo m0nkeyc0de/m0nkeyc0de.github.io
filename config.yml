@@ -1,0 +1,72 @@
+baseURL: "https://m0nkeyc0de.github.io/"
+title: "m0nkeyc0de's brain dump"
+pagerSize: 5
+theme: PaperMod
+summaryLength: 1
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: true
+buildExpired: true
+
+minifyOutput: true
+
+defaultContentLanguage: en
+
+params:
+  author: m0nkeyc0de
+  DateFormat: "January 2, 2006"
+  defaultTheme: light
+  disableThemeToggle: true
+
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: true
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: true
+
+  profileMode:
+    enabled: true
+    title: m0nkeyc0de
+    subtitle: "Notes for my future self."
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Categories
+        url: categories
+      - name: Tags
+        url: tags
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/m0nkeyc0de"
+
+  cover:
+    hidden: true
+    hiddenInList: false
+    hiddenInSingle: false
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 5
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20

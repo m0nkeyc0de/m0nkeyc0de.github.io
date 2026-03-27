@@ -1,266 +1,81 @@
-<!DOCTYPE html>
-<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Network lab with Arista cEOS - m0nkeyc0de&#39;s brain dump</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Work in progress&hellip;" />
-	<meta property="og:image" content="http://localhost:1313/"/>
-	<meta property="og:url" content="http://localhost:1313/posts/arista_ceos_lab/">
-  <meta property="og:site_name" content="m0nkeyc0de&#39;s brain dump">
-  <meta property="og:title" content="Network lab with Arista cEOS">
-  <meta property="og:description" content="Work in progress…">
-  <meta property="og:locale" content="fr_ch">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-01-04T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-01-04T00:00:00+00:00">
-    <meta property="article:tag" content="Ubuntu">
-    <meta property="article:tag" content="Gns3">
-    <meta property="article:tag" content="Arista">
-    <meta property="article:tag" content="Containerlab">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Network lab with Arista cEOS">
-  <meta name="twitter:description" content="Work in progress…">
-
-        <link href="http://localhost:1313/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css" rel="stylesheet">
-	
-
-	
-	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.a87126a5d38398207e58225b2d1a9faf97f546982f44b3ffb9715a264da36c90.css" />
-</head>
-<body>
-        <div class="content"><header>
-	<div class="main">
-		<a href="http://localhost:1313/">m0nkeyc0de&#39;s brain dump</a>
-	</div>
-	<nav>
-		
-		<a href="/posts/">Posts</a>
-		
-		<a href="/categories/">Categories</a>
-		
-		<a href="/tags/">Tags</a>
-		
-		
-	</nav>
-</header>
-
-<main>
-  <article>
-    <div class="post-container">
-      
-      <div class="post-content">
-        <div class="title">
-          <h1 class="title">Network lab with Arista cEOS</h1>
-          <div class="meta">Posted on Jan 4, 2025</div>
-        </div>
-        
-        <section class="body">
-          <p>Work in progress&hellip;</p>
-<h2 id="lab-environment">Lab environment</h2>
-<p>All the lab runs on a <em>HP EliteDesk 800 G5 mini</em> (with an <em>Intel Core i5-9500</em> CPU and 16GB of RAM) running <em>Ubuntu 24.04 LTS</em>.</p>
-<p>Arista cEOSlab Docker image can be downloaded after creating an account on the <a href="https://www.arista.com/en/support/customer-support">Arista Customer Support page</a>.</p>
-<p>Differences with the bare-metal version:</p>
-<ul>
-<li>The <code>reload</code> command is not working on cEOS due to platform limitation.</li>
-<li>The <code>terminal monitor</code> command has no effect as no logs are displayed when something happens.</li>
-<li>The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.</li>
-<li>Network interfaces are named <code>ethX</code> as OS level but OSPF and ISIS need <code>etX</code> names. This must also be tweaked.</li>
-</ul>
-<h2 id="arista-ceos-with-containerlab">Arista cEOS with containerlab</h2>
-<p><a href="https://containerlab.dev">Containerlab</a> is specially made for running network devices containers.</p>
-<ul>
-<li><a href="https://containerlab.dev/quickstart/">Quickstart</a></li>
-<li><a href="https://containerlab.dev/manual/kinds/ceos/">Arista cEOS</a></li>
-<li><a href="https://arista-netdevops-community.github.io/avd-cEOS-Lab/">AVD with cEOS-lab</a></li>
-</ul>
-<p>All my tests and topologies are available <a href="https://github.com/m0nkeyc0de/containerlab-ceos">here</a>.</p>
-<p><strong>NOTES</strong>:</p>
-<ul>
-<li>Interfaces that are not connected in the topology configuration file will not show up at all in cEOS when using <em>containerlab</em>. No workaround found yet.</li>
-<li>By default base MAC address and serial number is unique to each node. You don&rsquo;t need to tweak it unless you want to ensure they never change (useful for CVP).</li>
-<li>The default Arista cEOS configuration template used by <em>containerlab</em> is <a href="https://github.com/srl-labs/containerlab/blob/main/nodes/ceos/ceos.cfg">here</a>.</li>
-<li>You can&rsquo;t restart nodes individually as it will delete veth links between hosts. You can stop one with <code>docker container stop ...</code> but then you have to redeploy the lab.</li>
-</ul>
-<h3 id="getting-up-and-running">Getting up-and-running</h3>
-<p><em>Containerlab</em> is available as docker image which is great to keep your main OS clean and tidy. It can be started by running following bash script.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># https://containerlab.dev/install/#container</span>
-</span></span><span style="display:flex;"><span>sudo docker run --rm -it --privileged <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --network host <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -v /var/run/docker.sock:/var/run/docker.sock <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -v /var/run/netns:/var/run/netns <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -v /etc/hosts:/etc/hosts <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -v /var/lib/docker/containers:/var/lib/docker/containers <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --pid<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;host&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:<span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -w <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    ghcr.io/srl-labs/clab bash
-</span></span></code></pre></div><p>The cEOS docker image must be imported with default parameters.</p>
-<pre tabindex="0"><code>sudo docker import cEOS64-lab-4.33.1F.tar.xz ceos64lab:4.33.1F
-</code></pre><p>Create the interface mapping JSON file (<em>et_mapping.json</em> in my case):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ManagementIntf&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;eth0&#34;</span>: <span style="color:#e6db74">&#34;Management1&#34;</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;EthernetIntf&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;et1&#34;</span>: <span style="color:#e6db74">&#34;Ethernet1&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;et2&#34;</span>: <span style="color:#e6db74">&#34;Ethernet2&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;et3&#34;</span>: <span style="color:#e6db74">&#34;Ethernet3&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;et4&#34;</span>: <span style="color:#e6db74">&#34;Ethernet4&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;et5&#34;</span>: <span style="color:#e6db74">&#34;Ethernet5&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;et6&#34;</span>: <span style="color:#e6db74">&#34;Ethernet6&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;et7&#34;</span>: <span style="color:#e6db74">&#34;Ethernet7&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;et8&#34;</span>: <span style="color:#e6db74">&#34;Ethernet8&#34;</span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Create a test topology:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">test</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">topology</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kinds</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">arista_ceos</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ceos64lab:4.33.1F</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">binds</span>:
-</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">et_mapping.json:/mnt/flash/EosIntfMapping.json:ro</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">env</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">INTFTYPE</span>: <span style="color:#ae81ff">et</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">CLAB_MGMT_VRF</span>: <span style="color:#ae81ff">MGMT</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nodes</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">leaf1</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">arista_ceos</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">leaf2</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">arista_ceos</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">host1</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">arista_ceos</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">links</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># MLAG peer link</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">endpoints</span>: [<span style="color:#e6db74">&#34;leaf1:et1&#34;</span>, <span style="color:#e6db74">&#34;leaf2:et1&#34;</span>]
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># host1 to leaf1 and leaf2</span>
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">endpoints</span>: [<span style="color:#e6db74">&#34;host1:et1&#34;</span>, <span style="color:#e6db74">&#34;leaf1:et5&#34;</span>]
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">endpoints</span>: [<span style="color:#e6db74">&#34;host1:et2&#34;</span>, <span style="color:#e6db74">&#34;leaf2:et5&#34;</span>]
-</span></span></code></pre></div><p>Then run your lab and wait until the table with devices IP addresses shows up:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Start the container</span>
-</span></span><span style="display:flex;"><span>./containerlab.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deploy the topology</span>
-</span></span><span style="display:flex;"><span>containerlab deploy test.clab.yml
-</span></span></code></pre></div><h3 id="usage-tips">Usage tips</h3>
-<p>To not be annoyed with OpenSSH host key checks, you can add following lines in your <code>~/.ssh/confg</code> file:</p>
-<pre tabindex="0"><code>Host clab-*
+<!doctype html><html lang=en dir=auto data-theme=light><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="noindex, nofollow"><title>Network lab with Arista cEOS | m0nkeyc0de's brain dump</title><meta name=keywords content="ubuntu,gns3,arista,containerlab"><meta name=description content="Work in progress&mldr;"><meta name=author content="m0nkeyc0de"><link rel=canonical href=http://localhost:1313/posts/arista_ceos_lab/><link crossorigin=anonymous href=/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as=style><link rel=icon href=http://localhost:1313/favicon.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/favicon-32x32.png><link rel=apple-touch-icon href=http://localhost:1313/apple-touch-icon.png><link rel=mask-icon href=http://localhost:1313/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=http://localhost:1313/posts/arista_ceos_lab/><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript></head><body id=top><header class=header><nav class=nav><div class=logo><a href=http://localhost:1313/ accesskey=h title="m0nkeyc0de's brain dump (Alt + H)">m0nkeyc0de's brain dump</a><div class=logo-switches></div></div><ul id=menu><li><a href=http://localhost:1313/posts/ title=Posts><span>Posts</span></a></li><li><a href=http://localhost:1313/categories/ title=Categories><span>Categories</span></a></li><li><a href=http://localhost:1313/tags/ title=Tags><span>Tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=http://localhost:1313/>Home</a>&nbsp;»&nbsp;<a href=http://localhost:1313/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">Network lab with Arista cEOS</h1><div class=post-meta><span title='2025-01-04 00:00:00 +0000 UTC'>January 4, 2025</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>m0nkeyc0de</span></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#lab-environment>Lab environment</a></li><li><a href=#arista-ceos-with-containerlab>Arista cEOS with containerlab</a><ul><li><a href=#getting-up-and-running>Getting up-and-running</a></li><li><a href=#usage-tips>Usage tips</a></li></ul></li><li><a href=#arista-ceos-with-gns3>Arista cEOS with GNS3</a><ul><li><a href=#installation>Installation</a></li><li><a href=#http-gui>HTTP GUI</a></li><li><a href=#heavy-client>Heavy client</a></li><li><a href=#ceos-setup-for-gns3>cEOS setup for GNS3</a></li></ul></li></ul></nav></div></details></div><div class=post-content><p>Work in progress&mldr;</p><h2 id=lab-environment>Lab environment<a hidden class=anchor aria-hidden=true href=#lab-environment>#</a></h2><p>All the lab runs on a <em>HP EliteDesk 800 G5 mini</em> (with an <em>Intel Core i5-9500</em> CPU and 16GB of RAM) running <em>Ubuntu 24.04 LTS</em>.</p><p>Arista cEOSlab Docker image can be downloaded after creating an account on the <a href=https://www.arista.com/en/support/customer-support>Arista Customer Support page</a>.</p><p>Differences with the bare-metal version:</p><ul><li>The <code>reload</code> command is not working on cEOS due to platform limitation.</li><li>The <code>terminal monitor</code> command has no effect as no logs are displayed when something happens.</li><li>The default system MAC is 00:00:00:00:00:00 and this needs to be tweaked to have LACP/MLAG working.</li><li>Network interfaces are named <code>ethX</code> as OS level but OSPF and ISIS need <code>etX</code> names. This must also be tweaked.</li></ul><h2 id=arista-ceos-with-containerlab>Arista cEOS with containerlab<a hidden class=anchor aria-hidden=true href=#arista-ceos-with-containerlab>#</a></h2><p><a href=https://containerlab.dev>Containerlab</a> is specially made for running network devices containers.</p><ul><li><a href=https://containerlab.dev/quickstart/>Quickstart</a></li><li><a href=https://containerlab.dev/manual/kinds/ceos/>Arista cEOS</a></li><li><a href=https://arista-netdevops-community.github.io/avd-cEOS-Lab/>AVD with cEOS-lab</a></li></ul><p>All my tests and topologies are available <a href=https://github.com/m0nkeyc0de/containerlab-ceos>here</a>.</p><p><strong>NOTES</strong>:</p><ul><li>Interfaces that are not connected in the topology configuration file will not show up at all in cEOS when using <em>containerlab</em>. No workaround found yet.</li><li>By default base MAC address and serial number is unique to each node. You don&rsquo;t need to tweak it unless you want to ensure they never change (useful for CVP).</li><li>The default Arista cEOS configuration template used by <em>containerlab</em> is <a href=https://github.com/srl-labs/containerlab/blob/main/nodes/ceos/ceos.cfg>here</a>.</li><li>You can&rsquo;t restart nodes individually as it will delete veth links between hosts. You can stop one with <code>docker container stop ...</code> but then you have to redeploy the lab.</li></ul><h3 id=getting-up-and-running>Getting up-and-running<a hidden class=anchor aria-hidden=true href=#getting-up-and-running>#</a></h3><p><em>Containerlab</em> is available as docker image which is great to keep your main OS clean and tidy. It can be started by running following bash script.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#75715e># https://containerlab.dev/install/#container</span>
+</span></span><span style=display:flex><span>sudo docker run --rm -it --privileged <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    --network host <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    -v /var/run/docker.sock:/var/run/docker.sock <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    -v /var/run/netns:/var/run/netns <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    -v /etc/hosts:/etc/hosts <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    -v /var/lib/docker/containers:/var/lib/docker/containers <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    --pid<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;host&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>:<span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    -w <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>    ghcr.io/srl-labs/clab bash
+</span></span></code></pre></div><p>The cEOS docker image must be imported with default parameters.</p><pre tabindex=0><code>sudo docker import cEOS64-lab-4.33.1F.tar.xz ceos64lab:4.33.1F
+</code></pre><p>Create the interface mapping JSON file (<em>et_mapping.json</em> in my case):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;ManagementIntf&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;eth0&#34;</span>: <span style=color:#e6db74>&#34;Management1&#34;</span>
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;EthernetIntf&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;et1&#34;</span>: <span style=color:#e6db74>&#34;Ethernet1&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;et2&#34;</span>: <span style=color:#e6db74>&#34;Ethernet2&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;et3&#34;</span>: <span style=color:#e6db74>&#34;Ethernet3&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;et4&#34;</span>: <span style=color:#e6db74>&#34;Ethernet4&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;et5&#34;</span>: <span style=color:#e6db74>&#34;Ethernet5&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;et6&#34;</span>: <span style=color:#e6db74>&#34;Ethernet6&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;et7&#34;</span>: <span style=color:#e6db74>&#34;Ethernet7&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;et8&#34;</span>: <span style=color:#e6db74>&#34;Ethernet8&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Create a test topology:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>name</span>: <span style=color:#ae81ff>test</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>topology</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>kinds</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>arista_ceos</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>image</span>: <span style=color:#ae81ff>ceos64lab:4.33.1F</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>binds</span>:
+</span></span><span style=display:flex><span>        - <span style=color:#ae81ff>et_mapping.json:/mnt/flash/EosIntfMapping.json:ro</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>env</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>INTFTYPE</span>: <span style=color:#ae81ff>et</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>CLAB_MGMT_VRF</span>: <span style=color:#ae81ff>MGMT</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>nodes</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>leaf1</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>arista_ceos</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>leaf2</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>arista_ceos</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>host1</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>arista_ceos</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>links</span>:
+</span></span><span style=display:flex><span>    <span style=color:#75715e># MLAG peer link</span>
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>endpoints</span>: [<span style=color:#e6db74>&#34;leaf1:et1&#34;</span>, <span style=color:#e6db74>&#34;leaf2:et1&#34;</span>]
+</span></span><span style=display:flex><span>    <span style=color:#75715e># host1 to leaf1 and leaf2</span>
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>endpoints</span>: [<span style=color:#e6db74>&#34;host1:et1&#34;</span>, <span style=color:#e6db74>&#34;leaf1:et5&#34;</span>]
+</span></span><span style=display:flex><span>    - <span style=color:#f92672>endpoints</span>: [<span style=color:#e6db74>&#34;host1:et2&#34;</span>, <span style=color:#e6db74>&#34;leaf2:et5&#34;</span>]
+</span></span></code></pre></div><p>Then run your lab and wait until the table with devices IP addresses shows up:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Start the container</span>
+</span></span><span style=display:flex><span>./containerlab.sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Deploy the topology</span>
+</span></span><span style=display:flex><span>containerlab deploy test.clab.yml
+</span></span></code></pre></div><h3 id=usage-tips>Usage tips<a hidden class=anchor aria-hidden=true href=#usage-tips>#</a></h3><p>To not be annoyed with OpenSSH host key checks, you can add following lines in your <code>~/.ssh/confg</code> file:</p><pre tabindex=0><code>Host clab-*
   User admin
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
-</code></pre><p>To manage your topologies with <em>git</em>, without having permissions issues as <em>containerlab</em> runs as root, add following lines in <code>.gitignore</code>:</p>
-<pre tabindex="0"><code>clab-*
+</code></pre><p>To manage your topologies with <em>git</em>, without having permissions issues as <em>containerlab</em> runs as root, add following lines in <code>.gitignore</code>:</p><pre tabindex=0><code>clab-*
 *.bak
-</code></pre><h2 id="arista-ceos-with-gns3">Arista cEOS with GNS3</h2>
-<p><strong>NOTE</strong>: after messing several hours with GNS3 and cEOS, it works but this is far from the perfect lab solution:</p>
-<ul>
-<li>Daring to change the hostname through GNS3 GUI doesn&rsquo;t work and will just throw you an error message every 20 seconds.</li>
-<li>Some default configuration must be applied to new cEOS nodes and there is no straightforward way to automate that with GNS3.</li>
-<li>The web interface is clunky therefore the &ldquo;heavy&rdquo; client is mandatory for an optimal experience.</li>
-</ul>
-<p><strong>It works but isn&rsquo;t optimal.</strong></p>
-<h3 id="installation">Installation</h3>
-<p>Installation works perfectly by following the <a href="https://docs.gns3.com/docs/getting-started/installation/remote-server">documentation</a>.</p>
-<pre tabindex="0"><code>curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh &gt; gns3-remote-install.sh
+</code></pre><h2 id=arista-ceos-with-gns3>Arista cEOS with GNS3<a hidden class=anchor aria-hidden=true href=#arista-ceos-with-gns3>#</a></h2><p><strong>NOTE</strong>: after messing several hours with GNS3 and cEOS, it works but this is far from the perfect lab solution:</p><ul><li>Daring to change the hostname through GNS3 GUI doesn&rsquo;t work and will just throw you an error message every 20 seconds.</li><li>Some default configuration must be applied to new cEOS nodes and there is no straightforward way to automate that with GNS3.</li><li>The web interface is clunky therefore the &ldquo;heavy&rdquo; client is mandatory for an optimal experience.</li></ul><p><strong>It works but isn&rsquo;t optimal.</strong></p><h3 id=installation>Installation<a hidden class=anchor aria-hidden=true href=#installation>#</a></h3><p>Installation works perfectly by following the <a href=https://docs.gns3.com/docs/getting-started/installation/remote-server>documentation</a>.</p><pre tabindex=0><code>curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh &gt; gns3-remote-install.sh
 bash gns3-remote-install.sh --with-iou --with-i386-repository
-</code></pre><h3 id="http-gui">HTTP GUI</h3>
-<p>There is a HTTP user interface on port 3080 but it doesn&rsquo;t work very well with Firefox or Brave:</p>
-<ul>
-<li>The <code>xdg-open</code> actions need to access Auxiliary console are a nightmare to configure, at least on Gnome Desktop. <a href="https://github.com/GNS3/gns3-webclient-pack">This</a> may help but I did not test it.</li>
-<li>Drawed lines and links cannot be selected.</li>
-</ul>
-<p>For now, it&rsquo;s a no go !</p>
-<h3 id="heavy-client">Heavy client</h3>
-<p>Package <code>gns3-client</code> must be installed on Fedora.</p>
-<p>Terminator can be used as console application with the following command line (title does not work on tabs):</p>
-<pre tabindex="0"><code>/usr/bin/terminator --new-tab -T &#34;{name}&#34; -x telnet {host} {port}
-</code></pre><h3 id="ceos-setup-for-gns3">cEOS setup for GNS3</h3>
-<p>Arista documentation:</p>
-<ul>
-<li><a href="https://arista.my.site.com/AristaCommunity/s/article/ceos-lab-in-gns3">cEOS-lab in GNS3</a></li>
-<li><a href="https://arista.my.site.com/AristaCommunity/s/article/veos-ceos-gns3-labs">vEOS/cEOS GNS3 Labs</a></li>
-</ul>
-<p>Import the docker image in persistent <em>/mnt/flash</em> volume and create a template in GNS3.</p>
-<pre tabindex="0"><code>sudo docker import --change &#39;VOLUME /mnt/flash/&#39; cEOS64-lab-4.33.1F.tar.xz ceos64lab-persistent:4.33.1F
-</code></pre><ul>
-<li>Start command</li>
-</ul>
-<pre tabindex="0"><code>/sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=1 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MGMT_INTF=eth0
-</code></pre><ul>
-<li>Environment variables (must match values of the start command)</li>
-</ul>
-<pre tabindex="0"><code>INTFTYPE=eth
+</code></pre><h3 id=http-gui>HTTP GUI<a hidden class=anchor aria-hidden=true href=#http-gui>#</a></h3><p>There is a HTTP user interface on port 3080 but it doesn&rsquo;t work very well with Firefox or Brave:</p><ul><li>The <code>xdg-open</code> actions need to access Auxiliary console are a nightmare to configure, at least on Gnome Desktop. <a href=https://github.com/GNS3/gns3-webclient-pack>This</a> may help but I did not test it.</li><li>Drawed lines and links cannot be selected.</li></ul><p>For now, it&rsquo;s a no go !</p><h3 id=heavy-client>Heavy client<a hidden class=anchor aria-hidden=true href=#heavy-client>#</a></h3><p>Package <code>gns3-client</code> must be installed on Fedora.</p><p>Terminator can be used as console application with the following command line (title does not work on tabs):</p><pre tabindex=0><code>/usr/bin/terminator --new-tab -T &#34;{name}&#34; -x telnet {host} {port}
+</code></pre><h3 id=ceos-setup-for-gns3>cEOS setup for GNS3<a hidden class=anchor aria-hidden=true href=#ceos-setup-for-gns3>#</a></h3><p>Arista documentation:</p><ul><li><a href=https://arista.my.site.com/AristaCommunity/s/article/ceos-lab-in-gns3>cEOS-lab in GNS3</a></li><li><a href=https://arista.my.site.com/AristaCommunity/s/article/veos-ceos-gns3-labs>vEOS/cEOS GNS3 Labs</a></li></ul><p>Import the docker image in persistent <em>/mnt/flash</em> volume and create a template in GNS3.</p><pre tabindex=0><code>sudo docker import --change &#39;VOLUME /mnt/flash/&#39; cEOS64-lab-4.33.1F.tar.xz ceos64lab-persistent:4.33.1F
+</code></pre><ul><li>Start command</li></ul><pre tabindex=0><code>/sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=1 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MGMT_INTF=eth0
+</code></pre><ul><li>Environment variables (must match values of the start command)</li></ul><pre tabindex=0><code>INTFTYPE=eth
 ETBA=1
 SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1
 CEOS=1
 EOS_PLATFORM=ceoslab
 container=docker
 MGMT_INTF=eth0
-</code></pre><p>Then you can add a device to your topology and start it. To enter in the shell you need to open the auxiliary console and run <code>FastCli</code> command, unless the Management0 interface is available.</p>
-<p>System MAC and interface naming scheme have to be tweaked but it can only be done manually in GNS3 as far as I&rsquo;ve seen. As I want my lab setups to be as automated as possible, the GNS3 experience stops here.</p>
-
-        </section>
-        <div class="post-tags">
-          
-          
-          <nav class="nav tags">
-            <ul class="tags">
-              
-              <li><a href="/tags/ubuntu/">ubuntu</a></li>
-              
-              <li><a href="/tags/gns3/">gns3</a></li>
-              
-              <li><a href="/tags/arista/">arista</a></li>
-              
-              <li><a href="/tags/containerlab/">containerlab</a></li>
-              
-            </ul>
-          </nav>
-          
-          
-        </div>
-      </div>
-
-      
-      
-      <div class="toc">
-        <strong>Table of contents:</strong>
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#lab-environment">Lab environment</a></li>
-    <li><a href="#arista-ceos-with-containerlab">Arista cEOS with containerlab</a>
-      <ul>
-        <li><a href="#getting-up-and-running">Getting up-and-running</a></li>
-        <li><a href="#usage-tips">Usage tips</a></li>
-      </ul>
-    </li>
-    <li><a href="#arista-ceos-with-gns3">Arista cEOS with GNS3</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#http-gui">HTTP GUI</a></li>
-        <li><a href="#heavy-client">Heavy client</a></li>
-        <li><a href="#ceos-setup-for-gns3">cEOS setup for GNS3</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-      </div>
-      
-    </div>
-
-    </article>
-</main>
-<footer>
-  <div style="display:flex"></div>
-  <div class="footer-info">
-    2026  Enjoy ! |  <a
-      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
-  </div>
-</footer>
-
-</div>
-    </body>
-</html>
+</code></pre><p>Then you can add a device to your topology and start it. To enter in the shell you need to open the auxiliary console and run <code>FastCli</code> command, unless the Management0 interface is available.</p><p>System MAC and interface naming scheme have to be tweaked but it can only be done manually in GNS3 as far as I&rsquo;ve seen. As I want my lab setups to be as automated as possible, the GNS3 experience stops here.</p></div><footer class=post-footer><ul class=post-tags><li><a href=http://localhost:1313/tags/ubuntu/>Ubuntu</a></li><li><a href=http://localhost:1313/tags/gns3/>Gns3</a></li><li><a href=http://localhost:1313/tags/arista/>Arista</a></li><li><a href=http://localhost:1313/tags/containerlab/>Containerlab</a></li></ul><nav class=paginav><a class=prev href=http://localhost:1313/posts/linux_command_permissions/><span class=title>« Prev</span><br><span>Fixing Linux command permissions</span>
+</a><a class=next href=http://localhost:1313/posts/android_adb/><span class=title>Next »</span><br><span>Android Debug Bridge tricks</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2026 <a href=http://localhost:1313/>m0nkeyc0de's brain dump</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
