@@ -22,6 +22,7 @@ List of handy tools and other resources coming accross my way.
 
 * [Ventoy](https://www.ventoy.net/) : Live USB bootloader with allows to chose from which ISO file you want to boot from.
 * [ImHex](https://imhex.werwolv.net/) : Very nice hex editor.
+* [Oscium Wireshark Profile](https://support.oscium.com/hc/en-us/articles/115013527388-Wireshark-Configuration-Profile) : Profile for 802.11 (WLAN) frames analysis
 
 ## Hardware
 
