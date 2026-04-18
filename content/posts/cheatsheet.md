@@ -1,6 +1,7 @@
 ---
 title: "Cheat Sheet"
 date: 2026-03-14
+lastmod: 2026-04-18
 slug: cheatsheets
 type: posts
 draft: false
@@ -47,6 +48,7 @@ Add a post manually in **contents/posts/new_post.md**
 ---
 title: "New Post"
 date: 2024-01-21
+lastmod: 2026-04-18
 slug: new_post
 type: posts
 draft: true

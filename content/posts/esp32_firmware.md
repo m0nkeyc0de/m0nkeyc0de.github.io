@@ -1,6 +1,7 @@
 ---
 title: "Arduino ESP32 firmware backup"
 date: 2026-03-27
+lastmod: 2026-04-18
 slug: esp32_firmware
 type: posts
 draft: false
@@ -43,4 +44,7 @@ Hard resetting via RTS pin...
 ```
 
 ## Restore
-This is a story for another day...
+Execute the following command and you're good to go.
+```bash
+esptool -p /dev/ttyACM0 -b 460800 write-flash 0 condair_cube_v2.0.bin
+```
