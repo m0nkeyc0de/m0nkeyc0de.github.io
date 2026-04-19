@@ -5,13 +5,15 @@ slug: arista_ceos_lab
 type: posts
 draft: false
 categories:
-  - Linux
+  - Virtualization
   - Networking
 tags:
   - ubuntu
   - gns3
   - arista
   - containerlab
+  - docker
+  - ssh
 toc: true
 ---
 Work in progress...

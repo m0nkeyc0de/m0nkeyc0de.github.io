@@ -4,9 +4,13 @@ date: 2026-01-24
 slug: linux_dd
 type: posts
 draft: false
+category:
+  - Linux
 tags:
   - storage
   - linux
+  - isoinfo
+  - dd
 ---
 dd is a great tool to do a raw (or binary) copy of a storage device or a file.
 

@@ -5,9 +5,15 @@ slug: openssl_cheat_sheet
 type: posts
 draft: false
 categories:
-  - openssl
+  - Security
 tags:
   - certificates
+  - openssl
+  - csr
+  - x509
+  - pkcs12
+  - ocsp
+  - crl
 toc: true
 ---
 Get things done with OpenSSL

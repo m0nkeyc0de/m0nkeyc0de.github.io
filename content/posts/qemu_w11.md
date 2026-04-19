@@ -4,6 +4,8 @@ date: 2026-03-08
 slug: qemu_w11
 type: posts
 draft: false
+categories:
+  - Virtualization
 tags:
   - qemu
   - linux

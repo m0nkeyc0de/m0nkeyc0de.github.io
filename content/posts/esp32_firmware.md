@@ -5,9 +5,12 @@ lastmod: 2026-04-18
 slug: esp32_firmware
 type: posts
 draft: false
+categories:
+  - Miscellanous
 tags:
   - arduino
   - esp32
+  - esptool
 ---
 This article explains how to extract an Arduino firmware to have a backup of it, and hopefully beeing able to restore it one day.
 

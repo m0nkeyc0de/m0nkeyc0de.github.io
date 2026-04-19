@@ -15,6 +15,7 @@ tags:
   - wireshark
   - minicom
   - picocom
+  - serial
 ---
 Some often used commands don't work out-of-the-box with an unprivileged user. This page will explain how to get around.
 

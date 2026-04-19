@@ -5,7 +5,7 @@ slug: shellygarage
 type: posts
 draft: false
 categories:
-  - diy
+  - Projects
 tags:
   - shelly
   - ble

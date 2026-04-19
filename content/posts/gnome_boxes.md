@@ -5,11 +5,11 @@ slug: gnome_boxes
 type: posts
 draft: false
 categories:
-  - linux
+  - Virtualization
 tags:
-  - virtualisation
   - fedora
   - boxes
+  - virt-manager
 ---
 Boxes is the built-in virtual machine manager included with the GNOME desktop environment. As it's there, let's give it a try !
 

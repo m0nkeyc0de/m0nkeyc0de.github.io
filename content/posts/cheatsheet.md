@@ -7,7 +7,9 @@ type: posts
 draft: false
 categories:
   - Miscellanous
-tags: []
+tags:
+  - git
+  - hugo
 weight: 2
 toc: true
 ---

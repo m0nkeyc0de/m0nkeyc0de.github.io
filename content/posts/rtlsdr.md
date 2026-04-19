@@ -4,8 +4,12 @@ date: 2026-01-25
 slug: rtlsdr
 type: posts
 draft: false
+categories:
+  - Radio
 tags:
   - sdr
+  - osmocom_fft
+  - gnuradio
 toc: true
 ---
 I'v got a cheap blue DVB-T+FM+DAB dongle to play with SDR.

@@ -1,8 +1,8 @@
 ---
-title: "Android Debug Bridge tricks"
+title: "Android tricks"
 date: 2024-09-22
 lastmod: 2026-04-18
-slug: android_adb
+slug: android
 type: posts
 draft: false
 categories:
@@ -11,8 +11,12 @@ tags:
   - android
   - debug
   - adb
+  - root
+  - bluetooth
+  - lineageos
+  - wireshark
 ---
-Useful ADB commands
+Android tricks using ADB
 
 ## Processes and apps
 List installed applications
@@ -49,7 +53,7 @@ adb shell
 
 ## Bluetooth packet capture
 Enable `Bluetooth HCI snoop log` in Developper Options. 
-![Bluetooth HCI Snoop](android_bluetooth_hci_log_snoop.png).
+![Bluetooth HCI Snoop](/adb/android_bluetooth_hci_log_snoop.png)
 
 It generates a log file that can directly be opened with Wireshark.
 

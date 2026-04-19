@@ -8,6 +8,7 @@ categories:
   - Linux
 tags:
   - storage
+  - sysctl
 ---
 When copying a big file to an USB drive, the copy seems to be stuck at 99% even if it's not the case.
 

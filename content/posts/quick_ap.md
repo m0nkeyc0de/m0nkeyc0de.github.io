@@ -5,11 +5,12 @@ slug: wlanaphostapd
 type: posts
 draft: false
 categories:
-  - Wi-Fi
+  - Networking
 tags:
   - wlan
   - linux
   - hostapd
+  - nmcli
 toc: true
 ---
 With **hostapd** you can quickly and easily run an access point. Sometimes it can be useful to diffuse a temporary SSID and/or analyze the traffic from a specific device with Wireshark.

@@ -5,12 +5,15 @@ slug: wlan_capture
 type: posts
 draft: false
 categories:
-  - Linux
-  - Wi-Fi
+  - Networking
 tags:
   - linux
   - wifi
   - wlan
+  - nmcli
+  - airmon-ng
+  - iw
+  - monitor mode
 toc: true
 ---
 Capturing raw WLAN frames Over-The-Air isn't the most straightforwad thing to do. This articles paves the way for achieving that easily on Linux with cheap hardware. Cherry on the cake : full 6GHz spectrum is supported (up to Wi-Fi 6E).
