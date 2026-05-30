@@ -9,6 +9,7 @@ categories:
 tags:
   - qemu
   - linux
+  - nmcli
 ---
 Sometimes you absolutely need Windows to run a piece of software. This page explains how to install and run Windows 11 IoT LTSC into QEMU in less than 30 minutes.
 

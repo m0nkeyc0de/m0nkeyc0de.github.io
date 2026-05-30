@@ -37,7 +37,7 @@ git push --set-upstream origin main
 ## Hugo
 Run in local
 ```
-hugo server --disableFastRender --logLevel=debug
+`hugo server --disableFastRender --logLevel=debug`
 ```
 
 Add a post with **hugo** command

@@ -1,7 +1,7 @@
 ---
 title: "Android tricks"
 date: 2024-09-22
-lastmod: 2026-04-18
+lastmod: 2026-05-30
 slug: android
 type: posts
 draft: false
@@ -51,19 +51,5 @@ adb root
 adb shell
 ```
 
-## Bluetooth packet capture
-Enable `Bluetooth HCI snoop log` in Developper Options. 
-![Bluetooth HCI Snoop](/adb/android_bluetooth_hci_log_snoop.png)
-
-It generates a log file that can directly be opened with Wireshark.
-
-If you can start ADB as root:
-```bash
-adb pull /data/misc/bluetooth/logs/btsnoop_hci.log
-```
-
-If you can't start ADB as root, you need to generate the bugreport archive (takes time).
-```bash
-adb bugreport bugreport.zip
-```
-The file is in the `FS/data/misc/bluetooth/logs` folder of the archive.
+## Remote control
+With [SCRCPY](https://scrcpy.org/) you just need ADB (USB or WLAN) to remote-control your Android device from your PC.
