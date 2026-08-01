@@ -1,6 +1,7 @@
 ---
 title: "Garage door control with Shelly and BLE"
 date: 2025-12-26
+lastmod: 2026-08-01
 slug: shellygarage
 type: posts
 draft: false
@@ -38,13 +39,13 @@ For this projet to be successful, following requirements are needed:
 
 * Relay with dry contact, like pressing a wall switch would do.
 * Inexpensive, sturdy and reliable remotes.
-* Secure communications, as I don't want my garage to be opened with a simple replay attack.
+* Secure communications, as I don't want my garage to be opened with a simple replay attack. I verified this [here](/posts/bthome-security).
 * Backup access if my remote breaks.
 * Offline operation, without Internet. The garage door is controlled only in front of it.
 
 
 The **[Shelly 1 Gen3](https://www.shelly.com/products/shelly-1-gen3)** has following key characteristics:
-
+¨
 * Dry contact relay output
 * Offline operation, no internet needed.
 * Built-in access point with WPA2-PSK, which allows to access the WebGUI (also as backup access)
@@ -53,7 +54,7 @@ The **[Shelly 1 Gen3](https://www.shelly.com/products/shelly-1-gen3)** has follo
 The **[Shelly BLU Button Tough 1](https://www.shelly.com/products/shelly-blu-button-tough-1-black)** has following key characteristics:
 
 * BLE with AES encryption (hard to forge messages)
-* Message counter in each message (makes replay attacks very unlikely combined with AES encryption)
+* Message counter in the AES nonce (replay attacks not possible)
 * Inexpensive
 * Sturdy and reliable (a couple of months of testing do confirm that)
 

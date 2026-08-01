@@ -1,7 +1,7 @@
 ---
 title: "BLE Advertisements generation"
 date: 2026-05-30
-lastmod: 2026-05-30
+lastmod: 2026-08-01
 slug: ble-advertisements
 type: posts
 draft: false
@@ -81,13 +81,13 @@ Advertise arbitrary BLE payloads with a Seeed Xiao nRF52840 Plus board
 // Legacy BLE Advertisement can contain 31 bytes of data
 // Each byte is encoded in with 2 ASCII chars
 // C strings are old-school and do end with \0
-#define ADV_STR_BUFFER 65 // 31*2 + 1
+#define ADV_STR_BUFFER_SIZE 65 // 31*2 + 1
 
 // Load a buffer from a hex string
-char gStrBuffer[ADV_STR_BUFFER];
+char gStrBuffer[ADV_STR_BUFFER_SIZE];
 
-// ADV_STR_BUFFER could be odd. Ensure large enough buffer size.
-uint8_t gPayloadBuffer[(ADV_STR_BUFFER/2)+(ADV_STR_BUFFER%2)];
+// ADV_STR_BUFFER_SIZE could be odd. Ensure large enough buffer size.
+uint8_t gPayloadBuffer[(ADV_STR_BUFFER_SIZE/2)+(ADV_STR_BUFFER_SIZE%2)];
 
 // Do not notify the /0 as it will break data that follows
 char shortenedLocalName[] = "BLE-ADVERTISER\0";
@@ -95,6 +95,8 @@ char shortenedLocalName[] = "BLE-ADVERTISER\0";
 // Advertise provided payload.
 // Always do a clean start otherwise it just stops advertising data after some time.
 void advertisePayload(uint8_t *payload, uint8_t payload_size) {
+  bool startStatus = false;
+
   // Advertisement setup
   Bluefruit.Advertising.clearData();
   Bluefruit.Advertising.addFlags(BLE_FLAGS_VALUE);
@@ -104,11 +106,18 @@ void advertisePayload(uint8_t *payload, uint8_t payload_size) {
   Bluefruit.Advertising.addData(BLE_SERVICE_DATA, payload, payload_size);
 
   // Advertise and wait
-  Serial.println("BLE Advertisement started.");
-  Bluefruit.Advertising.start(ADV_SECONDS);
-  delay(ADV_SECONDS*1000+100); // Wait an extra 100ms just in case
-  Bluefruit.Advertising.stop();
-  Serial.println("BLE Advertisement finished.");
+  startStatus = Bluefruit.Advertising.start(ADV_SECONDS);
+
+  if (!startStatus) {
+    // BUG: if payload size changes between two advertisements, we end here.
+    Serial.printf("ERROR: Bluefruit.Advertising.start() returned false. Payload size was %i.\r\n", payload_size);
+  } else {
+    Serial.printf("BLE Advertisement of %i bytes started for %i seconds.\r\n", payload_size, ADV_SECONDS);
+    delay(ADV_SECONDS*1000+100); // Wait an extra 100ms just in case
+    Bluefruit.Advertising.stop();
+    Serial.printf("BLE Advertisement of %i bytes finished.\r\n", payload_size);
+  }
+  
 }
 
 // Converts an hex string into a byte array.
@@ -123,7 +132,7 @@ void hex2bytes(char *str_buffer, uint8_t *payload_buffer) {
     uint8_t current_val = 0;
 
     if (str_buffer_len % 2 != 0) {
-        Serial.printf("Hexstrings must have an even number of chars and you provided %i. The last one will be ignored. Too bad !\r\\n", str_buffer_len);
+        Serial.printf("Hexstrings must have an even number of chars and you provided %i. The last one will be ignored. Too bad !\r\n", str_buffer_len);
     }
 
     for (int i=0; i<str_buffer_len; i++) {
@@ -139,7 +148,7 @@ void hex2bytes(char *str_buffer, uint8_t *payload_buffer) {
         else if (current_char >= 'a' && current_char <='f') current_val = (uint8_t) current_char - 'a' + 10;
         else if (current_char >= 'A' && current_char <='F') current_val = (uint8_t) current_char - 'A' + 10;    
         else {
-            Serial.printf("'%c' is not a valid hex char and will be considerd as '0'.\r\\n", current_char);
+            Serial.printf("'%c' is not a valid hex char and will be replaced with 0.\r\n", current_char);
             current_val = 0; // just ignore invalid chars 
         }
 
@@ -172,6 +181,7 @@ void setup()
   Serial.println("+----------------+");
   Serial.println("| BLE Advertiser |");
   Serial.println("+----------------+");
+  Serial.println("BUG: Restart device when payload size changes, otherwise advertisement will not start.");
   
   // Initialize the BLE stack
   Bluefruit.begin();
@@ -182,7 +192,8 @@ void setup()
 
 void loop() 
 {
-  Serial.printf("Please provide BLE Advertisement payload as hexstring (without 0x)\r\n");
+  Serial.println("");
+  Serial.println("Enter BLE Advertisement payload hexstring (without 0x) and hit Enter (\\r).");
 
   // Indefinite wait on serial data. We can't continue without hex payload.
   while (!Serial.available()) delay(10);
