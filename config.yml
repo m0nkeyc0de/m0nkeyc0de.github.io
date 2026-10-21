@@ -9,7 +9,8 @@ buildDrafts: false
 buildFuture: true
 buildExpired: true
 
-minifyOutput: true
+minify:
+  minifyOutput: true
 
 defaultContentLanguage: en
 
