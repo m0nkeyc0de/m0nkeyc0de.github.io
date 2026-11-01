@@ -10,6 +10,7 @@ categories:
 tags:
   - ble
   - shelly
+  - bthome
   - nrf52840
 ---
 Is my [garage door control with Shelly hardware](/posts/shellygarage) reasonably safe ? Let's find it out !
