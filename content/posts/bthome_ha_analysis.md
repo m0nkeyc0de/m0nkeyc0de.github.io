@@ -1,5 +1,5 @@
 ---
-title: "BTHome security analysis on Home Assistant"
+title: "BTHome on Home Assistant is insecure"
 date: 2026-11-01
 lastmod: 2026-11-01
 slug: bthome-ha-security
